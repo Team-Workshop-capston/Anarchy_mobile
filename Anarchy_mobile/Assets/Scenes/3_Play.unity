@@ -289,7 +289,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 224903438}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850104981}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: NewgameBtnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &224903438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +644,7 @@ GameObject:
   - component: {fileID: 850104979}
   - component: {fileID: 850104978}
   - component: {fileID: 850104977}
+  - component: {fileID: 850104981}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -720,6 +733,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &850104981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850104976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf1364d98d79c240bc7febb3dcc12c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChooseforcePanel: {fileID: 0}
+  ChoosemapPanel: {fileID: 0}
+  SkillPanel: {fileID: 0}
+  UnitPanel: {fileID: 0}
+  BuildPanel: {fileID: 0}
+  ExitPop: {fileID: 0}
+  s_map: {fileID: 0}
+  b_map: {fileID: 0}
+  unit_moveBtn: {fileID: 0}
+  money: {fileID: 0}
+  errorMessage: {fileID: 0}
+  FadeTime: 1
 --- !u!1 &857394810
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857394811}
+  - component: {fileID: 857394812}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -750,6 +788,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &857394812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857394810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8002d6088059eb438339e7d43016626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1162639173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1355,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1983846520}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850104981}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1983846520
 MonoBehaviour:
   m_ObjectHideFlags: 0
