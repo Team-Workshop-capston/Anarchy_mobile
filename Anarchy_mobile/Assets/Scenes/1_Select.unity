@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 101914876}
   - component: {fileID: 101914875}
   - component: {fileID: 101914874}
+  - component: {fileID: 101914878}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -224,6 +225,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &101914878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101914873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf1364d98d79c240bc7febb3dcc12c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChooseforcePanel: {fileID: 1369426115}
+  ChoosemapPanel: {fileID: 397696584}
+  SkillPanel: {fileID: 0}
+  UnitPanel: {fileID: 0}
+  BuildPanel: {fileID: 0}
+  ExitPop: {fileID: 0}
+  s_map: {fileID: 0}
+  b_map: {fileID: 0}
+  unit_moveBtn: {fileID: 0}
+  money: {fileID: 0}
+  errorMessage: {fileID: 0}
+  FadeTime: 1
 --- !u!1 &249019856
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +331,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 249019859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101914878}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GoTitle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &249019859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +394,7 @@ GameObject:
   - component: {fileID: 283031784}
   - component: {fileID: 283031783}
   - component: {fileID: 283031782}
+  - component: {fileID: 283031785}
   m_Layer: 5
   m_Name: Mafia_btn
   m_TagString: Untagged
@@ -427,7 +465,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 283031783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101914878}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SelectMafia
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &283031783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +516,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283031780}
   m_CullTransparentMesh: 1
+--- !u!114 &283031785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283031780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9606c51034c36a49b2296ab488ce134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force_button: {fileID: 283031782}
+  force_image: {fileID: 1332781913}
+  description: {fileID: 1244005686}
+  forceDisc: "\uB9C8\uD53C\uC544 \r\n\uB9C8\uBC95\uC744 \uC4F0\uC9C0 \uBABB\uD558\uB294
+    \uB300\uBD80\uBD84\uC758 \uC0AC\uB78C\uB4E4\uC740 \uACFC\uD559\uAE30\uC220\uC5D0
+    \uC758\uC874\uD558\uBA70 \uC11C\uBBFC\uC73C\uB85C\uC11C\uC758 \uC0B6\uC744 \uC0B4\uC544\uAC04\uB2E4.
+    \uC5B4\uB290 \uACF3\uC5D0\uB098 \uC545\uC778\uC740 \uC788\uC73C\uBA70 \uADF8\uB4E4\uC774
+    \uBAA8\uC778 \uC9D1\uB2E8\uC774 \uBC14\uB85C \uB9C8\uD53C\uC544\uB2E4. \uB9C8\uBC95\uC774
+    \uC5C6\uB294 \uADF8\uB4E4\uC740 \uCE7C\uACFC \uCD1D\uC73C\uB85C \uBB34\uC7A5\uD558\uACE0
+    \uC628\uAC16 \uC545\uD589\uC744 \uC800\uC9C0\uB978\uB2E4. \uC7AC\uBB3C\uACFC
+    \uCF8C\uB77D\uC744 \uCAD3\uB294 \uC9D1\uB2E8, \uB9C8\uD53C\uC544\uC758 \u2018\uBCF4\uC2A4\u2019\uB294
+    \uB9C8\uBC95\uC0AC\uB4E4\uC758 \uAD8C\uB825\uACFC \uBA85\uC131 \uB610\uD55C \uD0D0\uD558\uACE0\uC788\uB2E4.
+    \r\n\uC774\uB3D9\uB825 : \u2605\u2605\u2605\u2605\r\n\uC804\uD22C\uB825 : \u2605\u2605\u2605\r\n\uC810\uB839
+    \uD6A8\uC728 : \u2605\u2605\r"
 --- !u!1 &397696582
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,8 +572,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1031384387}
-  - {fileID: 1627641446}
   - {fileID: 925983732}
+  - {fileID: 1627641446}
   m_Father: {fileID: 101914877}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -635,6 +711,7 @@ GameObject:
   - component: {fileID: 584139788}
   - component: {fileID: 584139787}
   - component: {fileID: 584139786}
+  - component: {fileID: 584139789}
   m_Layer: 5
   m_Name: NewWave_btn
   m_TagString: Untagged
@@ -705,7 +782,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 584139787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101914878}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SelectNewWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &584139787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +833,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584139784}
   m_CullTransparentMesh: 1
+--- !u!114 &584139789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584139784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9606c51034c36a49b2296ab488ce134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force_button: {fileID: 584139786}
+  force_image: {fileID: 1332781913}
+  description: {fileID: 1244005686}
+  forceDisc: "\uB274\uC6E8\uC774\uBE0C\r\n\uBD88\uD3C9\uB4F1\uD55C \uC0AC\uD68C\uAD6C\uC870\uC5D0
+    \uBC18\uAE30\uB97C \uB4DC\uB294 \uC138\uB825. \uADF8\uB4E4\uC744 \uC790\uC2E0\uB4E4\uC744
+    \uC0C8\uB85C\uC6B4 \uD30C\uB3C4, \u2018\uB274\uC6E8\uC774\uBE0C\u2019\uB77C \uBD80\uB978\uB2E4.
+    \uB9C8\uBC95\uC0AC\uC640 \uBE44\uB9C8\uBC95\uC0AC\uB97C \uCC28\uBCC4\uD558\uC9C0
+    \uC54A\uC73C\uBA70 \uC138\uC0C1\uC744 \uBC14\uAFB8\uACE0\uC790 \uD558\uB294 \uB73B\uB9CC\uC788\uB2E4\uBA74
+    \uB204\uAD6C\uB098 \uC870\uC9C1\uC6D0\uC73C\uB85C \uBC1B\uC544\uB4E4\uC778\uB2E4.
+    \uB274\uC6E8\uC774\uBE0C\uB294 \uB9C8\uBC95\uACFC \uACFC\uD559\uAE30\uC220\uC744
+    \uC790\uC720\uC790\uC7AC\uB85C \uB2E4\uB8E8\uC9C0\uB9CC, \uB354 \uB9CE\uC740
+    \uD798\uC744 \uC704\uD574 \uB9C8\uD53C\uC544\uC640 \uC190\uC744 \uC7A1\uB294
+    \uC77C\uC740 \uC5C6\uB2E4. \uADF8\uB4E4\uC740 \uC5B8\uC81C\uB098 \uC0AC\uD68C
+    \uC815\uC758\uB97C \uC704\uD574 \uC6C0\uC9C1\uC778\uB2E4. \r\n\uC774\uB3D9\uB825
+    : \u2605\u2605\r\n\uC804\uD22C\uB825 : \u2605\u2605\u2605\u2605\r\n\uC810\uB839
+    \uD6A8\uC728 : \u2605\u2605\u2605\r"
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1219,7 @@ RectTransform:
   m_Children:
   - {fileID: 841921865}
   m_Father: {fileID: 397696583}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1152,7 +1269,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 925983734}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101914878}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SelectMap_1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 101914878}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GoLobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &925983734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,7 +1685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1892,6 +2033,7 @@ GameObject:
   - component: {fileID: 1609522178}
   - component: {fileID: 1609522177}
   - component: {fileID: 1609522176}
+  - component: {fileID: 1609522179}
   m_Layer: 5
   m_Name: Society_btn
   m_TagString: Untagged
@@ -1962,7 +2104,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1609522177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101914878}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SelectSociety
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1609522177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,6 +2155,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609522174}
   m_CullTransparentMesh: 1
+--- !u!114 &1609522179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609522174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9606c51034c36a49b2296ab488ce134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force_button: {fileID: 1609522176}
+  force_image: {fileID: 1332781913}
+  description: {fileID: 1244005686}
+  forceDisc: "\uC18C\uC0AC\uC774\uC5B4\uD2F0 \r\n\uD0C0\uACE0\uB09C \u2018\uB9C8\uBC95\u2019\uC744
+    \uC0AC\uC6A9\uD558\uB294 \uC138\uB825. \uADF8 \uC2E0\uBE44\uD55C \uD798\uC73C\uB85C
+    \uC0AC\uD68C\uC758 \uAD8C\uB825\uC744 \uC7A1\uC558\uB2E4. \uB9C8\uBC95\uC774
+    \uACE7 \uAD8C\uB825\uC774\uBA70 \uB9C8\uBC95\uC744 \uC0AC\uC6A9\uD558\uB294 \uC790\uB4E4\uC740
+    \uC138\uC0C1\uC744 \uC6C0\uC9C1\uC77C \uD798\uC744 \uAC16\uB294\uB2E4. \uB9C8\uBC95\uC0AC\uB4E4\uC740
+    \uC2A4\uC2A4\uB85C\uB97C \u2018\uC18C\uC0AC\uC774\uC5B4\uD2F0\u2019(\uC0AC\uD68C)
+    \uADF8 \uC790\uCCB4\uB77C \uCE6D\uD55C\uB2E4. \uC815\uD1B5\uC131\uC744 \uC911\uC2DC\uD558\uBA70
+    \uB9C8\uBC95\uC744 \uC4F0\uC9C0 \uBABB\uD558\uB294 \uC790\uB4E4\uACFC\uB294 \uC5B4\uC6B8\uB9AC\uC9C0
+    \uC54A\uB294\uB2E4. \r\n\uC774\uB3D9\uB825 : \u2605\u2605 \r\n\uC804\uD22C\uB825
+    : \u2605\u2605\u2605\u2605\r\n\uC810\uB839 \uD6A8\uC728 : \u2605\u2605\u2605\r"
 --- !u!1 &1627641445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2212,7 @@ RectTransform:
   m_Children:
   - {fileID: 789527314}
   m_Father: {fileID: 397696583}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2083,7 +2262,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1627641448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101914878}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowForcePage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1627641448
 MonoBehaviour:
   m_ObjectHideFlags: 0
