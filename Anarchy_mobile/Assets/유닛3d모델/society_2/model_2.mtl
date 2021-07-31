@@ -1,0 +1,42 @@
+# Blender MTL File: 'model_2.blend'
+# Material Count: 4
+
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+
+newmtl hood.texture
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Texture\\Hood_Texture.jpg
+
+newmtl shield
+Ns 516.225139
+Ka 1.000000 1.000000 1.000000
+Kd 0.471889 0.553218 1.000000
+Ks 0.735294 0.735294 0.735294
+Ke 0.979228 1.631531 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl texture
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Texture\\base color.png

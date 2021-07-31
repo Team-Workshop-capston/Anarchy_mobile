@@ -1,0 +1,27 @@
+# Blender MTL File: 'model.blend'
+# Material Count: 2
+
+newmtl revolver
+Ns 546.734427
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump Texture\\rv_Normal.PNG
+map_Kd Texture\\rv_Base_Color.PNG
+map_Ns Texture\\rv_Roughness.PNG
+refl Texture\\rv_Metallic.PNG
+
+newmtl texture
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Texture\\base color.png
