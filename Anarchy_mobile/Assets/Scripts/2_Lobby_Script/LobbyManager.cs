@@ -16,14 +16,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         joinButton.interactable = false;
         connectionInfoText.text = "Connecting To Master Server...";
 
-        //GameManager.instance.audioManager.StopBGM();
+        GameManager.instance.audioManager.StopBGM();
     }
     
     public override void OnConnectedToMaster()
     {
         joinButton.interactable = true;
         connectionInfoText.text = "Online : Connected To Master Server";
-        //GameManager.instance.audioManager.StartLobbyBGM();
+        GameManager.instance.audioManager.StartLobbyBGM();
     }
     
     public override void OnDisconnected(DisconnectCause cause)

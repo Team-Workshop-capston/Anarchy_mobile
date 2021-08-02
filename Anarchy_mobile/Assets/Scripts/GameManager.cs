@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         }
     }
     public PlayerData playerData;
+    public AudioManager audioManager;
 
     private void Awake()
     {

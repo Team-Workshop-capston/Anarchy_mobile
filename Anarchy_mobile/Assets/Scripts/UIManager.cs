@@ -48,63 +48,66 @@ public class UIManager : MonoBehaviour
 
     public void NewgameBtnClick()
     {
-        //GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.audioManager.ButtonClickSound();
         SceneManager.LoadScene(1);
     }
 
     public void ExitGame()
     {
-        //GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.audioManager.ButtonClickSound();
         Application.Quit();
     }
 
     public void GoTitle()
     {
-        //GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.audioManager.ButtonClickSound();
         SceneManager.LoadScene(0);
     }
 
     public void ShowForcePage()
     {
-        //GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.audioManager.ButtonClickSound();
         ChooseforcePanel.gameObject.SetActive(true);
         ChoosemapPanel.gameObject.SetActive(false);            
     }
 
     public void SelectSociety()
     {
-        //GameManager.instance.playerData.forceNumber = 1;
-        //GameManager.instance.SaveDataToJson();
+        GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.playerData.forceNumber = 1;
+        GameManager.instance.SaveDataToJson();
         ChooseforcePanel.gameObject.SetActive(false);
         ChoosemapPanel.gameObject.SetActive(true);
     }
 
     public void SelectNewWave()
     {
-        //GameManager.instance.playerData.forceNumber = 2;
-        //GameManager.instance.SaveDataToJson();
+        GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.playerData.forceNumber = 2;
+        GameManager.instance.SaveDataToJson();
         ChooseforcePanel.gameObject.SetActive(false);
         ChoosemapPanel.gameObject.SetActive(true);
     }
 
     public void SelectMafia()
     {
-        //GameManager.instance.playerData.forceNumber = 3;
-        //GameManager.instance.SaveDataToJson();
+        GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.playerData.forceNumber = 3;
+        GameManager.instance.SaveDataToJson();
         ChooseforcePanel.gameObject.SetActive(false);
         ChoosemapPanel.gameObject.SetActive(true);
     }
 
     public void GoLobby()
     {
-        //GameManager.instance.audioManager.ButtonClickSound();
+        GameManager.instance.audioManager.ButtonClickSound();
         SceneManager.LoadScene(2);
     }
 
     public void SelectMap_1()
     {
-        //GameManager.instance.playerData.mapNumber = 1;
-        //GameManager.instance.SaveDataToJson();
+        GameManager.instance.playerData.mapNumber = 1;
+        GameManager.instance.SaveDataToJson();
     }
 
     public void SettingButtonClick()
