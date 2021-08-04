@@ -5,16 +5,18 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager  main;
-    public static GameManager   instance
+    private static GameManager      main;
+    public static GameManager       instance
     {
         get
         {
             return main;
         }
     }
-    public PlayerData playerData;
-    public AudioManager audioManager;
+    public PlayerData               playerData;
+    public AudioManager             audioManager;
+    public int                      turn_Number = 0;
+
 
     private void Awake()
     {
