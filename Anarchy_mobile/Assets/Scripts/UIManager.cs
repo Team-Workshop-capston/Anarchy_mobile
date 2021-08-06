@@ -71,29 +71,35 @@ public class UIManager : MonoBehaviour
         ChoosemapPanel.gameObject.SetActive(false);            
     }
 
-    public void SelectSociety()
-    {
-        GameManager.instance.audioManager.ButtonClickSound();
-        GameManager.instance.playerData.forceNumber = 1;
-        GameManager.instance.SaveDataToJson();
-        ChooseforcePanel.gameObject.SetActive(false);
-        ChoosemapPanel.gameObject.SetActive(true);
-    }
+    // public void SelectSociety()
+    // {
+    //     GameManager.instance.audioManager.ButtonClickSound();
+    //     GameManager.instance.playerData.forceNumber = 1;
+    //     GameManager.instance.SaveDataToJson();
+    //     ChooseforcePanel.gameObject.SetActive(false);
+    //     ChoosemapPanel.gameObject.SetActive(true);
+    // }
 
-    public void SelectNewWave()
-    {
-        GameManager.instance.audioManager.ButtonClickSound();
-        GameManager.instance.playerData.forceNumber = 2;
-        GameManager.instance.SaveDataToJson();
-        ChooseforcePanel.gameObject.SetActive(false);
-        ChoosemapPanel.gameObject.SetActive(true);
-    }
+    // public void SelectNewWave()
+    // {
+    //     GameManager.instance.audioManager.ButtonClickSound();
+    //     GameManager.instance.playerData.forceNumber = 2;
+    //     GameManager.instance.SaveDataToJson();
+    //     ChooseforcePanel.gameObject.SetActive(false);
+    //     ChoosemapPanel.gameObject.SetActive(true);
+    // }
 
-    public void SelectMafia()
+    // public void SelectMafia()
+    // {
+    //     GameManager.instance.audioManager.ButtonClickSound();
+    //     GameManager.instance.playerData.forceNumber = 3;
+    //     GameManager.instance.SaveDataToJson();
+    //     ChooseforcePanel.gameObject.SetActive(false);
+    //     ChoosemapPanel.gameObject.SetActive(true);
+    // }
+
+    public void SelectForce()
     {
-        GameManager.instance.audioManager.ButtonClickSound();
-        GameManager.instance.playerData.forceNumber = 3;
-        GameManager.instance.SaveDataToJson();
         ChooseforcePanel.gameObject.SetActive(false);
         ChoosemapPanel.gameObject.SetActive(true);
     }
