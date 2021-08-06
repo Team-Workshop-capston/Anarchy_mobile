@@ -846,6 +846,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 80424604}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile21
@@ -899,6 +911,11 @@ PrefabInstance:
 --- !u!4 &80424603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 80424602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &80424604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 80424602}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &88246545
@@ -1536,6 +1553,7 @@ GameObject:
   - component: {fileID: 139199646}
   - component: {fileID: 139199645}
   - component: {fileID: 139199644}
+  - component: {fileID: 139199647}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1601,13 +1619,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139199643}
-  m_LocalRotation: {x: -0.24956504, y: -0.106648795, z: 0.027665127, w: -0.96206963}
-  m_LocalPosition: {x: 0.44076103, y: -1.0229306, z: 0.07319878}
+  m_LocalRotation: {x: 0.18419191, y: 0.37500095, z: -0.07629479, w: 0.90533245}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1893329178}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 42.32, y: 20.902, z: 0}
+  m_LocalEulerAnglesHint: {x: 23, y: 45, z: 0}
+--- !u!114 &139199647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139199643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1001 &139427948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3042,6 +3076,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 270517541}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile22
@@ -3095,6 +3141,11 @@ PrefabInstance:
 --- !u!4 &270517540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 270517539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &270517541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 270517539}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &272678219
@@ -3449,6 +3500,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 303983550}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile26
@@ -3502,6 +3565,11 @@ PrefabInstance:
 --- !u!4 &303983549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 303983548}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &303983550 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 303983548}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &334711465
@@ -5392,6 +5460,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: isP2Tile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 567537141}
     - target: {fileID: 4150542728898034340, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5449,6 +5537,26 @@ PrefabInstance:
 --- !u!4 &567537140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 567537139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &567537141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 567537139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &567537142 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 385517621987714926, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 567537139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &567537143 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5830466589997257932, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 567537139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &567537144 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5141330227179122322, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 567537139}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &569090380
@@ -5966,6 +6074,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 660931743}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile12
@@ -6019,6 +6139,11 @@ PrefabInstance:
 --- !u!4 &660931742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 660931741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &660931743 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 660931741}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &668930265
@@ -6090,6 +6215,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 677713076}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile27
@@ -6143,6 +6280,11 @@ PrefabInstance:
 --- !u!4 &677713075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 677713074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &677713076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 677713074}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &679343619
@@ -6541,6 +6683,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 725894077}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile8
@@ -6594,6 +6748,11 @@ PrefabInstance:
 --- !u!4 &725894076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 725894075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &725894077 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 725894075}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &734308269
@@ -6975,6 +7134,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 797999208}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile19
@@ -7028,6 +7199,11 @@ PrefabInstance:
 --- !u!4 &797999207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 797999206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &797999208 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 797999206}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &814438957
@@ -7236,6 +7412,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: isP1Tile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 855326251}
     - target: {fileID: 4150542728898034340, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7293,6 +7481,26 @@ PrefabInstance:
 --- !u!4 &855326250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 855326249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &855326251 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 855326249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &855326252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5096055357077236898, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 855326249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &855326253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2759057243517733601, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 855326249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &855326254 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3037165550243144241, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 855326249}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &868007356
@@ -7454,7 +7662,7 @@ RectTransform:
   - {fileID: 547564523}
   - {fileID: 1897013767}
   m_Father: {fileID: 1263707034}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7636,6 +7844,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 913929329}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile25
@@ -7689,6 +7909,11 @@ PrefabInstance:
 --- !u!4 &913929328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 913929327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &913929329 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 913929327}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &922313035
@@ -7822,6 +8047,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 943594586}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile16
@@ -7875,6 +8112,11 @@ PrefabInstance:
 --- !u!4 &943594585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 943594584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &943594586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 943594584}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &946433811
@@ -7971,7 +8213,7 @@ RectTransform:
   - {fileID: 1782353558}
   - {fileID: 1572311059}
   m_Father: {fileID: 1263707034}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8209,6 +8451,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 973992016}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile14
@@ -8262,6 +8516,11 @@ PrefabInstance:
 --- !u!4 &973992015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 973992014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &973992016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 973992014}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &978230080
@@ -8395,6 +8654,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 993631685}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile17
@@ -8448,6 +8719,11 @@ PrefabInstance:
 --- !u!4 &993631684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 993631683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &993631685 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 993631683}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1017278384
@@ -8722,7 +8998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046324233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3157179, y: -3.2903602, z: 3.3900008}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1695578269}
@@ -8737,6 +9013,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1076499964}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile30
@@ -8792,6 +9080,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1076499962}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1076499964 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1076499962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1085467792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8799,6 +9092,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1085467794}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile11
@@ -8854,6 +9159,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1085467792}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1085467794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1085467792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1099230645
 GameObject:
   m_ObjectHideFlags: 0
@@ -8885,7 +9195,7 @@ RectTransform:
   m_Children:
   - {fileID: 1557504242}
   m_Father: {fileID: 1263707034}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9185,6 +9495,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1132014678}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile6
@@ -9238,6 +9560,11 @@ PrefabInstance:
 --- !u!4 &1132014677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1132014676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1132014678 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1132014676}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1133139463
@@ -9698,6 +10025,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1164010005}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile10
@@ -9753,6 +10092,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1164010003}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1164010005 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1164010003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1167279534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9760,6 +10104,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1167279536}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile28
@@ -9813,6 +10169,11 @@ PrefabInstance:
 --- !u!4 &1167279535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1167279534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1167279536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1167279534}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1168980938
@@ -10258,6 +10619,7 @@ RectTransform:
   - {fileID: 552312179}
   - {fileID: 1484211912}
   - {fileID: 1525034816}
+  - {fileID: 2036534340}
   - {fileID: 1099230646}
   - {fileID: 951849311}
   - {fileID: 894444098}
@@ -10960,6 +11322,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1332692936}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile13
@@ -11013,6 +11387,11 @@ PrefabInstance:
 --- !u!4 &1332692935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1332692934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1332692936 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1332692934}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1355268846
@@ -11160,6 +11539,7 @@ GameObject:
   - component: {fileID: 1356241138}
   - component: {fileID: 1356241137}
   - component: {fileID: 1356241136}
+  - component: {fileID: 1356241139}
   m_Layer: 5
   m_Name: Unit_1_btn
   m_TagString: Untagged
@@ -11229,7 +11609,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1356241137}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1356241139}
+        m_TargetAssemblyTypeName: CreateUnit, Assembly-CSharp
+        m_MethodName: CreateButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1356241137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11268,6 +11660,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356241134}
   m_CullTransparentMesh: 1
+--- !u!114 &1356241139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356241134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fa5606c11e6e442834dfc3bcd0e80c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_units:
+  - {fileID: 2788792190546652374, guid: 7a4a03806dd3761459861f8df434d934, type: 3}
+  - {fileID: 6691757275657758264, guid: 6c4529979200f2d4989ff9b69350fa02, type: 3}
+  - {fileID: 2309933314818286056, guid: 82879592b43902846959b628ecc6ae6e, type: 3}
+  p2_units:
+  - {fileID: 1603472627544187532, guid: 9ca38bb5dad014749be033f04217defa, type: 3}
+  - {fileID: 2518634362471708846, guid: 757c7091187187d4fbe9a846622cdd42, type: 3}
+  - {fileID: 7915745914515240909, guid: 54f1f5032a11b5a4cbef5798bdc77bfd, type: 3}
+  p1_unit_area:
+  - {fileID: 855326254}
+  - {fileID: 855326253}
+  - {fileID: 855326252}
+  p2_unit_area:
+  - {fileID: 567537144}
+  - {fileID: 567537143}
+  - {fileID: 567537142}
 --- !u!1001 &1364841618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11337,6 +11757,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1372696096}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile9
@@ -11390,6 +11822,11 @@ PrefabInstance:
 --- !u!4 &1372696095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1372696094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1372696096 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1372696094}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1380001276
@@ -11461,6 +11898,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1380389585}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile33
@@ -11514,6 +11963,11 @@ PrefabInstance:
 --- !u!4 &1380389584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1380389583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1380389585 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1380389583}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1381794359
@@ -11600,6 +12054,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1382201378}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile15
@@ -11653,6 +12119,11 @@ PrefabInstance:
 --- !u!4 &1382201377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1382201376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1382201378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1382201376}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1386074634
@@ -12447,6 +12918,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3125049074780828114, guid: d4f179ac391b7414886b86d039631887, type: 3}
   m_PrefabInstance: {fileID: 1456648776}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1473467771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 855326249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399f5a62cb62f2444ae588a13911e395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1481136268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12516,6 +12998,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1482219197}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile20
@@ -12569,6 +13063,11 @@ PrefabInstance:
 --- !u!4 &1482219196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1482219195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1482219197 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1482219195}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1484211911
@@ -12641,7 +13140,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0 Turn
+  m_Text: 1 Turn
 --- !u!222 &1484211914
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14908,6 +15407,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1700442299}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile24
@@ -14963,50 +15474,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1700442297}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1700511283
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1700511285}
-  - component: {fileID: 1700511284}
-  m_Layer: 0
-  m_Name: PlayManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1700511284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700511283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae94f5ebecbb5dd4395b06c6332c1b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whoseTurn: {fileID: 1525034817}
---- !u!4 &1700511285
+--- !u!4 &1700442299 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1700442297}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700511283}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 371.62366, y: 288.47632, z: -23.555038}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1718542962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15237,6 +15709,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1737437806}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile23
@@ -15290,6 +15774,11 @@ PrefabInstance:
 --- !u!4 &1737437805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1737437804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1737437806 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1737437804}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1738121689
@@ -15354,6 +15843,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3125049074780828114, guid: d4f179ac391b7414886b86d039631887, type: 3}
   m_PrefabInstance: {fileID: 1738121689}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1748150053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 567537139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399f5a62cb62f2444ae588a13911e395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1748659317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15423,6 +15923,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1753851554}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile31
@@ -15476,6 +15988,11 @@ PrefabInstance:
 --- !u!4 &1753851553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1753851552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1753851554 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1753851552}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1769345826
@@ -16043,7 +16560,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39727295c9a80bd40b9f6bfca1e86490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraManager: {fileID: 1893329177}
+  whoseTurn: {fileID: 1525034817}
+  currentTurn: {fileID: 1484211913}
+  isMaster: 0
   turn_Number: 0
+  currentTile: {fileID: 0}
+  P1_core_Tile: {fileID: 1473467771}
+  P2_core_Tile: {fileID: 1748150053}
+  createdUnit: {fileID: 0}
 --- !u!4 &1848441268
 Transform:
   m_ObjectHideFlags: 0
@@ -16056,7 +16581,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1851618389
 PrefabInstance:
@@ -16251,6 +16776,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1885362861}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile5
@@ -16306,6 +16839,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1885362859}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1885362861 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1885362859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1893329176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893329178}
+  - component: {fileID: 1893329177}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1893329177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893329176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5a066561f3a7d4ea6846caac1cbac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1_start_point: {fileID: 855326251}
+  P2_start_point: {fileID: 567537141}
+--- !u!4 &1893329178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893329176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 139199646}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895104631
 GameObject:
   m_ObjectHideFlags: 0
@@ -16549,6 +17133,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1909360987}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile7
@@ -16604,6 +17200,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1909360985}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1909360987 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1909360985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1928290995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16611,6 +17212,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1928290997}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile2
@@ -16664,6 +17273,11 @@ PrefabInstance:
 --- !u!4 &1928290996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1928290995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1928290997 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1928290995}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1954355910
@@ -16859,6 +17473,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1957890804}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile3
@@ -16912,6 +17534,11 @@ PrefabInstance:
 --- !u!4 &1957890803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1957890802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1957890804 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1957890802}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1959306143
@@ -17045,6 +17672,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 1961690605}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile18
@@ -17098,6 +17737,11 @@ PrefabInstance:
 --- !u!4 &1961690604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 1961690603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1961690605 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 1961690603}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1963683783
@@ -17368,6 +18012,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 2012856437}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile29
@@ -17421,6 +18077,11 @@ PrefabInstance:
 --- !u!4 &2012856436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 2012856435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2012856437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 2012856435}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2018026157
@@ -17729,6 +18390,85 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3125049074780828114, guid: d4f179ac391b7414886b86d039631887, type: 3}
   m_PrefabInstance: {fileID: 2028025779}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2036534339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2036534340}
+  - component: {fileID: 2036534342}
+  - component: {fileID: 2036534341}
+  m_Layer: 5
+  m_Name: ErrorMessage_txt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2036534340
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036534339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1263707034}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 1000, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2036534341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036534339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.754717, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 90
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &2036534342
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036534339}
+  m_CullTransparentMesh: 1
 --- !u!1001 &2037330441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17922,6 +18662,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 2069570923}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile32
@@ -17975,6 +18727,11 @@ PrefabInstance:
 --- !u!4 &2069570922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 2069570921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2069570923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 2069570921}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2077920700
@@ -18726,6 +19483,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 2145694225}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
       value: Tile4
@@ -18779,6 +19544,11 @@ PrefabInstance:
 --- !u!4 &2145694224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169539272563204770, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+  m_PrefabInstance: {fileID: 2145694223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2145694225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
   m_PrefabInstance: {fileID: 2145694223}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2145947037

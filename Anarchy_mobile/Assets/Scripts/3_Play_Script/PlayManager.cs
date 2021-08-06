@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayManager : MonoBehaviourPun
+public class PlayManager : MonoBehaviourPun // Playmanager는 삭제할 수도 있음 일단은 더이상 건들지 않기
 {
     public Text whoseTurn;
     bool isMaster;

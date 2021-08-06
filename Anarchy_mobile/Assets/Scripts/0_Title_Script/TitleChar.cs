@@ -16,8 +16,7 @@ public class TitleChar : MonoBehaviour
     float           time;
     float           FadeTime = 1f;
     public bool     fade = false;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         m_fadecolor = mafia.color;

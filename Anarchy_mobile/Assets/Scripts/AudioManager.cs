@@ -5,14 +5,14 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     static public AudioManager instance;
-    GameObject BackgroundMusic;
-    AudioSource backmusic;
-    AudioSource buttonSound;
-    public AudioSource title;
-    public AudioSource lobby;
-    public AudioSource game;
-    public AudioSource gameover;
-    public AudioSource button;
+    GameObject          BackgroundMusic;
+    AudioSource         backmusic;
+    AudioSource         buttonSound;
+    public AudioSource  title;
+    public AudioSource  lobby;
+    public AudioSource  game;
+    public AudioSource  gameover;
+    public AudioSource  button;
 
     void Awake()
     {

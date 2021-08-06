@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class SymbolSelector : MonoBehaviour
 {
-    public Image symbol;
-    public Sprite new_wave_sym;
-    public Sprite society_sym;
-    public Sprite mafia_sym;
+    public Image    symbol;
+    public Sprite   new_wave_sym;
+    public Sprite   society_sym;
+    public Sprite   mafia_sym;
 
     private void Start()
     {

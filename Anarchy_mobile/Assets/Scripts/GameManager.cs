@@ -5,7 +5,6 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager      main;
     public static GameManager       instance
     {
         get
@@ -13,6 +12,7 @@ public class GameManager : MonoBehaviour
             return main;
         }
     }
+    private static GameManager      main;
     public PlayerData               playerData;
     public AudioManager             audioManager;
     public int                      turn_Number = 0;

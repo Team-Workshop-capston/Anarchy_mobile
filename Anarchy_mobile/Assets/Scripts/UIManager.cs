@@ -159,4 +159,21 @@ public class UIManager : MonoBehaviour
             b.gameObject.SetActive(true);
         }
     }
+
+    IEnumerator fadeoutErrorMessage(string s)
+    {
+        errorMessage.gameObject.SetActive(true);
+        errorMessage.text = s;
+        Color fadecolor = errorMessage.color;
+        time = 0f;
+        fadecolor.a = Mathf.Lerp(start, end, time);
+        while (fadecolor.a > 0f)
+        {
+            time += Time.deltaTime / FadeTime;
+            fadecolor.a = Mathf.Lerp(start, end, time);
+            errorMessage.color = fadecolor ;
+            yield return null;
+        }
+        errorMessage.gameObject.SetActive(false);
+    }
 }
