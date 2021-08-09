@@ -18,6 +18,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     private static CentralProcessor instance;
     public CameraManager    cameraManager;
+    public UIManager        uIManager;
     public Text             whoseTurn;
     public Text             currentTurn;
     public bool             isMaster;
@@ -25,6 +26,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Tile             currentTile;
     public Tile             P1_core_Tile;
     public Tile             P2_core_Tile;
+    public Text             currentMoney;
+    public Color            color;
 
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             currentTile = P2_core_Tile;
         }
+        color = uIManager.errorMessage.color;
     }
 
     private void Update()
@@ -72,6 +76,11 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             photonView.RPC("NextTurnRPC", RpcTarget.All);
         }
     }
+
+    public void CreatedUnitAreaCheck(bool master, bool check, int area)
+    {
+        photonView.RPC("CreatedUnitAreaCheckRPC", RpcTarget.All, master, check, area);
+    }
 #endregion
 
 #region // RPC functions
@@ -85,6 +94,19 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private void NextTurnRPC()
     {
         currentTurn.text = ((turn_Number / 2) + 1).ToString() + " Turn";
+    }
+
+    [PunRPC]
+    private void CreatedUnitAreaCheckRPC(bool master, bool check, int area)
+    {
+        if(master)
+        {
+            P1_core_Tile.isP1_unitArea[area] = check;
+        }
+        else
+        {
+            P2_core_Tile.isP2_unitArea[area] = check;
+        }
     }
 #endregion
 }

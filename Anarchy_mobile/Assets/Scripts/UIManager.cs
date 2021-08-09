@@ -24,9 +24,9 @@ public class UIManager : MonoBehaviour
     float           end = 0f;
     public float    FadeTime = 1f;
     GameObject[] window;
+    IEnumerator enumerator;
 
     enum State { Ready, End, Idle, Active };
-
     State state = State.Ready;
 
     private void Update()
@@ -70,33 +70,6 @@ public class UIManager : MonoBehaviour
         ChooseforcePanel.gameObject.SetActive(true);
         ChoosemapPanel.gameObject.SetActive(false);            
     }
-
-    // public void SelectSociety()
-    // {
-    //     GameManager.instance.audioManager.ButtonClickSound();
-    //     GameManager.instance.playerData.forceNumber = 1;
-    //     GameManager.instance.SaveDataToJson();
-    //     ChooseforcePanel.gameObject.SetActive(false);
-    //     ChoosemapPanel.gameObject.SetActive(true);
-    // }
-
-    // public void SelectNewWave()
-    // {
-    //     GameManager.instance.audioManager.ButtonClickSound();
-    //     GameManager.instance.playerData.forceNumber = 2;
-    //     GameManager.instance.SaveDataToJson();
-    //     ChooseforcePanel.gameObject.SetActive(false);
-    //     ChoosemapPanel.gameObject.SetActive(true);
-    // }
-
-    // public void SelectMafia()
-    // {
-    //     GameManager.instance.audioManager.ButtonClickSound();
-    //     GameManager.instance.playerData.forceNumber = 3;
-    //     GameManager.instance.SaveDataToJson();
-    //     ChooseforcePanel.gameObject.SetActive(false);
-    //     ChoosemapPanel.gameObject.SetActive(true);
-    // }
 
     public void SelectForce()
     {
@@ -166,20 +139,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    IEnumerator fadeoutErrorMessage(string s)
+    public void PrintErrorMessage(string s)
     {
         errorMessage.gameObject.SetActive(true);
         errorMessage.text = s;
-        Color fadecolor = errorMessage.color;
+    } 
+
+    IEnumerator fadeoutErrorMessage()
+    {
+        Color fadecolor = CentralProcessor.Instance.color;
         time = 0f;
         fadecolor.a = Mathf.Lerp(start, end, time);
         while (fadecolor.a > 0f)
         {
             time += Time.deltaTime / FadeTime;
             fadecolor.a = Mathf.Lerp(start, end, time);
-            errorMessage.color = fadecolor ;
+            errorMessage.color = fadecolor;
             yield return null;
         }
         errorMessage.gameObject.SetActive(false);
+        StopCoroutine(fadeoutErrorMessage());
     }
 }
