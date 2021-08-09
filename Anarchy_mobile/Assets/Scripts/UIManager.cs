@@ -23,8 +23,13 @@ public class UIManager : MonoBehaviour
     float           start = 1f;
     float           end = 0f;
     public float    FadeTime = 1f;
-    GameObject[] window;
-    IEnumerator enumerator;
+    GameObject[]    window;
+    IEnumerator     enumerator;
+    public Image    unitInfo_panel;
+    public Image    unit_illust;
+    public Image    unit_hp;
+    public Text      unit_activeCost;
+    public Text     unit_name;
 
     enum State { Ready, End, Idle, Active };
     State state = State.Ready;
@@ -143,7 +148,21 @@ public class UIManager : MonoBehaviour
     {
         errorMessage.gameObject.SetActive(true);
         errorMessage.text = s;
-    } 
+    }
+
+    public void ShowUnitInfo(float m_hp, float c_hp, Sprite illust, string name, int cost)
+    {
+        unitInfo_panel.gameObject.SetActive(true);
+        unit_name.text = name;
+        unit_activeCost.text = "COST    " + cost.ToString();
+        unit_illust.sprite = illust;
+        unit_hp.rectTransform.localScale = new Vector3(c_hp/m_hp,1f,1f);
+    }
+
+    public void CloseUnitInfo()
+    {
+        unitInfo_panel.gameObject.SetActive(false);
+    }
 
     IEnumerator fadeoutErrorMessage()
     {

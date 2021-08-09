@@ -24,6 +24,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public bool             isMaster;
     public int              turn_Number = 0;
     public Tile             currentTile;
+    public MyUnit           currentUnit;
     public Tile             P1_core_Tile;
     public Tile             P2_core_Tile;
     public Text             currentMoney;

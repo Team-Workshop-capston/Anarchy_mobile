@@ -8,10 +8,9 @@ public class CreateUnit : MonoBehaviourPun
     GameObject unit;
     public GameObject[] p1_units = new GameObject[3];
     public GameObject[] p2_units = new GameObject[3];
-    public Transform[] p1_unit_area = new Transform[3];
-    public Transform[] p2_unit_area = new Transform[3];
     bool isMaster;
     bool[] isUnit_area = new bool[3];
+    Tile core_Tile;
     Transform[] unit_area = new Transform[3];
     IEnumerator enumerator;
     string s;
@@ -34,6 +33,7 @@ public class CreateUnit : MonoBehaviourPun
             }
             unit_area = CentralProcessor.Instance.P1_core_Tile.P1_unitArea;
             isUnit_area = CentralProcessor.Instance.P1_core_Tile.isP1_unitArea;
+            core_Tile = CentralProcessor.Instance.P1_core_Tile;
         }
         else
         {
@@ -51,6 +51,7 @@ public class CreateUnit : MonoBehaviourPun
             }
             unit_area = CentralProcessor.Instance.P2_core_Tile.P2_unitArea;
             isUnit_area = CentralProcessor.Instance.P2_core_Tile.isP2_unitArea;
+            core_Tile = CentralProcessor.Instance.P2_core_Tile;
         }
     }
 
@@ -70,6 +71,9 @@ public class CreateUnit : MonoBehaviourPun
             {
                 GameObject u;
                 u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,180,0)) as GameObject;
+                u.gameObject.GetComponent<MyUnit>().myNum = i;
+                u.gameObject.GetComponent<MyUnit>().prevTile = core_Tile;
+                u.gameObject.GetComponent<MyUnit>().currentTile = core_Tile;
                 CentralProcessor.Instance.CreatedUnitAreaCheck(isMaster, true, i);
                 return;
             }
