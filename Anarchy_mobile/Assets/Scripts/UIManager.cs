@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public Image    ChooseforcePanel;
-    public Image    ChoosemapPanel;
-    public Button   close_window;
-    public Image    unit_window;
-    public Image    build_window;
-    public Image    exit_window;
-    public Image    setting_window;
-    public Button[] buttons;
-    public Image    s_map; // 작은 지도
-    public Image    b_map; // 이동버튼 눌렀을 때 나오는 큰 지도
+    public Image        ChooseforcePanel;
+    public Image        ChoosemapPanel;
+    public Button       close_window;
+    public GameObject   build_window;
+    public GameObject   exit_window;
+    public GameObject   setting_window;
+    public GameObject   movemap_window;
+    public GameObject   unit_window;
+    public Button[]     buttons;
+    public Image        s_map; // 작은 지도
+    public Image        b_map; // 이동버튼 눌렀을 때 나오는 큰 지도
     public Button   unit_moveBtn; // 유닛 마우스(1)클릭하면 나오는 이동 버튼
     public Text     money;
     public Text     errorMessage; // 유닛이나 건물을 생산할 때 재화,자리가 부족하면 나오는 에러메세지
@@ -106,6 +107,8 @@ public class UIManager : MonoBehaviour
     {
         state = State.Active;
         close_window.gameObject.SetActive(true);
+        //unit_window.gameObject.SetActive(true);
+        //unit_window_close.gameObject.SetActive(true);
         unit_window.gameObject.SetActive(true);
         UISetActiveFalse();
     }
@@ -115,6 +118,15 @@ public class UIManager : MonoBehaviour
         state = State.Active;
         close_window.gameObject.SetActive(true);
         build_window.gameObject.SetActive(true);
+        UISetActiveFalse();
+    }
+
+    public void MoveButtonClick()
+    {
+        state = State.Active;
+        close_window.gameObject.SetActive(true);
+        movemap_window.gameObject.SetActive(true);
+        unitInfo_panel.gameObject.SetActive(false);
         UISetActiveFalse();
     }
 
@@ -178,5 +190,10 @@ public class UIManager : MonoBehaviour
         }
         errorMessage.gameObject.SetActive(false);
         StopCoroutine(fadeoutErrorMessage());
+    }
+
+    public void Test()
+    {
+        Debug.Log("yeah");
     }
 }

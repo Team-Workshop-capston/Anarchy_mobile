@@ -67,7 +67,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 6512174136938778265}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -104,7 +105,7 @@ MonoBehaviour:
   max_hp: 100
   illust: {fileID: 21300000, guid: 1f43b832babfbf04bb4f72e9fc323c7f, type: 3}
   activeCost: 10
-  unit_name: UNIT
+  unit_name: Mafia_norm
   myNum: 0
   prevTile: {fileID: 0}
   currentTile: {fileID: 0}
