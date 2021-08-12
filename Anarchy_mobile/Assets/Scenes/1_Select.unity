@@ -240,10 +240,11 @@ MonoBehaviour:
   ChooseforcePanel: {fileID: 1369426115}
   ChoosemapPanel: {fileID: 397696584}
   close_window: {fileID: 0}
-  unit_window: {fileID: 0}
   build_window: {fileID: 0}
   exit_window: {fileID: 0}
   setting_window: {fileID: 0}
+  movemap_window: {fileID: 0}
+  unit_window: {fileID: 0}
   buttons: []
   s_map: {fileID: 0}
   b_map: {fileID: 0}
@@ -251,6 +252,13 @@ MonoBehaviour:
   money: {fileID: 0}
   errorMessage: {fileID: 0}
   FadeTime: 1
+  unitInfo_panel: {fileID: 0}
+  unit_illust: {fileID: 0}
+  unit_hp: {fileID: 0}
+  unit_activeCost: {fileID: 0}
+  unit_name: {fileID: 0}
+  mapButtons: []
+  state: 2
 --- !u!1 &249019856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1302,7 @@ GameObject:
   - component: {fileID: 925983735}
   - component: {fileID: 925983734}
   - component: {fileID: 925983733}
+  - component: {fileID: 925983736}
   m_Layer: 5
   m_Name: Map_1_btn
   m_TagString: Untagged
@@ -1365,21 +1374,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 101914878}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SelectMap_1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 101914878}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: GoLobby
+      - m_Target: {fileID: 925983736}
+        m_TargetAssemblyTypeName: MapGuide, Assembly-CSharp
+        m_MethodName: SelectMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1427,6 +1424,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925983731}
   m_CullTransparentMesh: 1
+--- !u!114 &925983736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925983731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37ed9146532fda4583269ac872967ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,7 +72,6 @@ public class CreateUnit : MonoBehaviourPun
                 GameObject u;
                 u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,180,0)) as GameObject;
                 u.gameObject.GetComponent<MyUnit>().myNum = i;
-                u.gameObject.GetComponent<MyUnit>().prevTile = core_Tile;
                 u.gameObject.GetComponent<MyUnit>().currentTile = core_Tile;
                 CentralProcessor.Instance.CreatedUnitAreaCheck(isMaster, true, i);
                 return;

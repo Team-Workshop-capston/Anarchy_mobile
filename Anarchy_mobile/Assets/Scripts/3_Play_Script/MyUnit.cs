@@ -14,12 +14,16 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
     public int activeCost;
     public string unit_name;
     public int myNum;
-    public Tile prevTile;
     public Tile currentTile;
     public bool isClicked = false;
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(CentralProcessor.Instance.uIManager.state != UIManager.State.Idle)
+        {
+            return;
+        }
+
         if(currentTile != CentralProcessor.Instance.currentTile)
         {
             return;

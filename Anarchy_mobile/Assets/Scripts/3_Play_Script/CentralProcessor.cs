@@ -80,7 +80,14 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     public void CreatedUnitAreaCheck(bool master, bool check, int area)
     {
-        photonView.RPC("CreatedUnitAreaCheckRPC", RpcTarget.All, master, check, area);
+        if(master)
+        {
+            photonView.RPC("CreatedUnitP1AreaCheckRPC", RpcTarget.All, check, area);
+        }
+        else
+        {
+            photonView.RPC("CreatedUnitP2AreaCheckRPC", RpcTarget.All, check, area);
+        }
     }
 #endregion
 
@@ -98,16 +105,31 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void CreatedUnitAreaCheckRPC(bool master, bool check, int area)
+    private void CreatedUnitP1AreaCheckRPC(bool check, int area)
     {
-        if(master)
+        P1_core_Tile.isP1_unitArea[area] = check;
+    }
+
+    [PunRPC]
+    private void CreatedUnitP2AreaCheckRPC(bool check, int area)
+    {
+        P2_core_Tile.isP2_unitArea[area] = check;
+    }
+
+    [PunRPC]
+    private void CheckP1UnitAreaRPC(int id, bool check)
+    {
+        GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
+        foreach(GameObject t in tiles)
         {
-            P1_core_Tile.isP1_unitArea[area] = check;
+            
         }
-        else
-        {
-            P2_core_Tile.isP2_unitArea[area] = check;
-        }
+    }
+
+    [PunRPC]
+    private void CheckP2UnitAreaRPC(int id, bool check)
+    {
+
     }
 #endregion
 }

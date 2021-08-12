@@ -29,25 +29,29 @@ public class UIManager : MonoBehaviour
     public Image    unitInfo_panel;
     public Image    unit_illust;
     public Image    unit_hp;
-    public Text      unit_activeCost;
+    public Text     unit_activeCost;
     public Text     unit_name;
+    public Button[] mapButtons;
 
-    enum State { Ready, End, Idle, Active };
-    State state = State.Ready;
+    public enum State { Ready, End, Idle, Active };
+    public State state = State.Idle;
 
     private void Update()
     {
-        if(Application.platform == RuntimePlatform.Android)
+        if(SceneManager.GetActiveScene().name == "3_Play")
         {
-            if(state == State.Idle && Input.GetKey(KeyCode.Escape))
+            if(Application.platform == RuntimePlatform.Android)
             {
-                state = State.Active;
-                exit_window.gameObject.SetActive(true);
-            }
-            else if(state == State.Active && Input.GetKey(KeyCode.Escape))
-            {
-                SetIdleState();
-                UISetActiveTrue();
+                if(state == State.Idle && Input.GetKey(KeyCode.Escape))
+                {
+                    state = State.Active;
+                    exit_window.gameObject.SetActive(true);
+                }
+                else if(state == State.Active && Input.GetKey(KeyCode.Escape))
+                {
+                    SetIdleState();
+                    UISetActiveTrue();
+                }
             }
         }
     }
@@ -79,21 +83,23 @@ public class UIManager : MonoBehaviour
 
     public void SelectForce()
     {
+        GameManager.instance.audioManager.ButtonClickSound();
         ChooseforcePanel.gameObject.SetActive(false);
         ChoosemapPanel.gameObject.SetActive(true);
     }
 
-    public void GoLobby()
-    {
-        GameManager.instance.audioManager.ButtonClickSound();
-        SceneManager.LoadScene(2);
-    }
+    // public void GoLobby()
+    // {
+    //     GameManager.instance.audioManager.ButtonClickSound();
+    //     SceneManager.LoadScene(2);
+    // }
 
-    public void SelectMap_1()
-    {
-        GameManager.instance.playerData.mapNumber = 1;
-        GameManager.instance.SaveDataToJson();
-    }
+    // public void SelectMap_1()
+    // {
+    //     GameManager.instance.playerData.mapNumber = 1;
+    //     GameManager.instance.SaveDataToJson();
+    //     GoLobby();
+    // }
 
     public void SettingButtonClick()
     {
@@ -107,8 +113,6 @@ public class UIManager : MonoBehaviour
     {
         state = State.Active;
         close_window.gameObject.SetActive(true);
-        //unit_window.gameObject.SetActive(true);
-        //unit_window_close.gameObject.SetActive(true);
         unit_window.gameObject.SetActive(true);
         UISetActiveFalse();
     }
@@ -127,7 +131,13 @@ public class UIManager : MonoBehaviour
         close_window.gameObject.SetActive(true);
         movemap_window.gameObject.SetActive(true);
         unitInfo_panel.gameObject.SetActive(false);
-        UISetActiveFalse();
+        foreach(Button b in buttons)
+        {
+            b.gameObject.SetActive(false);
+        }
+        CentralProcessor.Instance.currentUnit.isClicked = false;
+        CloseUnitInfo();
+        SearchWay();
     }
 
     public void SetIdleState()
@@ -145,6 +155,10 @@ public class UIManager : MonoBehaviour
         foreach(Button b in buttons)
         {
             b.gameObject.SetActive(false);
+        }
+        if(CentralProcessor.Instance.currentUnit != null)
+        {
+            CentralProcessor.Instance.currentUnit.OffReady();
         }
     }
 
@@ -171,6 +185,29 @@ public class UIManager : MonoBehaviour
         unit_hp.rectTransform.localScale = new Vector3(c_hp/m_hp,1f,1f);
     }
 
+    public void SearchWay()
+    {
+        foreach(Button b in mapButtons)
+        {
+            b.gameObject.GetComponent<Button>().interactable = true;
+            int dis = CalculateDistance(CentralProcessor.Instance.currentTile, b.gameObject.GetComponent<MoveUnit>().pairTile);
+            b.gameObject.GetComponent<MoveUnit>().cost = dis;
+            if(dis == 0 || dis > CentralProcessor.Instance.currentUnit.activeCost)
+            {
+                b.gameObject.GetComponent<Button>().interactable = false;
+            }
+        }
+    }
+
+    public int CalculateDistance(Tile current, Tile obj)
+    {
+        int dis = 0;
+        int x = Mathf.Abs(current.row - obj.row);
+        int y = Mathf.Abs(current.col - obj.col);
+        dis = x + y;
+        return dis;
+    }
+
     public void CloseUnitInfo()
     {
         unitInfo_panel.gameObject.SetActive(false);
@@ -190,10 +227,5 @@ public class UIManager : MonoBehaviour
         }
         errorMessage.gameObject.SetActive(false);
         StopCoroutine(fadeoutErrorMessage());
-    }
-
-    public void Test()
-    {
-        Debug.Log("yeah");
     }
 }

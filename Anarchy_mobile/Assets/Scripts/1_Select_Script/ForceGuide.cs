@@ -20,19 +20,6 @@ public class ForceGuide : MonoBehaviour //, IPointerEnterHandler, IPointerExitHa
     public Button   nextButton;
     public Button[] forces = new Button[3];
 
-    // public void OnPointerEnter(PointerEventData eventData)
-    // {
-    //     force_button.GetComponent<RectTransform>().sizeDelta = new Vector2(enterWidth, enterHeight);
-    //     force_image.gameObject.SetActive(true);
-    //     description.text = forceDisc;
-    // }
- 
-    // public void OnPointerExit(PointerEventData eventData)
-    // {
-    //     force_button.GetComponent<RectTransform>().sizeDelta = new Vector2(exitWidth, exitHeight);
-    //     force_image.gameObject.SetActive(false);
-    // }
-
     public void SelectForce()
     {
         if(!selected)

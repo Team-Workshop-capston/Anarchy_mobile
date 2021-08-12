@@ -8,14 +8,15 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
 {
     public bool isP1Tile = false;
     public bool isP2Tile = false;
-    public int x;
-    public int y;
+    public int row;
+    public int col;
     public bool[]       isP1_unitArea = new bool[3];
     public bool[]       isP2_unitArea = new bool[3];
     public Transform[]  P1_unitArea = new Transform[3];
     public Transform[]  P2_unitArea = new Transform[3];
     bool isMaster;
     public Transform cameraPoint;
+    public bool isCheckted = false;
     private void Start()
     {
         isMaster = CentralProcessor.Instance.isMaster;
