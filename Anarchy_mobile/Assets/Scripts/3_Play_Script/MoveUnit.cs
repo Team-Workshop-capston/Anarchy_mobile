@@ -10,6 +10,7 @@ public class MoveUnit : MonoBehaviour
     bool isMaster;
     Transform[] area;
     bool[] isEmpty;
+    public bool isChecked = false;
 
     private void Start()
     {
@@ -18,31 +19,37 @@ public class MoveUnit : MonoBehaviour
 
     public void Move()
     {
-        if(isMaster)
+        if(!isChecked)
         {
-            area = pairTile.P1_unitArea;
-            isEmpty = pairTile.isP1_unitArea;
-            CentralProcessor.Instance.currentUnit.currentTile.isP1_unitArea[CentralProcessor.Instance.currentUnit.myNum] = false;
+            isChecked = true;
+            ChangeColor(Color.blue);
+            if(CentralProcessor.Instance.current_moveButton != null)
+            {
+                CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.white);
+                CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().isChecked = false;
+                CentralProcessor.Instance.current_moveButton = this.gameObject.GetComponent<Button>();
+            }
+            else
+            {
+                CentralProcessor.Instance.current_moveButton = this.gameObject.GetComponent<Button>();
+            }
         }
         else
         {
-            area = pairTile.P2_unitArea;
-            isEmpty = pairTile.isP2_unitArea;
-            CentralProcessor.Instance.currentUnit.currentTile.isP2_unitArea[CentralProcessor.Instance.currentUnit.myNum] = false;
+            CentralProcessor.Instance.current_moveButton = null;
+            OffCheck();
         }
-        for(int i = 0; i < 3; i++)
-        {
-            if(isEmpty[i] == false)
-            {
-                isEmpty[i] = true;
-                CentralProcessor.Instance.currentUnit.transform.position = area[i].position;
-                CentralProcessor.Instance.currentUnit.currentTile = pairTile;
-                CentralProcessor.Instance.currentUnit.activeCost -= cost;
-                CentralProcessor.Instance.currentUnit = null;
-                CentralProcessor.Instance.uIManager.SetIdleState();
-                CentralProcessor.Instance.uIManager.UISetActiveTrue();
-                return;
-            }
-        }
+    }
+
+    public void OffCheck()
+    {
+        isChecked = false;
+        ChangeColor(Color.white);
+    }
+
+    public void ChangeColor(Color c)
+    {
+        Image tmp = this.gameObject.GetComponent<Image>();
+        tmp.color = c;
     }
 }

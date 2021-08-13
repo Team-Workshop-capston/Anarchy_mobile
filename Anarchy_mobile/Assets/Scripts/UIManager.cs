@@ -1,10 +1,11 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoBehaviourPun
 {
     public Image        ChooseforcePanel;
     public Image        ChoosemapPanel;
@@ -25,13 +26,14 @@ public class UIManager : MonoBehaviour
     float           end = 0f;
     public float    FadeTime = 1f;
     GameObject[]    window;
-    IEnumerator     enumerator;
     public Image    unitInfo_panel;
     public Image    unit_illust;
     public Image    unit_hp;
     public Text     unit_activeCost;
     public Text     unit_name;
     public Button[] mapButtons;
+    public Button   move_nextButton;
+    public Image    tile_unitPanel;
 
     public enum State { Ready, End, Idle, Active };
     public State state = State.Idle;
@@ -45,6 +47,7 @@ public class UIManager : MonoBehaviour
                 if(state == State.Idle && Input.GetKey(KeyCode.Escape))
                 {
                     state = State.Active;
+                    close_window.gameObject.SetActive(true);
                     exit_window.gameObject.SetActive(true);
                 }
                 else if(state == State.Active && Input.GetKey(KeyCode.Escape))
@@ -211,6 +214,47 @@ public class UIManager : MonoBehaviour
     public void CloseUnitInfo()
     {
         unitInfo_panel.gameObject.SetActive(false);
+    }
+
+    public void MoveUnit()
+    {
+        Transform[] area;
+        bool[] isEmpty;
+
+        if(CentralProcessor.Instance.isMaster)
+        {
+            area = CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.P1_unitArea;
+            isEmpty = CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.isP1_unitArea;
+        }
+        else
+        {
+            area = CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.P2_unitArea;
+            isEmpty = CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.isP2_unitArea;
+        }
+
+        if(isEmpty[0] && isEmpty[1] && isEmpty[2])
+        {
+            return;
+        }
+
+        CentralProcessor.Instance.CheckUnitArea(CentralProcessor.Instance.currentTile.gameObject.GetComponent<PhotonView>().ViewID,false,CentralProcessor.Instance.currentUnit.myNum,CentralProcessor.Instance.isMaster);
+
+        for(int i = 0; i < 3; i++)
+        {
+            if(isEmpty[i] == false)
+            {
+                CentralProcessor.Instance.CheckUnitArea(CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID,true,i,CentralProcessor.Instance.isMaster);
+                CentralProcessor.Instance.currentUnit.transform.position = area[i].position;
+                CentralProcessor.Instance.currentUnit.currentTile = CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile;
+                CentralProcessor.Instance.currentUnit.activeCost -= CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost;
+                CentralProcessor.Instance.currentUnit = null;
+                CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.white);
+                CentralProcessor.Instance.current_moveButton = null;
+                CentralProcessor.Instance.uIManager.SetIdleState();
+                CentralProcessor.Instance.uIManager.UISetActiveTrue();
+                return;
+            }
+        }
     }
 
     IEnumerator fadeoutErrorMessage()

@@ -29,6 +29,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Tile             P2_core_Tile;
     public Text             currentMoney;
     public Color            color;
+    public Button           current_moveButton;
+    public GameObject[]     tiles;
 
     private void Awake()
     {
@@ -54,6 +56,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             currentTile = P2_core_Tile;
         }
         color = uIManager.errorMessage.color;
+        tiles = GameObject.FindGameObjectsWithTag("Tile");
     }
 
     private void Update()
@@ -89,6 +92,11 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             photonView.RPC("CreatedUnitP2AreaCheckRPC", RpcTarget.All, check, area);
         }
     }
+
+    public void CheckUnitArea(int id, bool check, int num, bool isMaster)
+    {
+        photonView.RPC("CheckUnitAreaRPC", RpcTarget.All, id, check, num, isMaster);
+    }
 #endregion
 
 #region // RPC functions
@@ -117,19 +125,23 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void CheckP1UnitAreaRPC(int id, bool check)
+    private void CheckUnitAreaRPC(int id, bool check, int num, bool isMaster)
     {
-        GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
         foreach(GameObject t in tiles)
         {
-            
+            if(t.GetComponent<PhotonView>().ViewID == id)
+            {
+                if(isMaster)
+                {
+                    t.GetComponent<Tile>().isP1_unitArea[num] = check;
+                }
+                else
+                {
+                    t.GetComponent<Tile>().isP2_unitArea[num] = check;
+                }
+                return;
+            }
         }
-    }
-
-    [PunRPC]
-    private void CheckP2UnitAreaRPC(int id, bool check)
-    {
-
     }
 #endregion
 }
