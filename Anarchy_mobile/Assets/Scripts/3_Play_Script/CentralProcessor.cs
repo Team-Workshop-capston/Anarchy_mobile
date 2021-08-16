@@ -97,6 +97,16 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         photonView.RPC("CheckUnitAreaRPC", RpcTarget.All, id, check, num, isMaster);
     }
+
+    public void CheckCoreTileUnits(int unitId, int num, bool isMaster)
+    {
+        photonView.RPC("CheckCoreTileUnitsRPC", RpcTarget.All, unitId, num, isMaster);
+    }
+
+    public void CheckTileUnits(int tileId, int unitId, int num, bool isMaster, bool check)
+    {
+        photonView.RPC("CheckTileUnitsRPC", RpcTarget.All, tileId, unitId, num, isMaster, check);
+    }
 #endregion
 
 #region // RPC functions
@@ -140,6 +150,70 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                     t.GetComponent<Tile>().isP2_unitArea[num] = check;
                 }
                 return;
+            }
+        }
+    }
+
+    [PunRPC]
+    private void CheckCoreTileUnitsRPC(int unitId, int num, bool isMaster)
+    {
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+        foreach(GameObject unit in units)
+        {
+            if(unit.GetComponent<PhotonView>().ViewID == unitId)
+            {
+                if(isMaster)
+                {
+                    CentralProcessor.instance.P1_core_Tile.GetComponent<Tile>().P1_units[num] = unit.GetComponent<MyUnit>();
+                }
+                else
+                {
+                    CentralProcessor.instance.P2_core_Tile.GetComponent<Tile>().P2_units[num] = unit.GetComponent<MyUnit>();
+                }
+                        
+                return;
+            }
+        }
+    }
+
+    [PunRPC]
+    private void CheckTileUnitsRPC(int tileId, int unitId, int num, bool isMaster, bool check)
+    {
+        foreach(GameObject t in tiles)
+        {
+            if(t.GetComponent<PhotonView>().ViewID == tileId)
+            {
+                GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+                foreach(GameObject unit in units)
+                {
+                    if(unit.GetComponent<PhotonView>().ViewID == unitId)
+                    {
+                        if(isMaster)
+                        {
+                            if(!check)
+                            {
+                                t.GetComponent<Tile>().P1_units[num] = null;
+                            }
+                            else
+                            {
+                                t.GetComponent<Tile>().P1_units[num] = unit.GetComponent<MyUnit>();
+                            }
+                        }
+                        else
+                        {
+                            if(!check)
+                            {
+                                t.GetComponent<Tile>().P2_units[num] = null;
+                            }
+                            else
+                            {
+                                t.GetComponent<Tile>().P2_units[num] = unit.GetComponent<MyUnit>();
+                            }
+                        }
+
+                        return;
+                    }
+                }
             }
         }
     }

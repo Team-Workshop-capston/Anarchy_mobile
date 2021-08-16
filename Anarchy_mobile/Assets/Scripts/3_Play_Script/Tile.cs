@@ -14,6 +14,8 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public bool[]       isP2_unitArea = new bool[3];
     public Transform[]  P1_unitArea = new Transform[3];
     public Transform[]  P2_unitArea = new Transform[3];
+    public MyUnit[]     P1_units = new MyUnit[3];
+    public MyUnit[]     P2_units = new MyUnit[3];
     bool isMaster;
     public Transform cameraPoint;
     public bool isCheckted = false;

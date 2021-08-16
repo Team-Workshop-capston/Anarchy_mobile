@@ -74,6 +74,7 @@ public class CreateUnit : MonoBehaviourPun
                 u.gameObject.GetComponent<MyUnit>().myNum = i;
                 u.gameObject.GetComponent<MyUnit>().currentTile = core_Tile;
                 CentralProcessor.Instance.CreatedUnitAreaCheck(isMaster, true, i);
+                CentralProcessor.Instance.CheckCoreTileUnits(u.gameObject.GetComponent<PhotonView>().ViewID, i, isMaster);
                 return;
             }
         }

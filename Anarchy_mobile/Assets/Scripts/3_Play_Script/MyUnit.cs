@@ -42,7 +42,11 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
     public void OnReady()
     {
         isClicked = true;
-        if(CentralProcessor.Instance.currentUnit == null)
+        if(CentralProcessor.Instance.currentUnit == this.gameObject.GetComponent<MyUnit>())
+        {
+            CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost);
+        }
+        else if(CentralProcessor.Instance.currentUnit == null)
         {
             CentralProcessor.Instance.currentUnit = this.gameObject.GetComponent<MyUnit>();
             CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost);
