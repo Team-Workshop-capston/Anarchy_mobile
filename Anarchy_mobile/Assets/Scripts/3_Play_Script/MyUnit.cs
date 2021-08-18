@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 
 public class MyUnit : MonoBehaviourPun, IPointerClickHandler
 {
+    public int type;
     public int cost;
     public float current_hp;
     public float max_hp;
@@ -14,11 +16,32 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
     public int activeCost;
     public string unit_name;
     public int myNum;
+    public int defensive;
+    public int offensive;
     public Tile currentTile;
     public bool isClicked = false;
+    public bool isAttackready = false;
+    bool isMaster;
+
+    private void Start()
+    {
+        isMaster = CentralProcessor.Instance.isMaster;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if((isMaster && this.gameObject.layer == 8) || (!isMaster && this.gameObject.layer == 7))
+        {
+            if(CentralProcessor.Instance.uIManager.state == UIManager.State.Attack)
+            {
+                
+            }
+            else
+            {
+                return;
+            }
+        }
+
         if(CentralProcessor.Instance.uIManager.state != UIManager.State.Idle)
         {
             return;

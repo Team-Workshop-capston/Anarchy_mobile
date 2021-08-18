@@ -107,6 +107,27 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         photonView.RPC("CheckTileUnitsRPC", RpcTarget.All, tileId, unitId, num, isMaster, check);
     }
+
+    public void ApplyCreateUnitVariable(int id, int type)
+    {
+        switch(type)
+        {
+            case 1:
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.war_hp, VariableManager.Instance.war_off, VariableManager.Instance.war_def, VariableManager.Instance.war_act);
+            break;
+            case 2:
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.arc_hp, VariableManager.Instance.arc_off, VariableManager.Instance.arc_def, VariableManager.Instance.arc_act);
+            break;
+            case 3:
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.mag_hp, VariableManager.Instance.mag_off, VariableManager.Instance.mag_def, VariableManager.Instance.mag_act);
+            break;
+        }
+    }
+
+    public void Attact(int myId, int enemyId)
+    {
+        photonView.RPC("AttackRPC", RpcTarget.All, myId, enemyId);
+    }
 #endregion
 
 #region // RPC functions
@@ -212,6 +233,132 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         }
 
                         return;
+                    }
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    private void ApplyCreateUnitVariableRPC(int id, int hp, int off, int def, int act)
+    {
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+        foreach(GameObject unit in units)
+        {
+            if(unit.GetComponent<PhotonView>().ViewID == id)
+            {
+                unit.GetComponent<MyUnit>().current_hp = hp;
+                unit.GetComponent<MyUnit>().max_hp = hp;
+                unit.GetComponent<MyUnit>().offensive = off;
+                unit.GetComponent<MyUnit>().defensive = def;
+                unit.GetComponent<MyUnit>().activeCost = act;
+                return;
+            }
+        }
+    }
+
+    [PunRPC]
+    private void ApplyFieldUnitVariableRPC()
+    {
+
+    }
+
+    [PunRPC]
+    private void AttackRPC(int myId, int enemyId)
+    {
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
+        foreach(GameObject myUnit in units)
+        {
+            if(myUnit.GetComponent<PhotonView>().ViewID == myId)
+            {
+                foreach(GameObject enemy in units)
+                {
+                    if(enemy.GetComponent<PhotonView>().ViewID == enemyId)
+                    {
+                        if(myUnit.GetComponent<MyUnit>().offensive > enemy.GetComponent<MyUnit>().defensive)
+                        {
+                            switch(myUnit.GetComponent<MyUnit>().type)
+                            {
+                                case 1:
+                                myUnit.GetComponent<MyUnit>().current_hp -= 15;
+                                break;
+                                case 2:
+                                break;
+                                case 3:
+                                myUnit.GetComponent<MyUnit>().current_hp -= 5;
+                                break;
+                            }
+
+                            switch(enemy.GetComponent<MyUnit>().type)
+                            {
+                                case 1:
+                                enemy.GetComponent<MyUnit>().current_hp -= 10 + (myUnit.GetComponent<MyUnit>().offensive - enemy.GetComponent<MyUnit>().defensive);
+                                break;
+                                case 2:
+                                enemy.GetComponent<MyUnit>().current_hp -= 15 + (myUnit.GetComponent<MyUnit>().offensive - enemy.GetComponent<MyUnit>().defensive);
+                                break;
+                                case 3:
+                                enemy.GetComponent<MyUnit>().current_hp -= 10 + (myUnit.GetComponent<MyUnit>().offensive - Mathf.RoundToInt(enemy.GetComponent<MyUnit>().defensive * 1.2f));
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            switch(myUnit.GetComponent<MyUnit>().type)
+                            {
+                                case 1:
+                                myUnit.GetComponent<MyUnit>().current_hp -= 10 + (enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive);
+                                break;
+                                case 2:
+                                break;
+                                case 3:
+                                myUnit.GetComponent<MyUnit>().current_hp -= 5 + Mathf.RoundToInt((enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive) * 0.8f);
+                                break;
+                            }
+
+                            switch(enemy.GetComponent<MyUnit>().type)
+                            {
+                                case 1:
+                                enemy.GetComponent<MyUnit>().current_hp -= 5;
+                                break;
+                                case 2:
+                                enemy.GetComponent<MyUnit>().current_hp -= 10;
+                                break;
+                                case 3:
+                                enemy.GetComponent<MyUnit>().current_hp -= 5;
+                                break;
+                            }
+                        }
+
+                        if(myUnit.GetComponent<MyUnit>().current_hp <= 0)
+                        {
+                            if(myUnit.gameObject.layer == 7)
+                            {
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = null;
+                            }
+                            else if(myUnit.gameObject.layer == 8)
+                            {
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = null;
+                            }
+                            Destroy(myUnit.gameObject);
+                        }
+
+                        if(enemy.GetComponent<MyUnit>().current_hp <= 0)
+                        {
+                            if(enemy.gameObject.layer == 7)
+                            {
+                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
+                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_unitArea[enemy.GetComponent<MyUnit>().myNum] = null;
+                            }
+                            else if(enemy.gameObject.layer == 8)
+                            {
+                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
+                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_unitArea[enemy.GetComponent<MyUnit>().myNum] = null;
+                            }
+                            Destroy(enemy.gameObject);
+                        }
                     }
                 }
             }

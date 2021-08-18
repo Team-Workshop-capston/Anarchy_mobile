@@ -47,15 +47,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9887c1e16df1d5349a62868d9fdf88f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 100
-  current_hp: 100
-  max_hp: 100
+  type: 2
+  cost: 130
+  current_hp: 50
+  max_hp: 50
   illust: {fileID: 21300000, guid: 1f43b832babfbf04bb4f72e9fc323c7f, type: 3}
-  activeCost: 3
+  activeCost: 2
   unit_name: NewWave_arc
   myNum: 0
+  defensive: 44
+  offensive: 66
   currentTile: {fileID: 0}
   isClicked: 0
+  isAttackready: 0
 --- !u!114 &2415046479587879584
 MonoBehaviour:
   m_ObjectHideFlags: 0

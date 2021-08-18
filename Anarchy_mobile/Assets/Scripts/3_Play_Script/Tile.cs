@@ -18,7 +18,7 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public MyUnit[]     P2_units = new MyUnit[3];
     bool isMaster;
     public Transform cameraPoint;
-    public bool isCheckted = false;
+    public bool isCheckted = true;
     private void Start()
     {
         isMaster = CentralProcessor.Instance.isMaster;
@@ -26,6 +26,11 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(CentralProcessor.Instance.uIManager.state != UIManager.State.Idle)
+        {
+            return;
+        }
+
         if(this.gameObject != CentralProcessor.Instance.currentTile.gameObject)
         {
             CentralProcessor.Instance.cameraManager.transform.position = cameraPoint.position;

@@ -47,15 +47,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9887c1e16df1d5349a62868d9fdf88f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   cost: 100
-  current_hp: 100
-  max_hp: 100
+  current_hp: 70
+  max_hp: 70
   illust: {fileID: 21300000, guid: 1f43b832babfbf04bb4f72e9fc323c7f, type: 3}
-  activeCost: 3
+  activeCost: 2
   unit_name: Society_war
   myNum: 0
+  defensive: 35
+  offensive: 52
   currentTile: {fileID: 0}
   isClicked: 0
+  isAttackready: 0
 --- !u!114 &9414117567646774
 MonoBehaviour:
   m_ObjectHideFlags: 0

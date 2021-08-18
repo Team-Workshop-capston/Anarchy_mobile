@@ -8,9 +8,9 @@ public class MoveUnit : MonoBehaviour
     public Tile pairTile;
     public int cost;
     bool isMaster;
-    Transform[] area;
-    bool[] isEmpty;
     public bool isChecked = false;
+    public Image checkPoint;
+    public bool isMove = false;
 
     private void Start()
     {
@@ -19,6 +19,11 @@ public class MoveUnit : MonoBehaviour
 
     public void Move()
     {
+        if(!isMove)
+        {
+            return;
+        }
+
         if(!isChecked)
         {
             isChecked = true;
