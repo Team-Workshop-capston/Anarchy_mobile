@@ -31,6 +31,10 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Color            color;
     public Button           current_moveButton;
     public GameObject[]     tiles;
+    public MyBuilding[]     currentBuildings = new MyBuilding[3];
+    public int              createNumber = 3;
+    public Image            waitingPanel;
+    public Text             waitingText;
 
     private void Awake()
     {
@@ -47,16 +51,24 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private void Start()
     {
         GameManager.instance.audioManager.StartGameSceneBGM();
+        uIManager.state = UIManager.State.Ready;
         if(isMaster)
         {
             currentTile = P1_core_Tile;
+            currentTile.GetComponent<Tile>().minimap_Tile.color = Color.blue;
         }
         else
         {
             currentTile = P2_core_Tile;
+            currentTile.GetComponent<Tile>().minimap_Tile.color = Color.red;
         }
         color = uIManager.errorMessage.color;
         tiles = GameObject.FindGameObjectsWithTag("Tile");
+        if(!isMaster)
+        {
+            uIManager.TurnOff();
+        }
+        StartCoroutine(Waiting());
     }
 
     private void Update()
@@ -71,6 +83,23 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         }
     }
 
+    IEnumerator Waiting()
+    {
+        while(true)
+        {
+            if(PhotonNetwork.PlayerList.Length > 1)
+            {
+                waitingText.text = "매칭완료";
+                yield return new WaitForSeconds(2);
+                uIManager.state = UIManager.State.Idle;
+                waitingPanel.gameObject.SetActive(false);
+                break;
+            }
+            yield return null;
+        }
+        
+    }
+
 #region // call RPC function
     public void AddTurnNumber()
     {
@@ -78,6 +107,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         if(turn_Number % 2 == 0)
         {
             photonView.RPC("NextTurnRPC", RpcTarget.All);
+            photonView.RPC("UnitUpdateRPC", RpcTarget.All);
+            photonView.RPC("TileUpdateRPC", RpcTarget.All);
         }
     }
 
@@ -128,6 +159,11 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         photonView.RPC("AttackRPC", RpcTarget.All, myId, enemyId);
     }
+
+    public void BuildingUpgrade(int buildingId)
+    {
+        photonView.RPC("BuildingUpgradeRPC", RpcTarget.All, buildingId);
+    }
 #endregion
 
 #region // RPC functions
@@ -135,12 +171,76 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private void AddTurnNumberRPC()
     {
         turn_Number += 1;
+        if((turn_Number % 2 == 1) && isMaster)
+        {
+            uIManager.state = UIManager.State.Next;
+            uIManager.TurnOff();
+        }
+        else if((turn_Number % 2 == 0) && !isMaster)
+        {
+            uIManager.state = UIManager.State.Next;
+            uIManager.TurnOff();
+        }
+        else if((turn_Number % 2 == 0) && isMaster)
+        {
+            uIManager.state = UIManager.State.Idle;
+            uIManager.TurnOn();
+        }
+        else if((turn_Number % 2 == 1) && !isMaster)
+        {
+            uIManager.state = UIManager.State.Idle;
+            uIManager.TurnOn();
+        }
     }
 
     [PunRPC]
     private void NextTurnRPC()
     {
         currentTurn.text = ((turn_Number / 2) + 1).ToString() + " Turn";
+    }
+
+    [PunRPC]
+    private void TileUpdateRPC()
+    {
+        Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
+        foreach(Tile t in tiles)
+        {
+            t.GiveMoney();
+            if(t.occupationCost >= 3)
+            {
+                t.occupationCost = 3;
+                t.isP1Tile = true;
+            }
+            else if(t.occupationCost <= -3)
+            {
+                t.occupationCost = -3;
+                t.isP2Tile = true;
+            }
+            else
+            {
+                t.isP1Tile = false;
+                t.isP2Tile = false;
+            }
+        }
+    }
+
+    [PunRPC]
+    private void UnitUpdateRPC()
+    {
+        createNumber = 3;
+        MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
+        foreach(MyUnit u in units)
+        {
+            u.ActiveCostUpdate();
+            if(isMaster && u.gameObject.layer == 7)
+            {
+                u.currentTile.occupationCost += 1;
+            }
+            else if(!isMaster && u.gameObject.layer == 8)
+            {
+                u.currentTile.occupationCost -= 1;
+            }
+        }
     }
 
     [PunRPC]
@@ -361,6 +461,20 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         }
                     }
                 }
+            }
+        }
+    }
+
+    [PunRPC]
+    private void BuildingUpgradeRPC(int buildingId)
+    {
+        MyBuilding[] buildings = GameObject.FindObjectsOfType<MyBuilding>();
+        foreach(MyBuilding b in buildings)
+        {
+            if(b.GetComponent<PhotonView>().ViewID == buildingId)
+            {
+                Destroy(b.gameObject);
+                return;
             }
         }
     }

@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviourPun
     public Image    tile_unitPanel;
     public Button   offAttackButton;
 
-    public enum State { Ready, End, Idle, Active, Attack };
+    public enum State { Ready, Next, Idle, Active, Attack };
     public State state = State.Idle;
 
     private void Update()
@@ -75,6 +75,10 @@ public class UIManager : MonoBehaviourPun
     public void GoTitle()
     {
         GameManager.instance.audioManager.ButtonClickSound();
+        if(GameManager.instance.audioManager.backmusic.clip == GameManager.instance.audioManager.title.clip)
+        {
+            GameManager.instance.audioManager.StartTitleBGM();
+        }
         SceneManager.LoadScene(0);
     }
 
@@ -91,19 +95,6 @@ public class UIManager : MonoBehaviourPun
         ChooseforcePanel.gameObject.SetActive(false);
         ChoosemapPanel.gameObject.SetActive(true);
     }
-
-    // public void GoLobby()
-    // {
-    //     GameManager.instance.audioManager.ButtonClickSound();
-    //     SceneManager.LoadScene(2);
-    // }
-
-    // public void SelectMap_1()
-    // {
-    //     GameManager.instance.playerData.mapNumber = 1;
-    //     GameManager.instance.SaveDataToJson();
-    //     GoLobby();
-    // }
 
     public void SettingButtonClick()
     {
@@ -201,7 +192,6 @@ public class UIManager : MonoBehaviourPun
     {
         foreach(Button b in mapButtons)
         {
-            //b.gameObject.GetComponent<Button>().interactable = true;
             b.gameObject.GetComponent<MoveUnit>().isChecked = false;
             b.gameObject.GetComponent<MoveUnit>().checkPoint.gameObject.SetActive(true);
             b.gameObject.GetComponent<MoveUnit>().isMove = true;
@@ -209,7 +199,6 @@ public class UIManager : MonoBehaviourPun
             b.gameObject.GetComponent<MoveUnit>().cost = dis;
             if(dis == 0 || dis > CentralProcessor.Instance.currentUnit.activeCost)
             {
-                //b.gameObject.GetComponent<Button>().interactable = false;
                 b.gameObject.GetComponent<MoveUnit>().checkPoint.gameObject.SetActive(false);
                 b.gameObject.GetComponent<MoveUnit>().isMove = false;
             }
@@ -278,18 +267,9 @@ public class UIManager : MonoBehaviourPun
         }
     }
 
-    // public void ChangeTileChecked(bool check)
-    // {
-    //     foreach(GameObject tile in CentralProcessor.Instance.tiles)
-    //     {
-    //         tile.GetComponent<Tile>().isCheckted = check;
-    //     }
-    // }
-
     public void ReadyAttack()
     {
         state = State.Attack;
-        //ChangeTileChecked(false);
         foreach(Button b in buttons)
         {
             b.gameObject.SetActive(false);
@@ -302,7 +282,6 @@ public class UIManager : MonoBehaviourPun
     public void OffReadyAttack()
     {
         state = State.Idle;
-        //ChangeTileChecked(true);
         foreach(Button b in buttons)
         {
             b.gameObject.SetActive(true);
@@ -310,6 +289,24 @@ public class UIManager : MonoBehaviourPun
         CentralProcessor.Instance.currentUnit.isAttackready = false;
         offAttackButton.gameObject.SetActive(false);
         CentralProcessor.Instance.currentUnit.OffReady();
+    }
+
+    public void TurnOff()
+    {
+        state = State.Next;
+        foreach(Button b in buttons)
+        {
+            b.gameObject.SetActive(false);
+        }
+    }
+
+    public void TurnOn()
+    {
+        state = State.Idle;
+        foreach(Button b in buttons)
+        {
+            b.gameObject.SetActive(true);
+        }
     }
 
     IEnumerator fadeoutErrorMessage()

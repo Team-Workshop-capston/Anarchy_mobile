@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     static public AudioManager instance;
     GameObject          BackgroundMusic;
-    AudioSource         backmusic;
+    public AudioSource         backmusic;
     AudioSource         buttonSound;
     public AudioSource  title;
     public AudioSource  lobby;

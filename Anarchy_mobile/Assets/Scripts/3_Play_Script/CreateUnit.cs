@@ -57,6 +57,15 @@ public class CreateUnit : MonoBehaviourPun
 
     public void CreateButtonClick()
     {
+        if(CentralProcessor.Instance.createNumber <= 0)
+        {
+            CentralProcessor.Instance.uIManager.StopCoroutine("fadeoutErrorMessage");
+            s = "소환 횟수 초과";
+            CentralProcessor.Instance.uIManager.PrintErrorMessage(s);
+            CentralProcessor.Instance.uIManager.StartCoroutine("fadeoutErrorMessage");
+            return;
+        }
+
         if(CheckCost())
         {
             CentralProcessor.Instance.uIManager.StopCoroutine("fadeoutErrorMessage");
@@ -71,6 +80,8 @@ public class CreateUnit : MonoBehaviourPun
             {
                 GameObject u;
                 u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,180,0)) as GameObject;
+                CalculateCost(u.gameObject.GetComponent<MyUnit>().cost);
+                CentralProcessor.Instance.createNumber -= 1;
                 u.gameObject.GetComponent<MyUnit>().myNum = i;
                 u.gameObject.GetComponent<MyUnit>().currentTile = core_Tile;
                 CentralProcessor.Instance.CreatedUnitAreaCheck(isMaster, true, i);
@@ -96,5 +107,10 @@ public class CreateUnit : MonoBehaviourPun
         {
             return !b;
         }
+    }
+
+    public void CalculateCost(int cost)
+    {
+        CentralProcessor.Instance.currentMoney.text = (int.Parse(CentralProcessor.Instance.currentMoney.text) - cost).ToString();
     }
 }

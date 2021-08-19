@@ -34,7 +34,14 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
         {
             if(CentralProcessor.Instance.uIManager.state == UIManager.State.Attack)
             {
-                
+                CentralProcessor.Instance.Attact(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, this.gameObject.GetComponent<PhotonView>().ViewID);
+                if(CentralProcessor.Instance.currentUnit == null)
+                {
+                    return;
+                }
+                OffReady();
+                CentralProcessor.Instance.uIManager.SetIdleState();
+                CentralProcessor.Instance.uIManager.UISetActiveTrue();
             }
             else
             {
@@ -87,5 +94,21 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
         isClicked = false;
         CentralProcessor.Instance.currentUnit = null;
         CentralProcessor.Instance.uIManager.CloseUnitInfo();
+    }
+
+    public void ActiveCostUpdate()
+    {
+        switch(type)
+        {
+            case 1:
+            activeCost =  VariableManager.Instance.war_act;
+            break;
+            case 2:
+            activeCost = VariableManager.Instance.arc_act;
+            break;
+            case 3:
+            activeCost = VariableManager.Instance.mag_act;
+            break;
+        }
     }
 }
