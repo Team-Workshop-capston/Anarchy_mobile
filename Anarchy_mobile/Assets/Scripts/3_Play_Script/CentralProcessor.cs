@@ -35,6 +35,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public int              createNumber = 3;
     public Image            waitingPanel;
     public Text             waitingText;
+    public Queue            que = new Queue();
 
     private void Awake()
     {
@@ -208,11 +209,25 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             t.GiveMoney();
             if(t.occupationCost >= 3)
             {
+                if(!t.GetComponent<Decision>().isChecked)
+                {
+                    if(isMaster)
+                    {
+
+                    }
+                }
                 t.occupationCost = 3;
                 t.isP1Tile = true;
             }
             else if(t.occupationCost <= -3)
             {
+                if(!t.GetComponent<Decision>().isChecked)
+                {
+                    if(!isMaster)
+                    {
+
+                    }
+                }
                 t.occupationCost = -3;
                 t.isP2Tile = true;
             }
