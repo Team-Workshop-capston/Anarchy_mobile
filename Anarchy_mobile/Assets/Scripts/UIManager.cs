@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviourPun
 {
     public Image        ChooseforcePanel;
     public Image        ChoosemapPanel;
+    public Button       nextButton;
     public Button       close_window;
     public GameObject   build_window;
     public GameObject   exit_window;
@@ -38,6 +39,14 @@ public class UIManager : MonoBehaviourPun
 
     public enum State { Ready, Next, Idle, Active, Attack };
     public State state = State.Idle;
+
+    private void Start()
+    {
+        if(SceneManager.GetActiveScene().name == "1_Select")
+        {
+            nextButton.GetComponent<Button>().interactable = false;
+        }
+    }
 
     private void Update()
     {

@@ -12,8 +12,8 @@ public class CreateUnit : MonoBehaviourPun
     bool[] isUnit_area = new bool[3];
     Tile core_Tile;
     Transform[] unit_area = new Transform[3];
-    IEnumerator enumerator;
     string s;
+    
     private void Start()
     {
         isMaster = CentralProcessor.Instance.isMaster;

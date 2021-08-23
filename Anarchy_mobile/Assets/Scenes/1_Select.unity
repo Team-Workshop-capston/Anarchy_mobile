@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChooseforcePanel: {fileID: 1369426115}
   ChoosemapPanel: {fileID: 397696584}
+  nextButton: {fileID: 1138244860}
   close_window: {fileID: 0}
   build_window: {fileID: 0}
   exit_window: {fileID: 0}
@@ -258,6 +259,9 @@ MonoBehaviour:
   unit_activeCost: {fileID: 0}
   unit_name: {fileID: 0}
   mapButtons: []
+  move_nextButton: {fileID: 0}
+  tile_unitPanel: {fileID: 0}
+  offAttackButton: {fileID: 0}
   state: 2
 --- !u!1 &249019856
 GameObject:

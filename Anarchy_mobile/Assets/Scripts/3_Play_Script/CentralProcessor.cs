@@ -36,6 +36,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Image            waitingPanel;
     public Text             waitingText;
     public Queue            que = new Queue();
+    public Cloud            cloud;
 
     private void Awake()
     {
@@ -94,6 +95,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 yield return new WaitForSeconds(2);
                 uIManager.state = UIManager.State.Idle;
                 waitingPanel.gameObject.SetActive(false);
+                cloud.gameObject.SetActive(true);
                 break;
             }
             yield return null;
