@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     {
         backmusic = this.gameObject.GetComponent<AudioSource>();
         backmusic.clip = title.clip;
+        backmusic.loop = true;
         backmusic.Play();
     }
 
@@ -43,6 +44,7 @@ public class AudioManager : MonoBehaviour
     public void StartGameSceneBGM()
     {
         backmusic.clip = game.clip;
+        backmusic.loop = true;
         backmusic.Play();
     }
 
@@ -60,6 +62,7 @@ public class AudioManager : MonoBehaviour
     public void StartTitleBGM()
     {
         backmusic.clip = title.clip;
+        backmusic.loop = true;
         backmusic.Play(); 
     }
 

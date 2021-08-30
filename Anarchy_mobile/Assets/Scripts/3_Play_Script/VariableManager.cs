@@ -34,8 +34,29 @@ public class VariableManager : MonoBehaviour
     public int mag_act;
     public int mag_cost;
 
+    public int UnitCostBuffPrc = 0;
+    public int BuildingCostBuffPrc = 0;
+    public int UnitOffenceBuffPrc = 0;
+    public int UnitDefenceBuffPrc = 0;
+
+    public int War_offBuffPrc = 0;
+    public int Arc_offBuffPrc = 0;
+    public int Mag_offBuffPrc = 0;
+    public int War_DefBuffPrc = 0;
+    public int Arc_DefBuffPrc = 0;
+    public int Mag_DefBuffPrc = 0;
+
+    public int[] buildingcost;
+
+    public int money;
+    public int MoneyBuffPrc = 0;
+
+    bool isMaster;
+
     private void Start()
     {
+        isMaster = CentralProcessor.Instance.isMaster;
+
         if(GameManager.instance.playerData.forceNumber == 1)
         {
             war_hp = society_Variable.war_hp;
@@ -92,6 +113,129 @@ public class VariableManager : MonoBehaviour
         }
     }
 
+    public void BuffSelect(int num)
+    {
+        switch(num)
+        {
+            case 1:
+            UnitOffenceEffect(0.2f);
+            break;
+            case 2:
+            UnitOffenceEffect(-0.2f);
+            break;
+            case 3:
+            UnitCostEffect(-0.2f);
+            break;
+            case 4:
+            UnitCostEffect(0.2f);
+            break;
+            case 5:
+            BuildingCostEffect(-0.2f);
+            break;
+            case 6:
+            BuildingCostEffect(0.2f);
+            break;
+            case 7:
+            UnitActiveCostEffect(1);
+            break;
+            case 8:
+            UnitActiveCostEffect(-1);
+            break;
+            case 9:
+            GoodsProductionEffect(0.2f);
+            break;
+            case 10:
+            GoodsProductionEffect(-0.2f);
+            break;
+            case 11:
+            break;
+            case 12:
+            break;
+            case 13:
+            UnitDefensiveEffect(0.2f);
+            break;
+            case 14:
+            UnitDefensiveEffect(-0.2f);
+            break;
+            case 15:
+            break;
+        }
+    }
+    public void UnitOffenceEffect(float prc)
+    {
+        war_off = Mathf.RoundToInt(war_off * (1 + (UnitOffenceBuffPrc + prc)));
+        arc_off = Mathf.RoundToInt(arc_off * (1 + (UnitOffenceBuffPrc + prc)));
+        mag_off = Mathf.RoundToInt(mag_off * (1 + (UnitOffenceBuffPrc + prc)));
+        if(isMaster)
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(7, war_off, arc_off, mag_off);
+        }
+        else
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(8, war_off, arc_off, mag_off);
+        }
+    }
+
+    public void UnitCostEffect(float prc)
+    {
+        war_cost = Mathf.RoundToInt(war_cost * (1 + (UnitCostBuffPrc + prc)));
+        arc_cost = Mathf.RoundToInt(arc_cost * (1 + (UnitCostBuffPrc + prc)));
+        mag_cost = Mathf.RoundToInt(mag_cost * (1 + (UnitCostBuffPrc + prc)));
+        CentralProcessor.Instance.uIManager.UnitCostUpdate();
+    }
+
+    public void BuildingCostEffect(float prc)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            buildingcost[i] = Mathf.RoundToInt(buildingcost[i] * (1 + (BuildingCostBuffPrc + prc)));
+        }
+    }
+
+    public void UnitActiveCostEffect(int number)
+    {
+        war_act += number;
+        arc_act += number;
+        mag_act += number;
+    }
+
+    public void GoodsProductionEffect(float prc)
+    {
+        money = Mathf.RoundToInt(money * (1 + (MoneyBuffPrc + prc)));
+    }
+
+    public void OccupationCostEffect()
+    {
+
+    }
+
+    public void UnitDefensiveEffect(float prc)
+    {
+        war_def = Mathf.RoundToInt(war_def * (1 + (UnitDefenceBuffPrc + prc)));
+        arc_def = Mathf.RoundToInt(arc_def * (1 + (UnitDefenceBuffPrc + prc)));
+        mag_def = Mathf.RoundToInt(mag_def * (1 + (UnitDefenceBuffPrc + prc)));
+        if(isMaster)
+        {
+            CentralProcessor.Instance.ApplyUnitDefenceEffect(7, war_def, arc_def, mag_def);
+        }
+        else
+        {
+            CentralProcessor.Instance.ApplyUnitDefenceEffect(8, war_def, arc_def, mag_def);
+        }
+    }
+
+    public void UnitStatisticsInit(int type)
+    {
+        switch(type)
+        {
+            case 1:
+            break;
+            case 2:
+            break;
+            case 3:
+            break;
+        }
+    }
 
     [Serializable]
     public class Society_Variable

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class MyBuilding : MonoBehaviour
 {
-    public int cost;
+    public string name;
 }

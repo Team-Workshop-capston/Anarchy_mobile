@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateUnit : MonoBehaviourPun
 {
@@ -13,6 +14,8 @@ public class CreateUnit : MonoBehaviourPun
     Tile core_Tile;
     Transform[] unit_area = new Transform[3];
     string s;
+    public Sprite[] illust;
+    public Text UnitCost;
     
     private void Start()
     {
@@ -22,12 +25,18 @@ public class CreateUnit : MonoBehaviourPun
             switch(GameManager.instance.playerData.forceNumber)
             {
                 case 1:
+                this.GetComponent<Button>().image.sprite = illust[0];
+                UnitCost.text = UnitCost.text + "  " +  VariableManager.Instance.war_cost.ToString();
                 unit = p1_units[0];
                 break;
                 case 2:
+                this.GetComponent<Button>().image.sprite = illust[1];
+                UnitCost.text = UnitCost.text + "  " + VariableManager.Instance.arc_cost.ToString();
                 unit = p1_units[1];
                 break;
                 case 3:
+                this.GetComponent<Button>().image.sprite = illust[2];
+                UnitCost.text = UnitCost.text + "  " +  VariableManager.Instance.mag_cost.ToString();
                 unit = p1_units[2];
                 break;
             }
@@ -40,12 +49,18 @@ public class CreateUnit : MonoBehaviourPun
             switch(GameManager.instance.playerData.forceNumber)
             {
                 case 1:
+                this.GetComponent<Button>().image.sprite = illust[0];
+                UnitCost.text = UnitCost.text + "  " +  VariableManager.Instance.war_cost.ToString();
                 unit = p2_units[0];
                 break;
                 case 2:
+                this.GetComponent<Button>().image.sprite = illust[1];
+                UnitCost.text = UnitCost.text + "  " +  VariableManager.Instance.arc_cost.ToString();
                 unit = p2_units[1];
                 break;
                 case 3:
+                this.GetComponent<Button>().image.sprite = illust[2];
+                UnitCost.text = UnitCost.text + "  " +  VariableManager.Instance.mag_cost.ToString();
                 unit = p2_units[2];
                 break;
             }
@@ -79,7 +94,14 @@ public class CreateUnit : MonoBehaviourPun
             if(!isUnit_area[i])
             {
                 GameObject u;
-                u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,180,0)) as GameObject;
+                if(isMaster)
+                {
+                    u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,180,0)) as GameObject;
+                }
+                else
+                {
+                    u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,-180,0)) as GameObject;
+                }
                 CalculateCost(u.gameObject.GetComponent<MyUnit>().cost);
                 CentralProcessor.Instance.createNumber -= 1;
                 u.gameObject.GetComponent<MyUnit>().myNum = i;

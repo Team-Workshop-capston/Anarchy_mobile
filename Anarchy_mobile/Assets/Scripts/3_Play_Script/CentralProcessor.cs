@@ -75,14 +75,14 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if((isMaster && turn_Number % 2 == 0) || (!isMaster && turn_Number % 2 == 1))
-        {
-            whoseTurn.text = "Your Turn!";
-        }
-        else if((isMaster && turn_Number % 2 == 1) || (!isMaster && turn_Number % 2 == 0))
-        {
-            whoseTurn.text = "Other Turn!";
-        }
+        // if((isMaster && turn_Number % 2 == 0) || (!isMaster && turn_Number % 2 == 1))
+        // {
+        //     whoseTurn.text = "Your Turn!";
+        // }
+        // else if((isMaster && turn_Number % 2 == 1) || (!isMaster && turn_Number % 2 == 0))
+        // {
+        //     whoseTurn.text = "Other Turn!";
+        // }
     }
 
     IEnumerator Waiting()
@@ -167,6 +167,21 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         photonView.RPC("BuildingUpgradeRPC", RpcTarget.All, buildingId);
     }
+
+    public void ApplyUnitOffenceEffect(int layer, int war_off, int arc_off, int mag_off)
+    {
+        photonView.RPC("ApplyUnitOffenceEffectRPC", RpcTarget.All, layer, war_off, arc_off, mag_off);
+    }
+
+    public void ApplyUnitDefenceEffect(int layer, int war_def, int arc_def, int mag_def)
+    {
+        photonView.RPC("ApplyUnitDefenceEffectRPC", RpcTarget.All, war_def, arc_def, mag_def);
+    }
+
+    public void ApplyUnitActiveCostEffect(int layer)
+    {
+
+    }
 #endregion
 
 #region // RPC functions
@@ -199,7 +214,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     [PunRPC]
     private void NextTurnRPC()
     {
-        currentTurn.text = ((turn_Number / 2) + 1).ToString() + " Turn";
+        currentTurn.text = ((turn_Number / 2) + 1).ToString() + "   Turn";
     }
 
     [PunRPC]
@@ -211,32 +226,41 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             t.GiveMoney();
             if(t.occupationCost >= 3)
             {
-                if(!t.GetComponent<Decision>().isChecked)
+                if(!t.GetComponent<Tile>().isDecision)
                 {
                     if(isMaster)
                     {
-
+                        t.GetComponent<Tile>().isDecision = true;
+                        t.decisionIcon.GetComponent<DecisionIcon>().gameObject.SetActive(true);
+                        t.decisionIcon.GetComponent<DecisionIcon>().isP1Decision = true;
                     }
                 }
                 t.occupationCost = 3;
                 t.isP1Tile = true;
+                t.gameObject.transform.Find("Flag").gameObject.SetActive(true);
+                t.gameObject.transform.Find("Flag").GetComponent<Renderer>().material.color = Color.blue;
             }
             else if(t.occupationCost <= -3)
             {
-                if(!t.GetComponent<Decision>().isChecked)
+                if(!t.GetComponent<Tile>().isDecision)
                 {
                     if(!isMaster)
                     {
-
+                        t.GetComponent<Tile>().isDecision = true;
+                        t.decisionIcon.GetComponent<DecisionIcon>().gameObject.SetActive(true);
+                        t.decisionIcon.GetComponent<DecisionIcon>().isP2Decision = true;
                     }
                 }
                 t.occupationCost = -3;
                 t.isP2Tile = true;
+                t.gameObject.transform.Find("Flag").gameObject.SetActive(true);
+                t.gameObject.transform.Find("Flag").GetComponent<Renderer>().material.color = Color.red;
             }
             else
             {
                 t.isP1Tile = false;
                 t.isP2Tile = false;
+                t.gameObject.transform.Find("Flag").gameObject.SetActive(false);
             }
         }
     }
@@ -375,12 +399,6 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void ApplyFieldUnitVariableRPC()
-    {
-
-    }
-
-    [PunRPC]
     private void AttackRPC(int myId, int enemyId)
     {
         GameObject[] units = GameObject.FindGameObjectsWithTag("Unit");
@@ -402,7 +420,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 case 2:
                                 break;
                                 case 3:
-                                myUnit.GetComponent<MyUnit>().current_hp -= 5;
+                                //myUnit.GetComponent<MyUnit>().current_hp -= 5;
                                 break;
                             }
 
@@ -429,7 +447,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 case 2:
                                 break;
                                 case 3:
-                                myUnit.GetComponent<MyUnit>().current_hp -= 5 + Mathf.RoundToInt((enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive) * 0.8f);
+                                //myUnit.GetComponent<MyUnit>().current_hp -= 5 + Mathf.RoundToInt((enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive) * 0.8f);
                                 break;
                             }
 
@@ -492,6 +510,54 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 Destroy(b.gameObject);
                 return;
+            }
+        }
+    }
+
+    [PunRPC]
+    private void ApplyUnitOffenceEffectRPC(int layer, int war_off, int arc_off, int mag_off)
+    {
+        MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
+        foreach(MyUnit unit in units)
+        {
+            if(unit.gameObject.layer == layer)
+            {
+                switch(unit.type)
+                {
+                    case 1:
+                    unit.offensive = war_off;
+                    break;
+                    case 2:
+                    unit.offensive = arc_off;
+                    break;
+                    case 3:
+                    unit.offensive = mag_off;
+                    break;
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    private void ApplyUnitDefenceEffectRPC(int layer, int war_def, int arc_def, int mag_def)
+    {
+        MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
+        foreach(MyUnit unit in units)
+        {
+            if(unit.gameObject.layer == layer)
+            {
+                switch(unit.type)
+                {
+                    case 1:
+                    unit.defensive = war_def;
+                    break;
+                    case 2:
+                    unit.defensive = arc_def;
+                    break;
+                    case 3:
+                    unit.defensive = mag_def;
+                    break;
+                }
             }
         }
     }

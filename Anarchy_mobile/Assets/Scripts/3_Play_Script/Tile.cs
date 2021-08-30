@@ -20,8 +20,10 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public MyUnit[]     P2_units = new MyUnit[3];
     bool isMaster;
     public Transform cameraPoint;
-    public bool isCheckted = true;
+    public bool isDecision = true;
     public Image minimap_Tile;
+    public GameObject decisionIcon;
+
     private void Start()
     {
         isMaster = CentralProcessor.Instance.isMaster;
@@ -55,13 +57,13 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
         if(isMaster && isP1Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += 200;
+            currentMoney += VariableManager.Instance.money;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
         }
         else if(!isMaster && isP2Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += 200;
+            currentMoney += VariableManager.Instance.money;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
         }
     }

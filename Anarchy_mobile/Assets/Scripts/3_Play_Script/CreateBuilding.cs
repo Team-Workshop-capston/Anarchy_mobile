@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateBuilding : MonoBehaviourPun
 {
@@ -46,14 +47,14 @@ public class CreateBuilding : MonoBehaviourPun
             {
                 GameObject b;
                 b = PhotonNetwork.Instantiate(building.name, P1_buildingArea[type].position, Quaternion.Euler(0,0,0)) as GameObject;
-                CalculateCost(b.gameObject.GetComponent<MyBuilding>().cost);
+                CalculateCost(VariableManager.Instance.buildingcost[0]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
             }
             else
             {
                 GameObject b;
                 b = PhotonNetwork.Instantiate(building.name, P2_buildingArea[type].position, Quaternion.Euler(0,0,0)) as GameObject;
-                CalculateCost(b.gameObject.GetComponent<MyBuilding>().cost);
+                CalculateCost(VariableManager.Instance.buildingcost[0]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
             }
             level++;
@@ -66,14 +67,14 @@ public class CreateBuilding : MonoBehaviourPun
             {
                 GameObject b;
                 b = PhotonNetwork.Instantiate(building.name, P1_buildingArea[type].position, Quaternion.Euler(0,0,0)) as GameObject;
-                CalculateCost(b.gameObject.GetComponent<MyBuilding>().cost);
+                CalculateCost(VariableManager.Instance.buildingcost[level]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
             }
             else
             {
                 GameObject b;
                 b = PhotonNetwork.Instantiate(building.name, P2_buildingArea[type].position, Quaternion.Euler(0,0,0)) as GameObject;
-                CalculateCost(b.gameObject.GetComponent<MyBuilding>().cost);
+                CalculateCost(VariableManager.Instance.buildingcost[level]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
             }
             level++;
@@ -83,7 +84,7 @@ public class CreateBuilding : MonoBehaviourPun
     public bool CheckCost()
     {
         bool b = true;
-        if(building.gameObject.GetComponent<MyBuilding>().cost > int.Parse(CentralProcessor.Instance.currentMoney.text))
+        if(VariableManager.Instance.buildingcost[level] > int.Parse(CentralProcessor.Instance.currentMoney.text))
         {
             return b;
         }

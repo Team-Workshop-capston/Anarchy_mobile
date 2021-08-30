@@ -1058,7 +1058,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1255,11 +1255,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChooseforcePanel: {fileID: 0}
   ChoosemapPanel: {fileID: 0}
+  nextButton: {fileID: 0}
   close_window: {fileID: 0}
-  unit_window: {fileID: 0}
   build_window: {fileID: 0}
   exit_window: {fileID: 0}
   setting_window: {fileID: 0}
+  movemap_window: {fileID: 0}
+  unit_window: {fileID: 0}
+  decision_window: {fileID: 0}
   buttons: []
   s_map: {fileID: 0}
   b_map: {fileID: 0}
@@ -1267,6 +1270,19 @@ MonoBehaviour:
   money: {fileID: 0}
   errorMessage: {fileID: 0}
   FadeTime: 1
+  unitInfo_panel: {fileID: 0}
+  unit_illust: {fileID: 0}
+  unit_hp: {fileID: 0}
+  unit_activeCost: {fileID: 0}
+  unit_name: {fileID: 0}
+  mapButtons: []
+  move_nextButton: {fileID: 0}
+  tile_unitPanel: {fileID: 0}
+  offAttackButton: {fileID: 0}
+  decision_img: {fileID: 0}
+  decision_story: {fileID: 0}
+  decision_effect: {fileID: 0}
+  state: 2
 --- !u!1 &857394810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NEW GAME
+  m_Text: GAME START
 --- !u!222 &1828478858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2206,6 +2222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f9d90f86358094f8bfa9b2ab189882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backmusic: {fileID: 0}
   title: {fileID: 1939843757}
   lobby: {fileID: 420442527}
   game: {fileID: 455692974}

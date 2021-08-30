@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviourPun
     public GameObject   setting_window;
     public GameObject   movemap_window;
     public GameObject   unit_window;
+    public GameObject   decision_window;
     public Button[]     buttons;
     public Image        s_map; // 작은 지도
     public Image        b_map; // 이동버튼 눌렀을 때 나오는 큰 지도
@@ -36,6 +37,11 @@ public class UIManager : MonoBehaviourPun
     public Button   move_nextButton;
     public Image    tile_unitPanel;
     public Button   offAttackButton;
+    public Image    decision_img;
+    public Text     decision_story;
+    public Text     decision_effect;
+    public Text[]   UnitCost;
+    public Text[]   BuildCost;
 
     public enum State { Ready, Next, Idle, Active, Attack };
     public State state = State.Idle;
@@ -59,6 +65,12 @@ public class UIManager : MonoBehaviourPun
                     state = State.Active;
                     close_window.gameObject.SetActive(true);
                     exit_window.gameObject.SetActive(true);
+                    UISetActiveFalse();
+                    if(CentralProcessor.Instance.currentUnit != null)
+                    {
+                        CentralProcessor.Instance.currentUnit.OffReady();
+                    }
+
                 }
                 else if(state == State.Active && Input.GetKey(KeyCode.Escape))
                 {
@@ -111,6 +123,10 @@ public class UIManager : MonoBehaviourPun
         close_window.gameObject.SetActive(true);
         setting_window.gameObject.SetActive(true);
         UISetActiveFalse();
+        if(CentralProcessor.Instance.currentUnit != null)
+        {
+            CentralProcessor.Instance.currentUnit.OffReady();
+        }
     }
 
     public void UnitButtonClick()
@@ -119,6 +135,10 @@ public class UIManager : MonoBehaviourPun
         close_window.gameObject.SetActive(true);
         unit_window.gameObject.SetActive(true);
         UISetActiveFalse();
+        if(CentralProcessor.Instance.currentUnit != null)
+        {
+            CentralProcessor.Instance.currentUnit.OffReady();
+        }
     }
 
     public void BuildButtonClick()
@@ -127,6 +147,16 @@ public class UIManager : MonoBehaviourPun
         close_window.gameObject.SetActive(true);
         build_window.gameObject.SetActive(true);
         UISetActiveFalse();
+        if(CentralProcessor.Instance.currentUnit != null)
+        {
+            CentralProcessor.Instance.currentUnit.OffReady();
+        }
+    }
+
+    public void ShowDecisionEffect()
+    {
+        close_window.gameObject.SetActive(true);
+        decision_window.gameObject.SetActive(true);
     }
 
     public void MoveButtonClick()
@@ -164,6 +194,7 @@ public class UIManager : MonoBehaviourPun
         {
             CentralProcessor.Instance.currentUnit.OffReady();
         }
+        VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(false);
     }
 
     public void UISetActiveTrue()
@@ -316,6 +347,25 @@ public class UIManager : MonoBehaviourPun
         {
             b.gameObject.SetActive(true);
         }
+    }
+
+    public void DecisionButtonClick()
+    {
+        if(VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.activeSelf == true)
+        {
+            VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(false);
+        }
+        else
+        {
+            VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(true);
+        }
+    }
+
+    public void UnitCostUpdate()
+    {
+        UnitCost[0].text = "근접  " + VariableManager.Instance.war_act.ToString();
+        UnitCost[1].text = "원거리  " + VariableManager.Instance.arc_act.ToString();
+        UnitCost[2].text = "영웅  " + VariableManager.Instance.mag_act.ToString();
     }
 
     IEnumerator fadeoutErrorMessage()
