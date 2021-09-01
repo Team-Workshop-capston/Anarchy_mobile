@@ -59,6 +59,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.Outline
     - UnityEngine.UI.Shadow
@@ -395,6 +396,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4356}
     - Class: 114
       Script: {instanceID: 4584}
+    - Class: 114
+      Script: {instanceID: 4744}
     - Class: 114
       Script: {instanceID: 4812}
     - Class: 114
@@ -914,7 +917,7 @@ ScriptsOnlyBuild:
     className: OnEscapeQuit
   - hash:
       serializedVersion: 2
-      Hash: e8fa8989a682e29b67ca47a7b38c51de
+      Hash: 6283b08da221f030adcc9d24d4fe943f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -1190,7 +1193,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: 4b618b80ae829c9e3079e857dc102731
+      Hash: 1df5043f0424ac97346ea8f965958921
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MyBuilding
@@ -1490,7 +1493,7 @@ ScriptsOnlyBuild:
     className: PlayerManager
   - hash:
       serializedVersion: 2
-      Hash: da68c4795d46b0375cb58c6351091528
+      Hash: 45b9f45ed42be177f03ca60227476cce
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CreateUnit
@@ -1682,7 +1685,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: e1ed53c3b24deda4507208268618a735
+      Hash: fa8c1ac03ef272663edb18c26cc0ba2b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Decision
@@ -1890,4 +1893,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/1_Select.unity
   - Assets/Scenes/2_Lobby.unity
   - Assets/Scenes/3_Play.unity
-  playerPath: D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/mobile_23.apk
+  playerPath: D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/mobile_25.apk

@@ -40,8 +40,6 @@ public class UIManager : MonoBehaviourPun
     public Image    decision_img;
     public Text     decision_story;
     public Text     decision_effect;
-    public Text[]   UnitCost;
-    public Text[]   BuildCost;
 
     public enum State { Ready, Next, Idle, Active, Attack };
     public State state = State.Idle;
@@ -70,7 +68,6 @@ public class UIManager : MonoBehaviourPun
                     {
                         CentralProcessor.Instance.currentUnit.OffReady();
                     }
-
                 }
                 else if(state == State.Active && Input.GetKey(KeyCode.Escape))
                 {
@@ -359,13 +356,6 @@ public class UIManager : MonoBehaviourPun
         {
             VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(true);
         }
-    }
-
-    public void UnitCostUpdate()
-    {
-        UnitCost[0].text = "근접  " + VariableManager.Instance.war_act.ToString();
-        UnitCost[1].text = "원거리  " + VariableManager.Instance.arc_act.ToString();
-        UnitCost[2].text = "영웅  " + VariableManager.Instance.mag_act.ToString();
     }
 
     IEnumerator fadeoutErrorMessage()

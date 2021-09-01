@@ -642,8 +642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 470, y: -100}
-  m_SizeDelta: {x: 550, y: 900}
+  m_AnchoredPosition: {x: 530, y: -30}
+  m_SizeDelta: {x: 560, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &517887292
 MonoBehaviour:
@@ -733,8 +733,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 470, y: -100}
-  m_SizeDelta: {x: 550, y: 900}
+  m_AnchoredPosition: {x: 530, y: -30}
+  m_SizeDelta: {x: 560, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582900482
 MonoBehaviour:
@@ -1282,6 +1282,8 @@ MonoBehaviour:
   decision_img: {fileID: 0}
   decision_story: {fileID: 0}
   decision_effect: {fileID: 0}
+  UnitCost: []
+  BuildCost: []
   state: 2
 --- !u!1 &857394810
 GameObject:
@@ -1477,8 +1479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 470, y: -100}
-  m_SizeDelta: {x: 550, y: 900}
+  m_AnchoredPosition: {x: 530, y: -30}
+  m_SizeDelta: {x: 560, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179473648
 MonoBehaviour:

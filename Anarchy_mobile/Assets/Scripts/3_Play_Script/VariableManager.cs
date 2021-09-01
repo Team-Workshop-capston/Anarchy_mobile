@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class VariableManager : MonoBehaviour
@@ -34,10 +35,20 @@ public class VariableManager : MonoBehaviour
     public int mag_act;
     public int mag_cost;
 
-    public int UnitCostBuffPrc = 0;
-    public int BuildingCostBuffPrc = 0;
-    public int UnitOffenceBuffPrc = 0;
-    public int UnitDefenceBuffPrc = 0;
+    public int[] result_UnitOffence = new int[3];
+    public int[] result_UnitDefence = new int[3];
+    public float UnitCostBuffPrc = 0;
+    public float BuildingCostBuffPrc = 0;
+    public float UnitOffenceBuffPrc = 0;
+    public float UnitDefenceBuffPrc = 0;
+
+    public int[] unit_resultCost = new int[3];
+    public Text Unit1;
+    public Text Unit2;
+    public Text Unit3;
+    public Queue<float> UnitEffects = new Queue<float>();
+    public bool isUnitCostEffect = false;
+    public float currentUnitBuff;
 
     public int War_offBuffPrc = 0;
     public int Arc_offBuffPrc = 0;
@@ -46,10 +57,26 @@ public class VariableManager : MonoBehaviour
     public int Arc_DefBuffPrc = 0;
     public int Mag_DefBuffPrc = 0;
 
-    public int[] buildingcost;
+    public int[] building_costs;
+    public string[] building_names;
+    public int[] building_resultCost = new int[3];
+    public Button building1;
+    public Button building2;
+    public Button building3;
+    public Text building1_name;
+    public Text building2_name;
+    public Text building3_name;
+    public Text building1_cost;
+    public Text building2_cost;
+    public Text building3_cost;
+    public bool isBuildCostEffect = false;
+    public Queue<float> buildEffects = new Queue<float>();
+    public float currentBuff;
 
     public int money;
-    public int MoneyBuffPrc = 0;
+    public int resultMoney;
+    public float MoneyBuffPrc = 0;
+    public int plusMoney = 0;
 
     bool isMaster;
 
@@ -113,27 +140,32 @@ public class VariableManager : MonoBehaviour
         }
     }
 
+    public void Test()
+    {
+        BuffSelect(3);
+    }
+
     public void BuffSelect(int num)
     {
         switch(num)
         {
             case 1:
-            UnitOffenceEffect(0.2f);
+            UnitOffenceEffect(0.4f);
             break;
             case 2:
             UnitOffenceEffect(-0.2f);
             break;
             case 3:
-            UnitCostEffect(-0.2f);
+            UnitCostEffect(-0.5f);
             break;
             case 4:
-            UnitCostEffect(0.2f);
+            UnitCostEffect(0.5f);
             break;
             case 5:
-            BuildingCostEffect(-0.2f);
+            BuildingCostEffect(-0.5f);
             break;
             case 6:
-            BuildingCostEffect(0.2f);
+            BuildingCostEffect(0.5f);
             break;
             case 7:
             UnitActiveCostEffect(1);
@@ -142,7 +174,7 @@ public class VariableManager : MonoBehaviour
             UnitActiveCostEffect(-1);
             break;
             case 9:
-            GoodsProductionEffect(0.2f);
+            GoodsProductionEffect(0.4f);
             break;
             case 10:
             GoodsProductionEffect(-0.2f);
@@ -152,7 +184,7 @@ public class VariableManager : MonoBehaviour
             case 12:
             break;
             case 13:
-            UnitDefensiveEffect(0.2f);
+            UnitDefensiveEffect(0.4f);
             break;
             case 14:
             UnitDefensiveEffect(-0.2f);
@@ -161,34 +193,118 @@ public class VariableManager : MonoBehaviour
             break;
         }
     }
+
+    public void BuildingBuffSelect(int num)
+    {
+        switch(num)
+        {
+            case 1:
+            plusMoney = (int)(resultMoney * 0.5f);
+            break;
+            case 2:
+            plusMoney = 0;
+            GoodsProductionEffect(1);
+            break;
+            case 3:
+            GoodsProductionEffect(0.5f);
+            break;
+            case 4:
+            WarUnit_OffenceBuff(0.5f);
+            break;
+            case 5:
+            ArcUnit_OffenceBuff(0.5f);
+            MagUnit_OffenceBuff(0.5f);
+            break;
+            case 6:
+            UnitOffenceEffect(0.5f);
+            break;
+            case 7:
+            BuildingBuff_unitCost(-0.1f);
+            BuildingBuff_buildingCost(-0.1f);
+            break;
+            case 8:
+            BuildingBuff_unitCost(-0.2f);
+            break;
+            case 9:
+            BuildingBuff_buildingCost(-0.2f);
+            break;
+        }
+    }
     public void UnitOffenceEffect(float prc)
     {
-        war_off = Mathf.RoundToInt(war_off * (1 + (UnitOffenceBuffPrc + prc)));
-        arc_off = Mathf.RoundToInt(arc_off * (1 + (UnitOffenceBuffPrc + prc)));
-        mag_off = Mathf.RoundToInt(mag_off * (1 + (UnitOffenceBuffPrc + prc)));
+        result_UnitOffence[0] = Mathf.RoundToInt(war_off * (1 + (UnitOffenceBuffPrc + prc)));
+        result_UnitOffence[1] = Mathf.RoundToInt(arc_off * (1 + (UnitOffenceBuffPrc + prc)));
+        result_UnitOffence[2] = Mathf.RoundToInt(mag_off * (1 + (UnitOffenceBuffPrc + prc)));
         if(isMaster)
         {
-            CentralProcessor.Instance.ApplyUnitOffenceEffect(7, war_off, arc_off, mag_off);
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(7, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
         }
         else
         {
-            CentralProcessor.Instance.ApplyUnitOffenceEffect(8, war_off, arc_off, mag_off);
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(8, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
         }
+        UnitOffenceBuffPrc += prc;
     }
 
     public void UnitCostEffect(float prc)
     {
-        war_cost = Mathf.RoundToInt(war_cost * (1 + (UnitCostBuffPrc + prc)));
-        arc_cost = Mathf.RoundToInt(arc_cost * (1 + (UnitCostBuffPrc + prc)));
-        mag_cost = Mathf.RoundToInt(mag_cost * (1 + (UnitCostBuffPrc + prc)));
-        CentralProcessor.Instance.uIManager.UnitCostUpdate();
+        if(isUnitCostEffect)
+        {
+            UnitEffects.Enqueue(prc);
+            return;
+        }
+        else
+        {
+            currentUnitBuff = prc;
+            isUnitCostEffect = true;
+            unit_resultCost[0] = Mathf.RoundToInt(war_cost * (1 + (UnitCostBuffPrc + prc)));
+            unit_resultCost[1] = Mathf.RoundToInt(arc_cost * (1 + (UnitCostBuffPrc + prc)));
+            unit_resultCost[2] = Mathf.RoundToInt(mag_cost * (1 + (UnitCostBuffPrc + prc)));
+        }
+        UnitCostBuffPrc += prc;
+        UnitCostSetting();
+    }
+
+    public void UnitCostSetting()
+    {
+        Unit1.text = unit_resultCost[0].ToString();
+        Unit2.text = unit_resultCost[1].ToString();
+        Unit3.text = unit_resultCost[2].ToString();
     }
 
     public void BuildingCostEffect(float prc)
     {
-        for(int i = 0; i < 3; i++)
+        if(isBuildCostEffect)
         {
-            buildingcost[i] = Mathf.RoundToInt(buildingcost[i] * (1 + (BuildingCostBuffPrc + prc)));
+            buildEffects.Enqueue(prc);
+            return;
+        }
+        else if(!isBuildCostEffect)
+        {
+            currentBuff = prc;
+            isBuildCostEffect = true;
+            for(int i = 0; i < 3; i++)
+            {
+                building_resultCost[i] = Mathf.RoundToInt(building_costs[i] * (1 + (BuildingCostBuffPrc + prc)));
+            }
+            BuildingCostBuffPrc += prc;
+        }
+        BuildingCostSetting();
+    }
+
+    public void BuildingCostSetting()
+    {
+        if(building1.GetComponent<CreateBuilding>().level < 3)
+        {
+            building1_cost.text = building_resultCost[building1.GetComponent<CreateBuilding>().level].ToString();
+        }
+        if(building2.GetComponent<CreateBuilding>().level < 3)
+        {
+            building2_cost.text = building_resultCost[building2.GetComponent<CreateBuilding>().level].ToString();
+        }
+        if(building3.GetComponent<CreateBuilding>().level < 3)
+        {
+            building3_cost.text = building_resultCost[building3.GetComponent<CreateBuilding>().level].ToString();
         }
     }
 
@@ -201,7 +317,8 @@ public class VariableManager : MonoBehaviour
 
     public void GoodsProductionEffect(float prc)
     {
-        money = Mathf.RoundToInt(money * (1 + (MoneyBuffPrc + prc)));
+        resultMoney = Mathf.RoundToInt(money * (1 + (MoneyBuffPrc + prc)));
+        MoneyBuffPrc += prc;
     }
 
     public void OccupationCostEffect()
@@ -211,17 +328,79 @@ public class VariableManager : MonoBehaviour
 
     public void UnitDefensiveEffect(float prc)
     {
-        war_def = Mathf.RoundToInt(war_def * (1 + (UnitDefenceBuffPrc + prc)));
-        arc_def = Mathf.RoundToInt(arc_def * (1 + (UnitDefenceBuffPrc + prc)));
-        mag_def = Mathf.RoundToInt(mag_def * (1 + (UnitDefenceBuffPrc + prc)));
+        result_UnitDefence[0] = Mathf.RoundToInt(war_def * (1 + (UnitDefenceBuffPrc + prc)));
+        result_UnitDefence[1] = Mathf.RoundToInt(arc_def * (1 + (UnitDefenceBuffPrc + prc)));
+        result_UnitDefence[2] = Mathf.RoundToInt(mag_def * (1 + (UnitDefenceBuffPrc + prc)));
         if(isMaster)
         {
-            CentralProcessor.Instance.ApplyUnitDefenceEffect(7, war_def, arc_def, mag_def);
+            CentralProcessor.Instance.ApplyUnitDefenceEffect(7, result_UnitDefence[0], result_UnitDefence[1], result_UnitDefence[2]);
         }
         else
         {
-            CentralProcessor.Instance.ApplyUnitDefenceEffect(8, war_def, arc_def, mag_def);
+            CentralProcessor.Instance.ApplyUnitDefenceEffect(8, result_UnitDefence[0], result_UnitDefence[1], result_UnitDefence[2]);
         }
+        UnitDefenceBuffPrc += prc;
+    }
+
+    public void WarUnit_OffenceBuff(float prc)
+    {
+        result_UnitOffence[0] = Mathf.RoundToInt(war_off * (1 + (UnitOffenceBuffPrc + prc)));
+        if(isMaster)
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(7, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
+        }
+        else
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(8, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
+        }
+        UnitOffenceBuffPrc += prc;
+    }
+
+    public void ArcUnit_OffenceBuff(float prc)
+    {
+        result_UnitOffence[1] = Mathf.RoundToInt(war_off * (1 + (UnitOffenceBuffPrc + prc)));
+        if(isMaster)
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(7, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
+        }
+        else
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(8, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
+        }
+        UnitOffenceBuffPrc += prc;
+    }
+
+    public void MagUnit_OffenceBuff(float prc)
+    {
+        result_UnitOffence[2] = Mathf.RoundToInt(war_off * (1 + (UnitOffenceBuffPrc + prc)));
+        if(isMaster)
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(7, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
+        }
+        else
+        {
+            CentralProcessor.Instance.ApplyUnitOffenceEffect(8, result_UnitOffence[0], result_UnitOffence[1], result_UnitOffence[2]);
+        }
+        UnitOffenceBuffPrc += prc;
+    }
+
+    public void BuildingBuff_unitCost(float prc)
+    {
+        unit_resultCost[0] = Mathf.RoundToInt(war_cost * (1 + (UnitCostBuffPrc + prc)));
+        unit_resultCost[1] = Mathf.RoundToInt(arc_cost * (1 + (UnitCostBuffPrc + prc)));
+        unit_resultCost[2] = Mathf.RoundToInt(mag_cost * (1 + (UnitCostBuffPrc + prc)));
+        UnitCostBuffPrc += prc;
+        UnitCostSetting();
+    }
+
+    public void BuildingBuff_buildingCost(float prc)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            building_resultCost[i] = Mathf.RoundToInt(building_costs[i] * (1 + (BuildingCostBuffPrc + prc)));
+        }
+        BuildingCostBuffPrc += prc;
+        BuildingCostSetting();
     }
 
     public void UnitStatisticsInit(int type)

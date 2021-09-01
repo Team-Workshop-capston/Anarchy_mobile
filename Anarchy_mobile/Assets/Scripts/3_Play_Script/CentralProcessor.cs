@@ -32,7 +32,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Button           current_moveButton;
     public GameObject[]     tiles;
     public MyBuilding[]     currentBuildings = new MyBuilding[3];
-    public int              createNumber = 3;
+    public int              createUnitNumber = 3;
+    public int              createBuildingNumber = 1;
     public Image            waitingPanel;
     public Text             waitingText;
     public Queue            que = new Queue();
@@ -147,13 +148,13 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         switch(type)
         {
             case 1:
-            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.war_hp, VariableManager.Instance.war_off, VariableManager.Instance.war_def, VariableManager.Instance.war_act);
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.war_hp, VariableManager.Instance.result_UnitOffence[0], VariableManager.Instance.result_UnitDefence[0], VariableManager.Instance.war_act);
             break;
             case 2:
-            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.arc_hp, VariableManager.Instance.arc_off, VariableManager.Instance.arc_def, VariableManager.Instance.arc_act);
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.arc_hp, VariableManager.Instance.result_UnitOffence[1], VariableManager.Instance.result_UnitDefence[1], VariableManager.Instance.arc_act);
             break;
             case 3:
-            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.mag_hp, VariableManager.Instance.mag_off, VariableManager.Instance.mag_def, VariableManager.Instance.mag_act);
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.mag_hp, VariableManager.Instance.result_UnitOffence[2], VariableManager.Instance.result_UnitDefence[2], VariableManager.Instance.mag_act);
             break;
         }
     }
@@ -215,6 +216,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private void NextTurnRPC()
     {
         currentTurn.text = ((turn_Number / 2) + 1).ToString() + "   Turn";
+        createBuildingNumber = 1;
     }
 
     [PunRPC]
@@ -268,7 +270,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     [PunRPC]
     private void UnitUpdateRPC()
     {
-        createNumber = 3;
+        createUnitNumber = 3;
         MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
         foreach(MyUnit u in units)
         {

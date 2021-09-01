@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa92cc45ba046864e9cbc73bb5122211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 300
+  type: 3
 --- !u!114 &-6243399290987166208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 2147015631567677642}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
