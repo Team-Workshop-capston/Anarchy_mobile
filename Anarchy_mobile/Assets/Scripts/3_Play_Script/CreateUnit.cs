@@ -110,6 +110,7 @@ public class CreateUnit : MonoBehaviourPun
                 {
                     u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,-180,0)) as GameObject;
                 }
+                CentralProcessor.Instance.score += 1;
                 CalculateCost(int.Parse(UnitCost.text));
                 CentralProcessor.Instance.createUnitNumber -= 1;
                 u.gameObject.GetComponent<MyUnit>().myNum = i;

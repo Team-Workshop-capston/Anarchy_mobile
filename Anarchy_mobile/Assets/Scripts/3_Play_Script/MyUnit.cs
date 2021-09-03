@@ -19,7 +19,6 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
     public int defensive;
     public int offensive;
     public Tile currentTile;
-    public bool isClicked = false;
     public bool isAttackready = false;
     bool isMaster;
 
@@ -30,70 +29,58 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if((isMaster && this.gameObject.layer == 8) || (!isMaster && this.gameObject.layer == 7))
-        {
-            if(CentralProcessor.Instance.uIManager.state == UIManager.State.Attack)
-            {
-                CentralProcessor.Instance.Attact(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, this.gameObject.GetComponent<PhotonView>().ViewID);
-                if(CentralProcessor.Instance.currentUnit == null)
-                {
-                    return;
-                }
-                OffReady();
-                CentralProcessor.Instance.uIManager.SetIdleState();
-                CentralProcessor.Instance.uIManager.UISetActiveTrue();
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        if(CentralProcessor.Instance.uIManager.state != UIManager.State.Idle)
-        {
-            return;
-        }
-
         if(currentTile != CentralProcessor.Instance.currentTile)
         {
             return;
         }
 
-        if(!isClicked)
+        if(CentralProcessor.Instance.uIManager.state == UIManager.State.Idle)
         {
-            OnReady();
+            if((isMaster && this.gameObject.layer == 8) || (!isMaster && this.gameObject.layer == 7))
+            {
+                CentralProcessor.Instance.uIManager.InfoWindowReset();
+                if(CentralProcessor.Instance.currentEnemy != this.gameObject.GetComponent<MyUnit>())
+                {
+                    CentralProcessor.Instance.currentEnemy = this.gameObject.GetComponent<MyUnit>();
+                    ShowInfo();
+                }
+            }   
+            else
+            {
+                CentralProcessor.Instance.uIManager.InfoWindowReset();
+                if(CentralProcessor.Instance.currentUnit != this.gameObject.GetComponent<MyUnit>())
+                {
+                    OnReady();   
+                }
+            }
         }
-        else
+        else if(CentralProcessor.Instance.uIManager.state == UIManager.State.Attack)
         {
-            OffReady();
+            if((isMaster && this.gameObject.layer == 8) || (!isMaster && this.gameObject.layer == 7))
+            {
+                if(CentralProcessor.Instance.uIManager.state == UIManager.State.Attack)
+                {
+                    CentralProcessor.Instance.Attact(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, this.gameObject.GetComponent<PhotonView>().ViewID);
+                    if(CentralProcessor.Instance.currentUnit == null)
+                    {
+                        return;
+                    }
+                    CentralProcessor.Instance.uIManager.OffReadyAttack();
+                }
+            }
         }
     }
 
     public void OnReady()
     {
-        isClicked = true;
-        if(CentralProcessor.Instance.currentUnit == this.gameObject.GetComponent<MyUnit>())
-        {
-            CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost);
-        }
-        else if(CentralProcessor.Instance.currentUnit == null)
-        {
-            CentralProcessor.Instance.currentUnit = this.gameObject.GetComponent<MyUnit>();
-            CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost);
-        }
-        else
-        {
-            CentralProcessor.Instance.currentUnit.isClicked = false;
-            CentralProcessor.Instance.currentUnit = this.gameObject.GetComponent<MyUnit>();
-            CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost);
-        }
+        CentralProcessor.Instance.currentUnit = this.gameObject.GetComponent<MyUnit>();
+        ShowInfo();
+        CentralProcessor.Instance.uIManager.unitButtonPanel.gameObject.SetActive(true);
     }
 
-    public void OffReady()
+    public void ShowInfo()
     {
-        isClicked = false;
-        CentralProcessor.Instance.currentUnit = null;
-        CentralProcessor.Instance.uIManager.CloseUnitInfo();
+        CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost);
     }
 
     public void ActiveCostUpdate()

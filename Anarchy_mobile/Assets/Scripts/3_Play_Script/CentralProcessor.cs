@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CentralProcessor : MonoBehaviourPunCallbacks
 {
@@ -25,6 +26,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public int              turn_Number = 0;
     public Tile             currentTile;
     public MyUnit           currentUnit;
+    public MyUnit           currentEnemy;
+    public MyBuilding       currentBuilding;
     public Tile             P1_core_Tile;
     public Tile             P2_core_Tile;
     public Text             currentMoney;
@@ -38,6 +41,12 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Text             waitingText;
     public Queue            que = new Queue();
     public Cloud            cloud;
+    public Button           decisionButton;
+    public bool             firstDecision = false;
+
+
+    public int              score = 0;
+
 
     private void Awake()
     {
@@ -67,10 +76,6 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         }
         color = uIManager.errorMessage.color;
         tiles = GameObject.FindGameObjectsWithTag("Tile");
-        if(!isMaster)
-        {
-            uIManager.TurnOff();
-        }
         StartCoroutine(Waiting());
     }
 
@@ -84,6 +89,13 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         // {
         //     whoseTurn.text = "Other Turn!";
         // }
+    }
+
+    public void Exit()
+    {
+        photonView.RPC("ExitRPC", RpcTarget.Others);
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator Waiting()
@@ -102,6 +114,20 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             yield return null;
         }
         
+    }
+
+    public void UnitReset()
+    {
+        currentUnit = null;
+        currentEnemy = null;
+        uIManager.unitInfo_panel.gameObject.SetActive(false);
+        uIManager.unitButtonPanel.gameObject.SetActive(false);
+    }
+
+    public void BuildingReset()
+    {
+        currentBuilding = null;
+        uIManager.buildingInfo_panel.gameObject.SetActive(false);
     }
 
 #region // call RPC function
@@ -190,25 +216,31 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private void AddTurnNumberRPC()
     {
         turn_Number += 1;
+        if(turn_Number >= 100)
+        {
+            uIManager.SetEndState();
+            return;
+        }
+
         if((turn_Number % 2 == 1) && isMaster)
         {
             uIManager.state = UIManager.State.Next;
-            uIManager.TurnOff();
+            uIManager.SetNextState();
         }
         else if((turn_Number % 2 == 0) && !isMaster)
         {
             uIManager.state = UIManager.State.Next;
-            uIManager.TurnOff();
+            uIManager.SetNextState();
         }
         else if((turn_Number % 2 == 0) && isMaster)
         {
             uIManager.state = UIManager.State.Idle;
-            uIManager.TurnOn();
+            uIManager.SetIdleState();
         }
         else if((turn_Number % 2 == 1) && !isMaster)
         {
             uIManager.state = UIManager.State.Idle;
-            uIManager.TurnOn();
+            uIManager.SetIdleState();
         }
     }
 
@@ -226,37 +258,57 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         foreach(Tile t in tiles)
         {
             t.GiveMoney();
-            if(t.occupationCost >= 3)
+            if(t.occupationCost >= 3 && !t.isP1Tile)
             {
-                if(!t.GetComponent<Tile>().isDecision)
+                if(t.isP2CoreTile)
                 {
-                    if(isMaster)
-                    {
-                        t.GetComponent<Tile>().isDecision = true;
-                        t.decisionIcon.GetComponent<DecisionIcon>().gameObject.SetActive(true);
-                        t.decisionIcon.GetComponent<DecisionIcon>().isP1Decision = true;
-                    }
+                    uIManager.SetEndState();
+                    return;
                 }
                 t.occupationCost = 3;
                 t.isP1Tile = true;
                 t.gameObject.transform.Find("Flag").gameObject.SetActive(true);
                 t.gameObject.transform.Find("Flag").GetComponent<Renderer>().material.color = Color.blue;
-            }
-            else if(t.occupationCost <= -3)
-            {
                 if(!t.GetComponent<Tile>().isDecision)
                 {
-                    if(!isMaster)
+                    t.GetComponent<Tile>().isDecision = true;
+                    t.decisionIcon.GetComponent<DecisionIcon>().isP1Decision = true;
+                    if(isMaster)
                     {
-                        t.GetComponent<Tile>().isDecision = true;
+                        if(!firstDecision)
+                        {
+                            firstDecision = true;
+                            decisionButton.gameObject.SetActive(true);
+                        }
                         t.decisionIcon.GetComponent<DecisionIcon>().gameObject.SetActive(true);
-                        t.decisionIcon.GetComponent<DecisionIcon>().isP2Decision = true;
                     }
+                }
+            }
+            else if(t.occupationCost <= -3 && !t.isP2Tile)
+            {
+                if(t.isP1CoreTile)
+                {
+                    uIManager.SetEndState();
+                    return;
                 }
                 t.occupationCost = -3;
                 t.isP2Tile = true;
                 t.gameObject.transform.Find("Flag").gameObject.SetActive(true);
                 t.gameObject.transform.Find("Flag").GetComponent<Renderer>().material.color = Color.red;
+                if(!t.GetComponent<Tile>().isDecision)
+                {
+                    t.GetComponent<Tile>().isDecision = true;
+                    t.decisionIcon.GetComponent<DecisionIcon>().isP2Decision = true;
+                    if(!isMaster)
+                    {
+                        if(!firstDecision)
+                        {
+                            firstDecision = true;
+                            decisionButton.gameObject.SetActive(true);
+                        }
+                        t.decisionIcon.GetComponent<DecisionIcon>().gameObject.SetActive(true);
+                    }
+                }
             }
             else
             {
@@ -275,11 +327,11 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         foreach(MyUnit u in units)
         {
             u.ActiveCostUpdate();
-            if(isMaster && u.gameObject.layer == 7)
+            if(u.gameObject.layer == 7)
             {
                 u.currentTile.occupationCost += 1;
             }
-            else if(!isMaster && u.gameObject.layer == 8)
+            else if(u.gameObject.layer == 8)
             {
                 u.currentTile.occupationCost -= 1;
             }
@@ -467,15 +519,25 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             }
                         }
 
+                        myUnit.GetComponent<MyUnit>().activeCost = 0;
+
                         if(myUnit.GetComponent<MyUnit>().current_hp <= 0)
                         {
                             if(myUnit.gameObject.layer == 7)
                             {
+                                if(!isMaster)
+                                {
+                                    score += 50;
+                                }
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = null;
                             }
                             else if(myUnit.gameObject.layer == 8)
                             {
+                                if(isMaster)
+                                {
+                                    score += 50;
+                                }
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = null;
                             }
@@ -486,11 +548,19 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         {
                             if(enemy.gameObject.layer == 7)
                             {
+                                if(!isMaster)
+                                {
+                                    score += 50;
+                                }
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_unitArea[enemy.GetComponent<MyUnit>().myNum] = null;
                             }
                             else if(enemy.gameObject.layer == 8)
                             {
+                                if(isMaster)
+                                {
+                                    score += 50;
+                                }
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_unitArea[enemy.GetComponent<MyUnit>().myNum] = null;
                             }
@@ -562,6 +632,13 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    [PunRPC]
+    private void ExitRPC()
+    {
+        uIManager.SetEndState();
+        PhotonNetwork.LeaveRoom();
     }
 #endregion
 }

@@ -57,4 +57,10 @@ public class MoveUnit : MonoBehaviour
         Image tmp = this.gameObject.GetComponent<Image>();
         tmp.color = c;
     }
+
+    public void MoveCamera()
+    {
+        pairTile.MoveTile();
+        CentralProcessor.Instance.uIManager.SetIdleState();
+    }
 }

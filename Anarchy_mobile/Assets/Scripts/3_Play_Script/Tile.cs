@@ -9,6 +9,8 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
 {
     public bool isP1Tile = false;
     public bool isP2Tile = false;
+    public bool isP1CoreTile = false;
+    public bool isP2CoreTile = false;
     public int occupationCost = 0;
     public int row;
     public int col;
@@ -31,25 +33,21 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(CentralProcessor.Instance.uIManager.state != UIManager.State.Idle)
+        if(CentralProcessor.Instance.uIManager.state == UIManager.State.Idle)
         {
-            return;
-        }
-
-        if(this.gameObject != CentralProcessor.Instance.currentTile.gameObject)
-        {
-            CentralProcessor.Instance.cameraManager.transform.position = cameraPoint.position;
-            CentralProcessor.Instance.currentTile.minimap_Tile.color = Color.white;
-            CentralProcessor.Instance.currentTile = this.gameObject.GetComponent<Tile>();
-            if(isMaster)
+            if(this.gameObject != CentralProcessor.Instance.currentTile.gameObject)
             {
-                this.minimap_Tile.color = Color.blue;
-            }
-            else
-            {
-                this.minimap_Tile.color = Color.red;
+                MoveTile();
+                CentralProcessor.Instance.uIManager.InfoWindowReset();
             }
         }
+        else if(CentralProcessor.Instance.uIManager.state == UIManager.State.Next)
+        {
+            if(this.gameObject != CentralProcessor.Instance.currentTile.gameObject)
+            {
+                MoveTile();
+            }
+        }   
     }
 
     public void GiveMoney()
@@ -65,6 +63,21 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
             currentMoney += VariableManager.Instance.resultMoney + VariableManager.Instance.plusMoney;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
+        }
+    }
+
+    public void MoveTile()
+    {
+        CentralProcessor.Instance.cameraManager.transform.position = cameraPoint.position;
+        CentralProcessor.Instance.currentTile.minimap_Tile.color = Color.white;
+        CentralProcessor.Instance.currentTile = this.gameObject.GetComponent<Tile>();
+        if(isMaster)
+        {
+            this.minimap_Tile.color = Color.blue;
+        }
+        else
+        {
+            this.minimap_Tile.color = Color.red;
         }
     }
 }

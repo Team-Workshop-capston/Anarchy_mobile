@@ -15,12 +15,13 @@ public class UIManager : MonoBehaviourPun
     public GameObject   exit_window;
     public GameObject   setting_window;
     public GameObject   movemap_window;
+    public GameObject   movecameramp_window;
     public GameObject   unit_window;
     public GameObject   decision_window;
-    public Button[]     buttons;
+    public GameObject   gameover;
+    public GameObject[] ui;
     public Image        s_map; // 작은 지도
     public Image        b_map; // 이동버튼 눌렀을 때 나오는 큰 지도
-    public Button   unit_moveBtn; // 유닛 마우스(1)클릭하면 나오는 이동 버튼
     public Text     money;
     public Text     errorMessage; // 유닛이나 건물을 생산할 때 재화,자리가 부족하면 나오는 에러메세지
     float           time;
@@ -33,6 +34,8 @@ public class UIManager : MonoBehaviourPun
     public Image    unit_hp;
     public Text     unit_activeCost;
     public Text     unit_name;
+    public Image    unitButtonPanel;
+    public Image    buildingInfo_panel;
     public Button[] mapButtons;
     public Button   move_nextButton;
     public Image    tile_unitPanel;
@@ -40,8 +43,10 @@ public class UIManager : MonoBehaviourPun
     public Image    decision_img;
     public Text     decision_story;
     public Text     decision_effect;
+    public Button   exitButton;
+    public Button   settingButton;     
 
-    public enum State { Ready, Next, Idle, Active, Attack };
+    public enum State { Ready, Next, Idle, Active, Attack, End };
     public State state = State.Idle;
 
     private void Start()
@@ -50,29 +55,35 @@ public class UIManager : MonoBehaviourPun
         {
             nextButton.GetComponent<Button>().interactable = false;
         }
+        if(SceneManager.GetActiveScene().name == "3_Play")
+        {
+            SetReadyState();
+            settingButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "3_Play")
+        if(Input.GetKey(KeyCode.Escape))
         {
-            if(Application.platform == RuntimePlatform.Android)
+            if(SceneManager.GetActiveScene().name == "1_Select")
             {
-                if(state == State.Idle && Input.GetKey(KeyCode.Escape))
+                
+            }
+            else if(SceneManager.GetActiveScene().name == "3_Play")
+            {
+                if(state == State.Idle)
                 {
-                    state = State.Active;
-                    close_window.gameObject.SetActive(true);
-                    exit_window.gameObject.SetActive(true);
-                    UISetActiveFalse();
-                    if(CentralProcessor.Instance.currentUnit != null)
-                    {
-                        CentralProcessor.Instance.currentUnit.OffReady();
-                    }
+                    ExitButtonClick();
                 }
-                else if(state == State.Active && Input.GetKey(KeyCode.Escape))
+                else if(state == State.Active)
                 {
                     SetIdleState();
-                    UISetActiveTrue();
+                }
+                else if(state == State.Attack)
+                {
+                    OffReadyAttack();
                 }
             }
         }
@@ -116,38 +127,37 @@ public class UIManager : MonoBehaviourPun
 
     public void SettingButtonClick()
     {
-        state = State.Active;
+        SetActiveState();
         close_window.gameObject.SetActive(true);
         setting_window.gameObject.SetActive(true);
-        UISetActiveFalse();
-        if(CentralProcessor.Instance.currentUnit != null)
-        {
-            CentralProcessor.Instance.currentUnit.OffReady();
-        }
+    }
+
+    public void ExitButtonClick()
+    {
+        SetActiveState();
+        close_window.gameObject.SetActive(true);
+        exit_window.gameObject.SetActive(true);
     }
 
     public void UnitButtonClick()
     {
-        state = State.Active;
+        SetActiveState();
         close_window.gameObject.SetActive(true);
         unit_window.gameObject.SetActive(true);
-        UISetActiveFalse();
-        if(CentralProcessor.Instance.currentUnit != null)
-        {
-            CentralProcessor.Instance.currentUnit.OffReady();
-        }
     }
 
     public void BuildButtonClick()
     {
-        state = State.Active;
+        SetActiveState();
         close_window.gameObject.SetActive(true);
         build_window.gameObject.SetActive(true);
-        UISetActiveFalse();
-        if(CentralProcessor.Instance.currentUnit != null)
-        {
-            CentralProcessor.Instance.currentUnit.OffReady();
-        }
+    }
+
+    public void MinimapButtonClick()
+    {
+        SetActiveState();
+        close_window.gameObject.SetActive(true);
+        movecameramp_window.gameObject.SetActive(true);
     }
 
     public void ShowDecisionEffect()
@@ -162,18 +172,53 @@ public class UIManager : MonoBehaviourPun
         close_window.gameObject.SetActive(true);
         movemap_window.gameObject.SetActive(true);
         unitInfo_panel.gameObject.SetActive(false);
-        foreach(Button b in buttons)
-        {
-            b.gameObject.SetActive(false);
-        }
-        CentralProcessor.Instance.currentUnit.isClicked = false;
-        CloseUnitInfo();
+        unitButtonPanel.gameObject.SetActive(false);
+        UISetActiveFalse();
         SearchWay();
+    }
+
+    public void SetReadyState()
+    {
+        state = State.Ready;
+        UISetActiveFalse();
     }
 
     public void SetIdleState()
     {
         state = State.Idle;
+        SetActiveFalseWindow();
+        UISetActiveTrue();
+    }
+
+    public void SetActiveState()
+    {
+        state = State.Active;
+        UISetActiveFalse();
+        InfoWindowReset();
+    }
+
+    public void SetAttackState()
+    {
+        state = State.Attack;
+        UISetActiveFalse();
+    }
+
+    public void SetEndState()
+    {
+        state = State.End;
+        UISetActiveFalse();
+        gameover.gameObject.SetActive(true);
+    }
+
+    public void SetNextState()
+    {
+        state = State.Next;
+        UISetActiveFalse();
+        InfoWindowReset();
+    }
+
+    public void SetActiveFalseWindow()
+    {
         window = GameObject.FindGameObjectsWithTag("window");
         foreach(GameObject w in window)
         {
@@ -183,22 +228,33 @@ public class UIManager : MonoBehaviourPun
 
     public void UISetActiveFalse()
     {
-        foreach(Button b in buttons)
+        foreach(GameObject u in ui)
         {
-            b.gameObject.SetActive(false);
+            u.gameObject.SetActive(false);
         }
-        if(CentralProcessor.Instance.currentUnit != null)
-        {
-            CentralProcessor.Instance.currentUnit.OffReady();
-        }
-        VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(false);
     }
 
     public void UISetActiveTrue()
     {
-        foreach(Button b in buttons)
+        foreach(GameObject u in ui)
         {
-            b.gameObject.SetActive(true);
+            u.gameObject.SetActive(true);
+        }
+    }
+
+    public void InfoWindowReset()
+    {
+        if(unitInfo_panel.gameObject.activeSelf)
+        {
+            CentralProcessor.Instance.UnitReset();
+        }
+        if(buildingInfo_panel.gameObject.activeSelf)
+        {
+            CentralProcessor.Instance.BuildingReset();
+        }
+        if(VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.activeSelf)
+        {
+            VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(false);
         }
     }
 
@@ -223,6 +279,11 @@ public class UIManager : MonoBehaviourPun
         unit_activeCost.text = "COST    " + cost.ToString();
         unit_illust.sprite = illust;
         unit_hp.rectTransform.localScale = new Vector3(c_hp/m_hp,1f,1f);
+    }
+
+    public void ShowBuildingInfo()
+    {
+        buildingInfo_panel.gameObject.SetActive(true);
     }
 
     public void SearchWay()
@@ -306,44 +367,17 @@ public class UIManager : MonoBehaviourPun
 
     public void ReadyAttack()
     {
-        state = State.Attack;
-        foreach(Button b in buttons)
-        {
-            b.gameObject.SetActive(false);
-        }
+        SetAttackState();
         CentralProcessor.Instance.currentUnit.isAttackready = true;
         offAttackButton.gameObject.SetActive(true);
-        CloseUnitInfo();
     }
 
     public void OffReadyAttack()
     {
-        state = State.Idle;
-        foreach(Button b in buttons)
-        {
-            b.gameObject.SetActive(true);
-        }
+        SetIdleState();
         CentralProcessor.Instance.currentUnit.isAttackready = false;
         offAttackButton.gameObject.SetActive(false);
-        CentralProcessor.Instance.currentUnit.OffReady();
-    }
-
-    public void TurnOff()
-    {
-        state = State.Next;
-        foreach(Button b in buttons)
-        {
-            b.gameObject.SetActive(false);
-        }
-    }
-
-    public void TurnOn()
-    {
-        state = State.Idle;
-        foreach(Button b in buttons)
-        {
-            b.gameObject.SetActive(true);
-        }
+        InfoWindowReset();
     }
 
     public void DecisionButtonClick()

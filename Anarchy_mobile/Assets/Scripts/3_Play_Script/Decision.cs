@@ -123,12 +123,8 @@ public class Decision : MonoBehaviourPun
         decisionBtn_2.text = action2.ReturnDesc();
         Actions action3 = actionMap[(situationNum * 5) + num[2]];
         decisionBtn_3.text = action3.ReturnDesc();
-        CentralProcessor.Instance.uIManager.UISetActiveFalse();
-        CentralProcessor.Instance.uIManager.state = UIManager.State.Active;
-        if(CentralProcessor.Instance.currentUnit != null)
-        {
-            CentralProcessor.Instance.currentUnit.OffReady();
-        }
+        CentralProcessor.Instance.uIManager.SetActiveState();
+        CentralProcessor.Instance.score += 10;
     }
 
     public int[] RandomNumber(int min, int max)

@@ -15,6 +15,14 @@ public class Cloud : MonoBehaviour
     {
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle"))
         {
+            if(CentralProcessor.Instance.isMaster)
+            {
+                CentralProcessor.Instance.uIManager.SetIdleState();
+            }
+            else
+            {
+                CentralProcessor.Instance.uIManager.SetNextState();
+            }
             this.gameObject.SetActive(false);
         }
     }

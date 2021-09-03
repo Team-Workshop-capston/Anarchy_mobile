@@ -60,6 +60,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
             }
+            CentralProcessor.Instance.score += 5;
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + 1);
             VariableManager.Instance.BuildingCostSetting();
@@ -84,6 +85,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
             }
+            CentralProcessor.Instance.score += 5;
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + level);
             VariableManager.Instance.BuildingCostSetting();
