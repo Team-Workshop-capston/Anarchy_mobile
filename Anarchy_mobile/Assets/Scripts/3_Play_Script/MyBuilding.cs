@@ -26,7 +26,7 @@ public class MyBuilding : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        if(CentralProcessor.Instance.uIManager.state == UIManager.State.Idle)
+        if(CentralProcessor.Instance.uIManager.state == UIManager.State.Idle || CentralProcessor.Instance.uIManager.state == UIManager.State.Next)
         {
             CentralProcessor.Instance.uIManager.InfoWindowReset();
             if(CentralProcessor.Instance.currentBuilding != this.gameObject.GetComponent<MyBuilding>())

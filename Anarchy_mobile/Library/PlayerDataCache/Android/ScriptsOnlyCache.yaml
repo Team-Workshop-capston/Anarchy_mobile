@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - CreateUnit
     - Decision
     - DecisionIcon
+    - EffectSoundManager
     - ForceGuide
     - GameManager
     - LobbyManager
@@ -148,31 +149,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3006}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3234}
     - Class: 114
-      Script: {instanceID: 3340}
+      Script: {instanceID: 3342}
     - Class: 114
-      Script: {instanceID: 3444}
+      Script: {instanceID: 3446}
     - Class: 114
-      Script: {instanceID: 3688}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 3750}
+      Script: {instanceID: 3752}
     - Class: 114
-      Script: {instanceID: 3754}
+      Script: {instanceID: 3756}
     - Class: 114
-      Script: {instanceID: 3920}
+      Script: {instanceID: 3922}
     - Class: 114
-      Script: {instanceID: 3960}
+      Script: {instanceID: 3962}
     - Class: 114
-      Script: {instanceID: 4292}
+      Script: {instanceID: 4294}
     - Class: 114
-      Script: {instanceID: 4348}
+      Script: {instanceID: 4350}
     - Class: 114
-      Script: {instanceID: 4498}
+      Script: {instanceID: 4500}
     - Class: 114
-      Script: {instanceID: 4666}
+      Script: {instanceID: 4668}
     - Class: 114
-      Script: {instanceID: 4828}
+      Script: {instanceID: 4830}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -243,7 +244,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3006}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3354}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -296,7 +297,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3006}
     - Class: 114
-      Script: {instanceID: 4344}
+      Script: {instanceID: 4346}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -340,6 +341,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -375,33 +380,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3006}
     - Class: 114
-      Script: {instanceID: 3340}
+      Script: {instanceID: 3070}
     - Class: 114
-      Script: {instanceID: 3464}
+      Script: {instanceID: 3342}
     - Class: 114
-      Script: {instanceID: 3594}
+      Script: {instanceID: 3466}
     - Class: 114
-      Script: {instanceID: 3688}
+      Script: {instanceID: 3596}
     - Class: 114
-      Script: {instanceID: 3924}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 3996}
+      Script: {instanceID: 3926}
     - Class: 114
-      Script: {instanceID: 4006}
+      Script: {instanceID: 3998}
     - Class: 114
-      Script: {instanceID: 4182}
+      Script: {instanceID: 4008}
     - Class: 114
-      Script: {instanceID: 4348}
+      Script: {instanceID: 4184}
     - Class: 114
-      Script: {instanceID: 4356}
+      Script: {instanceID: 4350}
     - Class: 114
-      Script: {instanceID: 4584}
+      Script: {instanceID: 4358}
     - Class: 114
-      Script: {instanceID: 4744}
+      Script: {instanceID: 4586}
     - Class: 114
-      Script: {instanceID: 4812}
+      Script: {instanceID: 4746}
     - Class: 114
-      Script: {instanceID: 4838}
+      Script: {instanceID: 4814}
+    - Class: 114
+      Script: {instanceID: 4840}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -947,7 +954,7 @@ ScriptsOnlyBuild:
     className: LoaderAnime
   - hash:
       serializedVersion: 2
-      Hash: 749c0ae265630600fe084070f64f25d9
+      Hash: 55c85969df17a487ebee96bad5ada496
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Tile
@@ -1089,6 +1096,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: IsConnectedAndReadyProperty
+  - hash:
+      serializedVersion: 2
+      Hash: 3483bd7cf59583c54519fc9f1fb6c640
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EffectSoundManager
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -1553,7 +1566,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 708cdf014e5d06eacd537c0fdc90f675
+      Hash: a85b4b0d5a2f7f77d907898c49bf5c0b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CentralProcessor
@@ -1893,4 +1906,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/1_Select.unity
   - Assets/Scenes/2_Lobby.unity
   - Assets/Scenes/3_Play.unity
-  playerPath: D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/mobile_27.apk
+  playerPath: D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/mobile_28.apk

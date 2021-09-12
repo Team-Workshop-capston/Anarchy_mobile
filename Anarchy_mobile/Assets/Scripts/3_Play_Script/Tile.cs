@@ -25,6 +25,7 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public bool isDecision = true;
     public Image minimap_Tile;
     public GameObject decisionIcon;
+    public int money;
 
     private void Start()
     {
@@ -55,13 +56,13 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
         if(isMaster && isP1Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += VariableManager.Instance.resultMoney + VariableManager.Instance.plusMoney;
+            currentMoney += money + VariableManager.Instance.plusMoney;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
         }
         else if(!isMaster && isP2Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += VariableManager.Instance.resultMoney + VariableManager.Instance.plusMoney;
+            currentMoney += money + VariableManager.Instance.plusMoney;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
         }
     }

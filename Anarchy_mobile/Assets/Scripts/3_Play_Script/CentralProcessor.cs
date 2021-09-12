@@ -20,6 +20,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private static CentralProcessor instance;
     public CameraManager    cameraManager;
     public UIManager        uIManager;
+    public EffectSoundManager   effectSoundManager;
     public Text             whoseTurn;
     public Text             currentTurn;
     public bool             isMaster;
@@ -113,7 +114,15 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             }
             yield return null;
         }
-        
+    }
+
+    IEnumerator Timer()
+    {
+        while(true)
+        {
+            yield return null;
+            
+        }
     }
 
     public void UnitReset()
@@ -128,6 +137,16 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         currentBuilding = null;
         uIManager.buildingInfo_panel.gameObject.SetActive(false);
+    }
+    
+    public void GameWin()
+    {
+
+    }
+
+    public void GameLose()
+    {
+
     }
 
 #region // call RPC function

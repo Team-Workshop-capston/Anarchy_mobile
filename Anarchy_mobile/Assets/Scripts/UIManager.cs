@@ -392,6 +392,18 @@ public class UIManager : MonoBehaviourPun
         }
     }
 
+    public void BGMOnOff()
+    {
+        if(GameManager.instance.audioManager.GetComponent<AudioSource>().volume == 1)
+        {
+            GameManager.instance.audioManager.GetComponent<AudioSource>().volume = 0;
+        }
+        else
+        {
+            GameManager.instance.audioManager.GetComponent<AudioSource>().volume = 1;
+        }
+    }
+
     IEnumerator fadeoutErrorMessage()
     {
         Color fadecolor = CentralProcessor.Instance.color;

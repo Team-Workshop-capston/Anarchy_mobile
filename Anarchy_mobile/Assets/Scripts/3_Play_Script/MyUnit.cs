@@ -69,6 +69,26 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
                 }
             }
         }
+        else if(CentralProcessor.Instance.uIManager.state == UIManager.State.Next)
+        {
+            if((isMaster && this.gameObject.layer == 8) || (!isMaster && this.gameObject.layer == 7))
+            {
+                CentralProcessor.Instance.uIManager.InfoWindowReset();
+                if(CentralProcessor.Instance.currentEnemy != this.gameObject.GetComponent<MyUnit>())
+                {
+                    CentralProcessor.Instance.currentEnemy = this.gameObject.GetComponent<MyUnit>();
+                    ShowInfo();
+                }
+            }   
+            else
+            {
+                CentralProcessor.Instance.uIManager.InfoWindowReset();
+                if(CentralProcessor.Instance.currentUnit != this.gameObject.GetComponent<MyUnit>())
+                {
+                    ShowInfo();   
+                }
+            }
+        }
     }
 
     public void OnReady()
