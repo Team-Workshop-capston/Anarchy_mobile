@@ -1,3 +1,4 @@
+using System.Dynamic;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Text             currentMoney;
     public Color            color;
     public Button           current_moveButton;
-    public GameObject[]     tiles;
+    public Tile[]           tiles;
     public MyBuilding[]     currentBuildings = new MyBuilding[3];
     public int              createUnitNumber = 3;
     public int              createBuildingNumber = 1;
@@ -44,7 +45,11 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Cloud            cloud;
     public Button           decisionButton;
     public bool             firstDecision = false;
-
+    public Text             timer;
+    public float            time = 10;
+    private float           selectCount;
+    public IEnumerator      t;
+    public bool             isIgnoreCheck = true;
 
     public int              score = 0;
 
@@ -76,8 +81,9 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             currentTile.GetComponent<Tile>().minimap_Tile.color = Color.red;
         }
         color = uIManager.errorMessage.color;
-        tiles = GameObject.FindGameObjectsWithTag("Tile");
+        //tiles = GameObject.FindGameObjectsWithTag("Tile");
         StartCoroutine(Waiting());
+        t = Timer();
     }
 
     private void Update()
@@ -99,6 +105,19 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         SceneManager.LoadScene(0);
     }
 
+    public void StartTimer()
+    {
+        t = Timer();
+        timer.gameObject.SetActive(true);
+        StartCoroutine(t);
+    }
+
+    public void StopTimer()
+    {
+        StopCoroutine(t);
+        timer.gameObject.SetActive(false);
+    }
+
     IEnumerator Waiting()
     {
         while(true)
@@ -118,11 +137,21 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     IEnumerator Timer()
     {
+        selectCount = time;
         while(true)
         {
+            if(Mathf.Floor(selectCount) <= 0) 
+            {
+                break;
+            } 
+            else 
+            {
+                selectCount -= Time.deltaTime;
+                timer.text = Mathf.Floor(selectCount).ToString();
+            }
             yield return null;
-            
         }
+        AddTurnNumber();
     }
 
     public void UnitReset()
@@ -136,6 +165,14 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public void BuildingReset()
     {
         currentBuilding = null;
+        foreach(Image i in uIManager.buildingLevels)
+        {
+            i.gameObject.SetActive(false);
+        }
+        foreach(Text t in uIManager.buildingEffects)
+        {
+            t.gameObject.SetActive(false);
+        }
         uIManager.buildingInfo_panel.gameObject.SetActive(false);
     }
     
@@ -149,9 +186,61 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     }
 
+    public bool CheckActiveCost()
+    {
+        bool isCheck = false;
+        if(isMaster)
+        {
+            MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
+            foreach(MyUnit u in units)
+            {
+                if(u.gameObject.layer == 7 && u.activeCost > 0)
+                {
+                    isCheck = true;
+                    return isCheck;
+                }
+            }
+        }
+        else
+        {
+            MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
+            foreach(MyUnit u in units)
+            {
+                if(u.gameObject.layer == 8 && u.activeCost > 0)
+                {
+                    isCheck = true;
+                    return isCheck;
+                }
+            }
+        }
+        return isCheck;
+    }
+
 #region // call RPC function
     public void AddTurnNumber()
     {
+        if(isIgnoreCheck)
+        {
+            if(CheckActiveCost())
+            {
+                uIManager.ShowCheckWindow();
+                return;
+            }
+            else
+            {
+                AddTurn();
+                return;
+            }
+        }
+        AddTurn();
+    }
+
+    public void AddTurn()
+    {
+        if(uIManager.checkWindow.gameObject.activeSelf)
+        {
+            uIManager.checkWindow.gameObject.SetActive(false);
+        }
         photonView.RPC("AddTurnNumberRPC", RpcTarget.All);
         if(turn_Number % 2 == 0)
         {
@@ -159,6 +248,11 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             photonView.RPC("UnitUpdateRPC", RpcTarget.All);
             photonView.RPC("TileUpdateRPC", RpcTarget.All);
         }
+    }
+
+    public void IgnoreActiveCostCheck()
+    {
+        isIgnoreCheck = !isIgnoreCheck;
     }
 
     public void CreatedUnitAreaCheck(bool master, bool check, int area)
@@ -228,6 +322,16 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
 
     }
+
+    public void ApplyUnitCurrentTile(int unitId, int tileId)
+    {
+        photonView.RPC("ApplyUnitCurrentTileRPC", RpcTarget.All, unitId, tileId);
+    }
+
+    public void ApplyUnitActiveCost(int id, int cost)
+    {
+        photonView.RPC("ApplyUnitActiveCostRPC", RpcTarget.All, id, cost);
+    }
 #endregion
 
 #region // RPC functions
@@ -245,21 +349,26 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             uIManager.state = UIManager.State.Next;
             uIManager.SetNextState();
+            StopTimer();
         }
         else if((turn_Number % 2 == 0) && !isMaster)
         {
             uIManager.state = UIManager.State.Next;
             uIManager.SetNextState();
+            StopTimer();
         }
         else if((turn_Number % 2 == 0) && isMaster)
         {
             uIManager.state = UIManager.State.Idle;
             uIManager.SetIdleState();
+            StartTimer();
+
         }
         else if((turn_Number % 2 == 1) && !isMaster)
         {
             uIManager.state = UIManager.State.Idle;
             uIManager.SetIdleState();
+            StartTimer();
         }
     }
 
@@ -273,11 +382,21 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     [PunRPC]
     private void TileUpdateRPC()
     {
-        Tile[] tiles = GameObject.FindObjectsOfType<Tile>();
         foreach(Tile t in tiles)
         {
             t.GiveMoney();
-            if(t.occupationCost >= 3 && !t.isP1Tile)
+            if((t.occupationCost >= 3 && t.isP1Tile) || (t.occupationCost <= -3 && t.isP2Tile))
+            {
+                if(t.isP1Tile)
+                {
+                    t.occupationCost = 3;
+                }
+                else if(t.isP2Tile)
+                {
+                    t.occupationCost = -3;
+                }
+            }
+            else if(t.occupationCost >= 3 && !t.isP1Tile)
             {
                 if(t.isP2CoreTile)
                 {
@@ -329,7 +448,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                     }
                 }
             }
-            else
+            else if(t.occupationCost < 3 && t.occupationCost > -3)
             {
                 t.isP1Tile = false;
                 t.isP2Tile = false;
@@ -348,11 +467,17 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             u.ActiveCostUpdate();
             if(u.gameObject.layer == 7)
             {
-                u.currentTile.occupationCost += 1;
+                if(!u.currentTile.GetComponent<Tile>().isP1Tile)
+                {
+                    u.currentTile.occupationCost += 1;
+                }
             }
             else if(u.gameObject.layer == 8)
             {
-                u.currentTile.occupationCost -= 1;
+                if(!u.currentTile.GetComponent<Tile>().isP2Tile)
+                {
+                    u.currentTile.occupationCost -= 1;
+                }
             }
         }
     }
@@ -372,17 +497,17 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     [PunRPC]
     private void CheckUnitAreaRPC(int id, bool check, int num, bool isMaster)
     {
-        foreach(GameObject t in tiles)
+        foreach(Tile t in tiles)
         {
             if(t.GetComponent<PhotonView>().ViewID == id)
             {
                 if(isMaster)
                 {
-                    t.GetComponent<Tile>().isP1_unitArea[num] = check;
+                    t.isP1_unitArea[num] = check;
                 }
                 else
                 {
-                    t.GetComponent<Tile>().isP2_unitArea[num] = check;
+                    t.isP2_unitArea[num] = check;
                 }
                 return;
             }
@@ -397,15 +522,17 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             if(unit.GetComponent<PhotonView>().ViewID == unitId)
             {
+                unit.GetComponent<MyUnit>().myNum = num;
                 if(isMaster)
                 {
                     CentralProcessor.instance.P1_core_Tile.GetComponent<Tile>().P1_units[num] = unit.GetComponent<MyUnit>();
+                    unit.GetComponent<MyUnit>().currentTile = P1_core_Tile;
                 }
                 else
                 {
                     CentralProcessor.instance.P2_core_Tile.GetComponent<Tile>().P2_units[num] = unit.GetComponent<MyUnit>();
+                    unit.GetComponent<MyUnit>().currentTile = P2_core_Tile;
                 }
-                        
                 return;
             }
         }
@@ -414,7 +541,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     [PunRPC]
     private void CheckTileUnitsRPC(int tileId, int unitId, int num, bool isMaster, bool check)
     {
-        foreach(GameObject t in tiles)
+        foreach(Tile t in tiles)
         {
             if(t.GetComponent<PhotonView>().ViewID == tileId)
             {
@@ -427,25 +554,24 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         {
                             if(!check)
                             {
-                                t.GetComponent<Tile>().P1_units[num] = null;
+                                t.P1_units[num] = null;
                             }
                             else
                             {
-                                t.GetComponent<Tile>().P1_units[num] = unit.GetComponent<MyUnit>();
+                                t.P1_units[num] = unit.GetComponent<MyUnit>();
                             }
                         }
                         else
                         {
                             if(!check)
                             {
-                                t.GetComponent<Tile>().P2_units[num] = null;
+                                t.P2_units[num] = null;
                             }
                             else
                             {
-                                t.GetComponent<Tile>().P2_units[num] = unit.GetComponent<MyUnit>();
+                                t.P2_units[num] = unit.GetComponent<MyUnit>();
                             }
                         }
-
                         return;
                     }
                 }
@@ -549,7 +675,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                     score += 50;
                                 }
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = null;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[myUnit.GetComponent<MyUnit>().myNum] = null;
                             }
                             else if(myUnit.gameObject.layer == 8)
                             {
@@ -558,7 +684,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                     score += 50;
                                 }
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = null;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[myUnit.GetComponent<MyUnit>().myNum] = null;
                             }
                             Destroy(myUnit.gameObject);
                         }
@@ -572,7 +698,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                     score += 50;
                                 }
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
-                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_unitArea[enemy.GetComponent<MyUnit>().myNum] = null;
+                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[enemy.GetComponent<MyUnit>().myNum] = null;
                             }
                             else if(enemy.gameObject.layer == 8)
                             {
@@ -581,7 +707,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                     score += 50;
                                 }
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
-                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_unitArea[enemy.GetComponent<MyUnit>().myNum] = null;
+                                enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[enemy.GetComponent<MyUnit>().myNum] = null;
                             }
                             Destroy(enemy.gameObject);
                         }
@@ -589,6 +715,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 }
             }
         }
+        uIManager.InfoWindowReset();
     }
 
     [PunRPC]
@@ -658,6 +785,40 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         uIManager.SetEndState();
         PhotonNetwork.LeaveRoom();
+    }
+
+    [PunRPC]
+    private void ApplyUnitCurrentTileRPC(int unitId, int tileId)
+    {
+        MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
+        foreach(MyUnit unit in units)
+        {
+            if(unit.GetComponent<PhotonView>().ViewID == unitId)
+            {
+                foreach(Tile t in tiles)
+                {
+                    if(t.GetComponent<PhotonView>().ViewID == tileId)
+                    {
+                        unit.currentTile = t;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    private void ApplyUnitActiveCostRPC(int id, int cost)
+    {
+        MyUnit[] units = GameObject.FindObjectsOfType<MyUnit>();
+        foreach(MyUnit unit in units)
+        {
+            if(unit.GetComponent<PhotonView>().ViewID == id)
+            {
+                unit.activeCost = cost;
+                return;
+            }
+        }
     }
 #endregion
 }

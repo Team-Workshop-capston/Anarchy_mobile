@@ -18,10 +18,12 @@ public class Cloud : MonoBehaviour
             if(CentralProcessor.Instance.isMaster)
             {
                 CentralProcessor.Instance.uIManager.SetIdleState();
+                CentralProcessor.Instance.StartTimer();
             }
             else
             {
                 CentralProcessor.Instance.uIManager.SetNextState();
+                CentralProcessor.Instance.StopTimer();
             }
             this.gameObject.SetActive(false);
         }

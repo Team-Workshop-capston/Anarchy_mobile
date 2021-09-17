@@ -166,7 +166,14 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.ShowDecisionEffect();
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[0]);
-        AddDecisionIllust(action.ReturnBuffNum());
+        if(action.ReturnBuffNum() == 15)
+        {
+            return;
+        }
+        else
+        {
+            AddDecisionIllust(action.ReturnBuffNum());
+        }
     }
 
     public void Decision_2()
@@ -180,6 +187,14 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[1]);
         AddDecisionIllust(action.ReturnBuffNum());
+        if(action.ReturnBuffNum() == 15)
+        {
+            return;
+        }
+        else
+        {
+            AddDecisionIllust(action.ReturnBuffNum());
+        }
     }
 
     public void Decision_3()
@@ -193,6 +208,14 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[2]);
         AddDecisionIllust(action.ReturnBuffNum());
+        if(action.ReturnBuffNum() == 15)
+        {
+            return;
+        }
+        else
+        {
+            AddDecisionIllust(action.ReturnBuffNum());
+        }
     }
 
     public string ReturnBuffStory(int n)
@@ -253,7 +276,7 @@ public class Decision : MonoBehaviourPun
     public void AddDecisionIllust(int num)
     {
         GameObject img = Instantiate(decision_Illust);
-        img.GetComponent<Image>().sprite = decision_IllustSprite[num];
+        img.GetComponent<Image>().sprite = decision_IllustSprite[num - 1];
         img.transform.parent = decision_list.transform;
     }
 

@@ -34,6 +34,7 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("돈수급!!");
         if(CentralProcessor.Instance.uIManager.state == UIManager.State.Idle)
         {
             if(this.gameObject != CentralProcessor.Instance.currentTile.gameObject)

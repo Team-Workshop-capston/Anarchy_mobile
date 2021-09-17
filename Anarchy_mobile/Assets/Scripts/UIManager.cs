@@ -34,8 +34,15 @@ public class UIManager : MonoBehaviourPun
     public Image    unit_hp;
     public Text     unit_activeCost;
     public Text     unit_name;
+    public Text     HP;
+    public Text     unit_ATK;
+    public Text     unit_DEF;
     public Image    unitButtonPanel;
     public Image    buildingInfo_panel;
+    public Text     buildingName;
+    public Image    buildingIllust;
+    public Image[]  buildingLevels;
+    public Text[]   buildingEffects;
     public Button[] mapButtons;
     public Button   move_nextButton;
     public Image    tile_unitPanel;
@@ -44,7 +51,8 @@ public class UIManager : MonoBehaviourPun
     public Text     decision_story;
     public Text     decision_effect;
     public Button   exitButton;
-    public Button   settingButton;     
+    public Button   settingButton;    
+    public Image    checkWindow; 
 
     public enum State { Ready, Next, Idle, Active, Attack, End };
     public State state = State.Idle;
@@ -67,9 +75,21 @@ public class UIManager : MonoBehaviourPun
     {
         if(Input.GetKey(KeyCode.Escape))
         {
-            if(SceneManager.GetActiveScene().name == "1_Select")
+            if(SceneManager.GetActiveScene().name == "0_Title")
             {
-                
+                Application.Quit();
+            }
+            else if(SceneManager.GetActiveScene().name == "1_Select")
+            {
+                if(ChooseforcePanel.gameObject.activeSelf)
+                {
+                    SceneManager.LoadScene(0);
+                }
+                else
+                {
+                    ChooseforcePanel.gameObject.SetActive(true);
+                    ChoosemapPanel.gameObject.SetActive(false);  
+                }
             }
             else if(SceneManager.GetActiveScene().name == "3_Play")
             {
@@ -260,6 +280,7 @@ public class UIManager : MonoBehaviourPun
 
     public void OffMapButtonsCheck()
     {
+        CentralProcessor.Instance.currentUnit = null;
         foreach(Button b in mapButtons)
         {
             b.GetComponent<MoveUnit>().OffCheck();
@@ -272,18 +293,49 @@ public class UIManager : MonoBehaviourPun
         errorMessage.text = s;
     }
 
-    public void ShowUnitInfo(float m_hp, float c_hp, Sprite illust, string name, int cost)
+    public void ShowUnitInfo(float m_hp, float c_hp, Sprite illust, string name, int cost, int offence, int defence)
     {
         unitInfo_panel.gameObject.SetActive(true);
         unit_name.text = name;
-        unit_activeCost.text = "COST    " + cost.ToString();
+        unit_activeCost.text = cost.ToString();
         unit_illust.sprite = illust;
-        unit_hp.rectTransform.localScale = new Vector3(c_hp/m_hp,1f,1f);
+        //unit_hp.rectTransform.localScale = new Vector3(c_hp/m_hp,1f,1f);
+        unit_hp.fillAmount = c_hp / m_hp;
+        HP.text = Mathf.RoundToInt(c_hp).ToString();
+        unit_ATK.text = offence.ToString();
+        unit_DEF.text = defence.ToString();
     }
 
-    public void ShowBuildingInfo()
+    public void ShowBuildingInfo(string name, Sprite illust, int level, int type)
     {
         buildingInfo_panel.gameObject.SetActive(true);
+        buildingName.text = name;
+        buildingIllust.sprite = illust;
+        for(int i = 0; i < level; i++)
+        {
+            buildingLevels[i].gameObject.SetActive(true);
+        }
+        switch(type)
+        {
+            case 1:
+            for(int i = 0; i < level; i++)
+            {
+                buildingEffects[i].gameObject.SetActive(true);
+            }
+            break;
+            case 2:
+            for(int i = 3; i < (level + 3); i++)
+            {
+                buildingEffects[i].gameObject.SetActive(true);
+            }
+            break;
+            case 3:
+            for(int i = 6; i < (level + 6); i++)
+            {
+                buildingEffects[i].gameObject.SetActive(true);
+            }
+            break;
+        }
     }
 
     public void SearchWay()
@@ -353,8 +405,10 @@ public class UIManager : MonoBehaviourPun
                 CentralProcessor.Instance.CheckUnitArea(CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID,true,i,CentralProcessor.Instance.isMaster);
                 CentralProcessor.Instance.CheckTileUnits(CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID, CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, i, CentralProcessor.Instance.isMaster, true);
                 CentralProcessor.Instance.currentUnit.transform.position = area[i].position;
-                CentralProcessor.Instance.currentUnit.currentTile = CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile;
-                CentralProcessor.Instance.currentUnit.activeCost -= CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost;
+                //CentralProcessor.Instance.currentUnit.currentTile = CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile;
+                CentralProcessor.Instance.ApplyUnitCurrentTile(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID);
+                //CentralProcessor.Instance.currentUnit.activeCost -= CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost;
+                CentralProcessor.Instance.ApplyUnitActiveCost(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, -CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost);
                 CentralProcessor.Instance.currentUnit = null;
                 CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.white);
                 CentralProcessor.Instance.current_moveButton = null;
@@ -367,7 +421,13 @@ public class UIManager : MonoBehaviourPun
 
     public void ReadyAttack()
     {
+        if(CentralProcessor.Instance.currentUnit.activeCost  == 0)
+        {
+            return;
+        }
         SetAttackState();
+        unitInfo_panel.gameObject.SetActive(false);
+        unitButtonPanel.gameObject.SetActive(false);
         CentralProcessor.Instance.currentUnit.isAttackready = true;
         offAttackButton.gameObject.SetActive(true);
     }
@@ -376,6 +436,7 @@ public class UIManager : MonoBehaviourPun
     {
         SetIdleState();
         CentralProcessor.Instance.currentUnit.isAttackready = false;
+        CentralProcessor.Instance.currentUnit = null;
         offAttackButton.gameObject.SetActive(false);
         InfoWindowReset();
     }
@@ -401,6 +462,20 @@ public class UIManager : MonoBehaviourPun
         else
         {
             GameManager.instance.audioManager.GetComponent<AudioSource>().volume = 1;
+        }
+    }
+
+    public void ShowCheckWindow()
+    {
+        if(checkWindow.gameObject.activeSelf)
+        {
+            SetIdleState();
+            checkWindow.gameObject.SetActive(false);
+        }
+        else
+        {
+            SetActiveState();
+            checkWindow.gameObject.SetActive(true);
         }
     }
 
