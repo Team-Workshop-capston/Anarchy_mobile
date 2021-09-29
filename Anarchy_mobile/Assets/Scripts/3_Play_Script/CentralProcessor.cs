@@ -51,7 +51,28 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public IEnumerator      t;
     public bool             isIgnoreCheck = true;
 
-    public int              score = 0;
+    public int              P1_score = 0;
+    public int              P2_score = 0;
+    public int              P1_totalUnit = 0;
+    public int              P2_totalUnit = 0;
+    public int              P1_totalKill = 0;
+    public int              P2_totalKill = 0;
+    public int              P1_totalMoney = 0;
+    public int              P2_totalMoney = 0;
+    public int              P1_totalOccupation = 0;
+    public int              P2_totalOccupation = 0;
+    
+    public Text             p1_score;
+    public Text             p2_score;
+    public Text             p1_unit;
+    public Text             p2_unit;
+    public Text             p1_kill;
+    public Text             p2_kill;
+    public Text             p1_money;
+    public Text             p2_money;
+    public Text             p1_occupation;
+    public Text             p2_occupation;
+
 
 
     private void Awake()
@@ -216,14 +237,51 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         return isCheck;
     }
 
+    public bool CheckDecision()
+    {
+        bool isCheck = false;
+        if(isMaster)
+        {
+            DecisionIcon[] decision = GameObject.FindObjectsOfType<DecisionIcon>();
+            foreach(DecisionIcon d in decision)
+            {
+                if(d.gameObject.activeSelf && d.isP1Decision)
+                {
+                    isCheck = true;
+                    return isCheck;
+                }
+            }
+        }
+        else
+        {
+            DecisionIcon[] decision = GameObject.FindObjectsOfType<DecisionIcon>();
+            foreach(DecisionIcon d in decision)
+            {
+                if(d.gameObject.activeSelf && d.isP2Decision)
+                {
+                    isCheck = true;
+                    return isCheck;
+                }
+            }
+        }
+        return isCheck;
+    }
+
 #region // call RPC function
     public void AddTurnNumber()
     {
         if(isIgnoreCheck)
         {
-            if(CheckActiveCost())
+            if(CheckDecision())
             {
-                uIManager.ShowCheckWindow();
+                string s = "남아있는 디시전이 있습니다.^^";
+                uIManager.ShowCheckWindow(s);
+                return;
+            }
+            else if(CheckActiveCost())
+            {
+                string s = "행동력이 남은 유닛이 있습니다.^^";
+                uIManager.ShowCheckWindow(s);
                 return;
             }
             else
@@ -332,6 +390,31 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         photonView.RPC("ApplyUnitActiveCostRPC", RpcTarget.All, id, cost);
     }
+
+    public void SumScore(int p1, int p2)
+    {
+        photonView.RPC("SumScoreRPC", RpcTarget.All, p1, p2);
+    }
+
+    public void SumUnit(int p1, int p2)
+    {
+        photonView.RPC("SumUnitRPC", RpcTarget.All, p1, p2);
+    }
+
+    public void SumKill(int p1, int p2)
+    {
+        photonView.RPC("SumKillRPC", RpcTarget.All, p1, p2);
+    }
+
+    public void SumMoney(int p1, int p2)
+    {
+        photonView.RPC("SumMoneyRPC", RpcTarget.All, p1, p2);
+    }
+
+    public void SumOccupation(int p1, int p2)
+    {
+        photonView.RPC("SumOccupationRPC", RpcTarget.All, p1, p2);
+    }
 #endregion
 
 #region // RPC functions
@@ -400,7 +483,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 if(t.isP2CoreTile)
                 {
-                    uIManager.SetEndState();
+                    photonView.RPC("EndGameRPC", RpcTarget.All);
                     return;
                 }
                 t.occupationCost = 3;
@@ -426,7 +509,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 if(t.isP1CoreTile)
                 {
-                    uIManager.SetEndState();
+                    photonView.RPC("EndGameRPC", RpcTarget.All);
                     return;
                 }
                 t.occupationCost = -3;
@@ -469,14 +552,14 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 if(!u.currentTile.GetComponent<Tile>().isP1Tile)
                 {
-                    u.currentTile.occupationCost += 1;
+                    u.currentTile.occupationCost += VariableManager.Instance.result_Occupation;
                 }
             }
             else if(u.gameObject.layer == 8)
             {
                 if(!u.currentTile.GetComponent<Tile>().isP2Tile)
                 {
-                    u.currentTile.occupationCost -= 1;
+                    u.currentTile.occupationCost -= VariableManager.Instance.result_Occupation;
                 }
             }
         }
@@ -670,19 +753,19 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         {
                             if(myUnit.gameObject.layer == 7)
                             {
-                                if(!isMaster)
-                                {
-                                    score += 50;
-                                }
+                                P2_score += 50;
+                                p2_score.text = P2_score.ToString();
+                                P2_totalKill += 1;
+                                p2_kill.text = P2_totalKill.ToString();
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[myUnit.GetComponent<MyUnit>().myNum] = null;
                             }
                             else if(myUnit.gameObject.layer == 8)
                             {
-                                if(isMaster)
-                                {
-                                    score += 50;
-                                }
+                                P1_score += 50;
+                                p1_score.text = P2_score.ToString();
+                                P1_totalKill += 1;
+                                p1_kill.text = P1_totalKill.ToString();
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[myUnit.GetComponent<MyUnit>().myNum] = null;
                             }
@@ -693,19 +776,19 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         {
                             if(enemy.gameObject.layer == 7)
                             {
-                                if(!isMaster)
-                                {
-                                    score += 50;
-                                }
+                                P2_score += 50;
+                                p2_score.text = P2_score.ToString();
+                                P2_totalKill += 1;
+                                p2_kill.text = P2_totalKill.ToString();
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[enemy.GetComponent<MyUnit>().myNum] = null;
                             }
                             else if(enemy.gameObject.layer == 8)
                             {
-                                if(isMaster)
-                                {
-                                    score += 50;
-                                }
+                                P1_score += 50;
+                                p1_score.text = P1_score.ToString();
+                                P1_totalKill += 1;
+                                p1_kill.text = P1_totalKill.ToString();
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[enemy.GetComponent<MyUnit>().myNum] = null;
                             }
@@ -815,10 +898,61 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             if(unit.GetComponent<PhotonView>().ViewID == id)
             {
-                unit.activeCost = cost;
+                unit.activeCost += cost;
                 return;
             }
         }
+    }
+
+    [PunRPC]
+    private void EndGameRPC()
+    {
+        uIManager.SetEndState();
+    }
+
+    [PunRPC]
+    private void SumScoreRPC(int p1, int p2)
+    {
+        P1_score += p1;
+        P2_score += p2;
+        p1_score.text = P1_score.ToString();
+        p2_score.text = P2_score.ToString();
+    }
+
+    [PunRPC]
+    private void SumUnitRPC(int p1, int p2)
+    {
+        P1_totalUnit += p1;
+        P2_totalUnit += p2;
+        p1_unit.text = P1_totalUnit.ToString();
+        p2_unit.text = P2_totalUnit.ToString();
+    }
+
+    [PunRPC]
+    private void SumKillRPC(int p1, int p2)
+    {
+        P1_totalKill += p1;
+        P2_totalKill += p2;
+        p1_kill.text = P1_totalKill.ToString();
+        p2_kill.text = P2_totalKill.ToString();
+    }
+
+    [PunRPC]
+    private void SumMoneyRPC(int p1, int p2)
+    {
+        P1_totalMoney += p1;
+        P2_totalMoney += p2;
+        p1_money.text = P1_totalMoney.ToString();
+        p2_money.text = P2_totalMoney.ToString();
+    }
+
+    [PunRPC]
+    private void SumOccupationRPC(int p1, int p2)
+    {
+        P1_totalOccupation += p1;
+        P2_totalOccupation += p2;
+        p1_occupation.text = P1_totalOccupation.ToString();
+        p2_occupation.text = P2_totalOccupation.ToString();
     }
 #endregion
 }

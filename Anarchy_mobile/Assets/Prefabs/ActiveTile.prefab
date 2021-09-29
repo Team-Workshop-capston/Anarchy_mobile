@@ -216,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673553624225895438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40, y: 30, z: -40}
+  m_LocalPosition: {x: -60, y: 60, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4169539272563204770}
@@ -633,6 +633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isP1Tile: 0
   isP2Tile: 0
+  isP1CoreTile: 0
+  isP2CoreTile: 0
   occupationCost: 0
   row: 0
   col: 0
@@ -658,6 +660,7 @@ MonoBehaviour:
   isDecision: 1
   minimap_Tile: {fileID: 0}
   decisionIcon: {fileID: 0}
+  money: 0
 --- !u!1 &4620739296324315357
 GameObject:
   m_ObjectHideFlags: 0

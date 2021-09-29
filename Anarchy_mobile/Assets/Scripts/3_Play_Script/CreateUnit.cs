@@ -105,12 +105,15 @@ public class CreateUnit : MonoBehaviourPun
                 if(isMaster)
                 {
                     u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,180,0)) as GameObject;
+                    CentralProcessor.Instance.SumScore(1,0);
+                    CentralProcessor.Instance.SumUnit(1,0);
                 }
                 else
                 {
                     u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,-180,0)) as GameObject;
+                    CentralProcessor.Instance.SumScore(0,1);
+                    CentralProcessor.Instance.SumUnit(0,1);
                 }
-                CentralProcessor.Instance.score += 1;
                 CalculateCost(int.Parse(UnitCost.text));
                 CentralProcessor.Instance.createUnitNumber -= 1;
                 // u.gameObject.GetComponent<MyUnit>().myNum = i;
@@ -124,14 +127,16 @@ public class CreateUnit : MonoBehaviourPun
                     VariableManager.Instance.isUnitCostEffect = false;
                     VariableManager.Instance.UnitCostEffect(-VariableManager.Instance.currentUnitBuff);
                     VariableManager.Instance.isUnitCostEffect = false;
-                    VariableManager.Instance.UnitCostSetting();
+                    //VariableManager.Instance.UnitCostSetting();
                 }
                 else if(VariableManager.Instance.isUnitCostEffect && VariableManager.Instance.UnitEffects.Count > 0)
                 {
+                    VariableManager.Instance.isUnitCostEffect = false;
                     VariableManager.Instance.UnitCostEffect(-VariableManager.Instance.currentUnitBuff);
+                    VariableManager.Instance.isUnitCostEffect = false;
                     var n = VariableManager.Instance.UnitEffects.Dequeue();
                     VariableManager.Instance.UnitCostEffect(n);
-                    VariableManager.Instance.UnitCostSetting();
+                    //VariableManager.Instance.UnitCostSetting();
                 }
                 return;
             }

@@ -52,7 +52,8 @@ public class UIManager : MonoBehaviourPun
     public Text     decision_effect;
     public Button   exitButton;
     public Button   settingButton;    
-    public Image    checkWindow; 
+    public Image    checkWindow;
+    public Text     checkWindowtext;
 
     public enum State { Ready, Next, Idle, Active, Attack, End };
     public State state = State.Idle;
@@ -465,7 +466,7 @@ public class UIManager : MonoBehaviourPun
         }
     }
 
-    public void ShowCheckWindow()
+    public void ShowCheckWindow(string s)
     {
         if(checkWindow.gameObject.activeSelf)
         {
@@ -476,6 +477,7 @@ public class UIManager : MonoBehaviourPun
         {
             SetActiveState();
             checkWindow.gameObject.SetActive(true);
+            checkWindowtext.text = s;
         }
     }
 

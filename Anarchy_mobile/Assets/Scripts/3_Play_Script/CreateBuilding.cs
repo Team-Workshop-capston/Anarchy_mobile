@@ -51,6 +51,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CalculateCost(VariableManager.Instance.building_resultCost[0]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
+                CentralProcessor.Instance.SumScore(5,0);
             }
             else
             {
@@ -59,8 +60,8 @@ public class CreateBuilding : MonoBehaviourPun
                 CalculateCost(VariableManager.Instance.building_resultCost[0]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
+                CentralProcessor.Instance.SumScore(0,5);
             }
-            CentralProcessor.Instance.score += 5;
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + 1);
             VariableManager.Instance.BuildingCostSetting();
@@ -76,6 +77,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CalculateCost(VariableManager.Instance.building_resultCost[level]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
+                CentralProcessor.Instance.SumScore(5,0);
             }
             else
             {
@@ -84,8 +86,8 @@ public class CreateBuilding : MonoBehaviourPun
                 CalculateCost(VariableManager.Instance.building_resultCost[level]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
+                CentralProcessor.Instance.SumScore(0,5);
             }
-            CentralProcessor.Instance.score += 5;
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + level);
             VariableManager.Instance.BuildingCostSetting();
@@ -102,14 +104,16 @@ public class CreateBuilding : MonoBehaviourPun
             VariableManager.Instance.isBuildCostEffect = false;
             VariableManager.Instance.BuildingCostEffect(-VariableManager.Instance.currentBuff);
             VariableManager.Instance.isBuildCostEffect = false;
-            VariableManager.Instance.BuildingCostSetting();
+            //VariableManager.Instance.BuildingCostSetting();
         }
         else if(VariableManager.Instance.isBuildCostEffect && VariableManager.Instance.buildEffects.Count > 0)
         {
+            VariableManager.Instance.isBuildCostEffect = false;
             VariableManager.Instance.BuildingCostEffect(-VariableManager.Instance.currentBuff);
+            VariableManager.Instance.isBuildCostEffect = false;
             var n = VariableManager.Instance.buildEffects.Dequeue();
             VariableManager.Instance.BuildingCostEffect(n);
-            VariableManager.Instance.BuildingCostSetting();
+            //VariableManager.Instance.BuildingCostSetting();
         }
     }
 

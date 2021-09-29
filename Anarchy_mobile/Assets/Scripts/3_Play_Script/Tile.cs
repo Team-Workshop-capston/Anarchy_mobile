@@ -11,7 +11,7 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public bool isP2Tile = false;
     public bool isP1CoreTile = false;
     public bool isP2CoreTile = false;
-    public int occupationCost = 0;
+    public float occupationCost = 0;
     public int row;
     public int col;
     public bool[]       isP1_unitArea = new bool[3];
@@ -26,6 +26,7 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public Image minimap_Tile;
     public GameObject decisionIcon;
     public int money;
+    public int result_money;
 
     private void Start()
     {
@@ -34,7 +35,6 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("돈수급!!");
         if(CentralProcessor.Instance.uIManager.state == UIManager.State.Idle)
         {
             if(this.gameObject != CentralProcessor.Instance.currentTile.gameObject)
@@ -57,14 +57,16 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
         if(isMaster && isP1Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += money + VariableManager.Instance.plusMoney;
+            currentMoney += result_money;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
+            CentralProcessor.Instance.SumMoney(result_money,0);
         }
         else if(!isMaster && isP2Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += money + VariableManager.Instance.plusMoney;
+            currentMoney += result_money;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
+            CentralProcessor.Instance.SumMoney(0,result_money);
         }
     }
 

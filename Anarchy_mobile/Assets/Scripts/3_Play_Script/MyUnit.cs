@@ -123,7 +123,6 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
 
     public void ShowInfo()
     {
-        Debug.Log("666");
         CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost, offensive, defensive);
     }
 
