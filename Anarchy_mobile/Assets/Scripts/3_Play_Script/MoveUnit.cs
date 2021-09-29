@@ -11,6 +11,8 @@ public class MoveUnit : MonoBehaviour
     public bool isChecked = false;
     public Image checkPoint;
     public bool isMove = false;
+    public Image[] p1unit;
+    public Image[] p2unit;
 
     private void Start()
     {

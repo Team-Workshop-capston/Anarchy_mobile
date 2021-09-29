@@ -27,6 +27,7 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public GameObject decisionIcon;
     public int money;
     public int result_money;
+    public Button MoveMapButton;
 
     private void Start()
     {

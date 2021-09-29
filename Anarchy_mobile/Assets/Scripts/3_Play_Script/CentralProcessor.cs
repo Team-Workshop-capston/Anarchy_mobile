@@ -325,9 +325,9 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         }
     }
 
-    public void CheckUnitArea(int id, bool check, int num, bool isMaster)
+    public void CheckUnitArea(int layer, int id, bool check, int num)
     {
-        photonView.RPC("CheckUnitAreaRPC", RpcTarget.All, id, check, num, isMaster);
+        photonView.RPC("CheckUnitAreaRPC", RpcTarget.All, layer, id, check, num);
     }
 
     public void CheckCoreTileUnits(int unitId, int num, bool isMaster)
@@ -578,18 +578,20 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void CheckUnitAreaRPC(int id, bool check, int num, bool isMaster)
+    private void CheckUnitAreaRPC(int layer, int id, bool check, int num)
     {
         foreach(Tile t in tiles)
         {
             if(t.GetComponent<PhotonView>().ViewID == id)
             {
-                if(isMaster)
+                if(layer == 7)
                 {
+                    t.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(check);
                     t.isP1_unitArea[num] = check;
                 }
                 else
                 {
+                    t.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(check);
                     t.isP2_unitArea[num] = check;
                 }
                 return;
