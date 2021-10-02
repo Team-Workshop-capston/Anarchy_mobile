@@ -586,12 +586,12 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 if(layer == 7)
                 {
-                    t.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(check);
+                    //t.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(check);
                     t.isP1_unitArea[num] = check;
                 }
                 else
                 {
-                    t.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(check);
+                    //t.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(check);
                     t.isP2_unitArea[num] = check;
                 }
                 return;
@@ -640,10 +640,12 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             if(!check)
                             {
                                 t.P1_units[num] = null;
+                                t.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(false);
                             }
                             else
                             {
                                 t.P1_units[num] = unit.GetComponent<MyUnit>();
+                                t.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(true);
                             }
                         }
                         else
@@ -651,10 +653,12 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             if(!check)
                             {
                                 t.P2_units[num] = null;
+                                t.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(false);
                             }
                             else
                             {
                                 t.P2_units[num] = unit.GetComponent<MyUnit>();
+                                t.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(true);
                             }
                         }
                         return;
