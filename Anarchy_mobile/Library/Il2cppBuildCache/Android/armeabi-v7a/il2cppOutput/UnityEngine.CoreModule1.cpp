@@ -25574,6 +25574,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_SetAsFirstSibling_mD5C02831BA6
 	_il2cpp_icall_func = (Transform_SetAsFirstSibling_mD5C02831BA6C7C3408CD491191EAF760ECB7E754_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Transform::SetAsFirstSibling()");
 	_il2cpp_icall_func(__this);
 }
+// System.Void UnityEngine.Transform::SetAsLastSibling()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_SetAsLastSibling_m2AF5610CFC845BB1121152BAB38A1251D210A187 (Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * __this, const RuntimeMethod* method)
+{
+	typedef void (*Transform_SetAsLastSibling_m2AF5610CFC845BB1121152BAB38A1251D210A187_ftn) (Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 *);
+	static Transform_SetAsLastSibling_m2AF5610CFC845BB1121152BAB38A1251D210A187_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Transform_SetAsLastSibling_m2AF5610CFC845BB1121152BAB38A1251D210A187_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Transform::SetAsLastSibling()");
+	_il2cpp_icall_func(__this);
+}
 // System.Void UnityEngine.Transform::SetSiblingIndex(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_SetSiblingIndex_mC69C3B37E6C731AA2A0B9BD787CF47AA5B8001FC (Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * __this, int32_t ___index0, const RuntimeMethod* method)
 {
