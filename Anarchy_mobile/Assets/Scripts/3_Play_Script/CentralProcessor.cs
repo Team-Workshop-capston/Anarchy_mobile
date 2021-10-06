@@ -458,7 +458,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     [PunRPC]
     private void NextTurnRPC()
     {
-        currentTurn.text = ((turn_Number / 2) + 1).ToString() + "   Turn";
+        currentTurn.text = ((turn_Number / 2) + 1).ToString() + "   TURN";
         createBuildingNumber = 1;
     }
 
@@ -610,12 +610,14 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 unit.GetComponent<MyUnit>().myNum = num;
                 if(isMaster)
                 {
-                    CentralProcessor.instance.P1_core_Tile.GetComponent<Tile>().P1_units[num] = unit.GetComponent<MyUnit>();
+                    P1_core_Tile.GetComponent<Tile>().P1_units[num] = unit.GetComponent<MyUnit>();
+                    P1_core_Tile.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(true);
                     unit.GetComponent<MyUnit>().currentTile = P1_core_Tile;
                 }
                 else
                 {
-                    CentralProcessor.instance.P2_core_Tile.GetComponent<Tile>().P2_units[num] = unit.GetComponent<MyUnit>();
+                    P2_core_Tile.GetComponent<Tile>().P2_units[num] = unit.GetComponent<MyUnit>();
+                    P2_core_Tile.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(true);
                     unit.GetComponent<MyUnit>().currentTile = P2_core_Tile;
                 }
                 return;

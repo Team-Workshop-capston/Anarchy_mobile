@@ -122,6 +122,12 @@ public class UIManager : MonoBehaviourPun
         Application.Quit();
     }
 
+    public void Tutorial()
+    {
+        GameManager.instance.audioManager.ButtonClickSound();
+        SceneManager.LoadScene(4);
+    }
+
     public void GoTitle()
     {
         GameManager.instance.audioManager.ButtonClickSound();

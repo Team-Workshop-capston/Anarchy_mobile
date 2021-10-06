@@ -768,6 +768,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolyverseSkies_Start_mFBAFF9811770E7026D
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
+	bool V_0 = false;
+	int32_t G_B3_0 = 0;
 	{
 		// if (skyboxDay != null && skyboxNight != null)
 		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_0 = __this->get_skyboxDay_10();
@@ -776,7 +778,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolyverseSkies_Start_mFBAFF9811770E7026D
 		L_1 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_0, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
 		if (!L_1)
 		{
-			goto IL_002d;
+			goto IL_001d;
 		}
 	}
 	{
@@ -784,20 +786,33 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolyverseSkies_Start_mFBAFF9811770E7026D
 		IL2CPP_RUNTIME_CLASS_INIT(Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
 		bool L_3;
 		L_3 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_2, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
-		if (!L_3)
+		G_B3_0 = ((int32_t)(L_3));
+		goto IL_001e;
+	}
+
+IL_001d:
+	{
+		G_B3_0 = 0;
+	}
+
+IL_001e:
+	{
+		V_0 = (bool)G_B3_0;
+		bool L_4 = V_0;
+		if (!L_4)
 		{
-			goto IL_002d;
+			goto IL_0035;
 		}
 	}
 	{
 		// skyboxMaterial = new Material(skyboxDay);
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_4 = __this->get_skyboxDay_10();
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_5 = (Material_t8927C00353A72755313F046D0CE85178AE8218EE *)il2cpp_codegen_object_new(Material_t8927C00353A72755313F046D0CE85178AE8218EE_il2cpp_TypeInfo_var);
-		Material__ctor_mD0C3D9CFAFE0FB858D864092467387D7FA178245(L_5, L_4, /*hidden argument*/NULL);
-		__this->set_skyboxMaterial_15(L_5);
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_5 = __this->get_skyboxDay_10();
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_6 = (Material_t8927C00353A72755313F046D0CE85178AE8218EE *)il2cpp_codegen_object_new(Material_t8927C00353A72755313F046D0CE85178AE8218EE_il2cpp_TypeInfo_var);
+		Material__ctor_mD0C3D9CFAFE0FB858D864092467387D7FA178245(L_6, L_5, /*hidden argument*/NULL);
+		__this->set_skyboxMaterial_15(L_6);
 	}
 
-IL_002d:
+IL_0035:
 	{
 		// }
 		return;
@@ -814,127 +829,149 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolyverseSkies_Update_mDC3A18F21C90EEFCF
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDEE1AC849B8C8CEFDEC6328594832A8135D2135C);
 		s_Il2CppMethodInitialized = true;
 	}
+	bool V_0 = false;
+	bool V_1 = false;
+	bool V_2 = false;
+	bool V_3 = false;
+	int32_t G_B9_0 = 0;
 	{
 		// if (sunDirection != null)
 		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_0 = __this->get_sunDirection_6();
 		IL2CPP_RUNTIME_CLASS_INIT(Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
 		bool L_1;
 		L_1 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_0, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
-		if (!L_1)
+		V_0 = L_1;
+		bool L_2 = V_0;
+		if (!L_2)
 		{
-			goto IL_0034;
+			goto IL_003a;
 		}
 	}
 	{
 		// Shader.SetGlobalVector("GlobalSunDirection", -sunDirection.transform.forward);
-		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_2 = __this->get_sunDirection_6();
-		NullCheck(L_2);
-		Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * L_3;
-		L_3 = GameObject_get_transform_m16A80BB92B6C8C5AB696E447014D45EDF1E4DE34(L_2, /*hidden argument*/NULL);
+		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_3 = __this->get_sunDirection_6();
 		NullCheck(L_3);
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_4;
-		L_4 = Transform_get_forward_mD850B9ECF892009E3485408DC0D375165B7BF053(L_3, /*hidden argument*/NULL);
+		Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * L_4;
+		L_4 = GameObject_get_transform_m16A80BB92B6C8C5AB696E447014D45EDF1E4DE34(L_3, /*hidden argument*/NULL);
+		NullCheck(L_4);
 		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_5;
-		L_5 = Vector3_op_UnaryNegation_m362EA356F4CADEDB39F965A0DBDED6EA890925F7_inline(L_4, /*hidden argument*/NULL);
-		Vector4_tA56A37FC5661BCC89C3DDC24BE12BA5BCB6A02C7  L_6;
-		L_6 = Vector4_op_Implicit_mDCFA56E9D34979E1E2BFE6C2D61F1768D934A8EB(L_5, /*hidden argument*/NULL);
-		Shader_SetGlobalVector_m0887A74FF8E1A2586B2D9ABEC6D6A06245923C7C(_stringLiteralDEE1AC849B8C8CEFDEC6328594832A8135D2135C, L_6, /*hidden argument*/NULL);
-		// }
-		goto IL_0048;
+		L_5 = Transform_get_forward_mD850B9ECF892009E3485408DC0D375165B7BF053(L_4, /*hidden argument*/NULL);
+		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_6;
+		L_6 = Vector3_op_UnaryNegation_m362EA356F4CADEDB39F965A0DBDED6EA890925F7_inline(L_5, /*hidden argument*/NULL);
+		Vector4_tA56A37FC5661BCC89C3DDC24BE12BA5BCB6A02C7  L_7;
+		L_7 = Vector4_op_Implicit_mDCFA56E9D34979E1E2BFE6C2D61F1768D934A8EB(L_6, /*hidden argument*/NULL);
+		Shader_SetGlobalVector_m0887A74FF8E1A2586B2D9ABEC6D6A06245923C7C(_stringLiteralDEE1AC849B8C8CEFDEC6328594832A8135D2135C, L_7, /*hidden argument*/NULL);
+		goto IL_0051;
 	}
 
-IL_0034:
+IL_003a:
 	{
 		// Shader.SetGlobalVector("GlobalSunDirection", Vector3.zero);
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_7;
-		L_7 = Vector3_get_zero_m1A8F7993167785F750B6B01762D22C2597C84EF6(/*hidden argument*/NULL);
-		Vector4_tA56A37FC5661BCC89C3DDC24BE12BA5BCB6A02C7  L_8;
-		L_8 = Vector4_op_Implicit_mDCFA56E9D34979E1E2BFE6C2D61F1768D934A8EB(L_7, /*hidden argument*/NULL);
-		Shader_SetGlobalVector_m0887A74FF8E1A2586B2D9ABEC6D6A06245923C7C(_stringLiteralDEE1AC849B8C8CEFDEC6328594832A8135D2135C, L_8, /*hidden argument*/NULL);
+		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_8;
+		L_8 = Vector3_get_zero_m1A8F7993167785F750B6B01762D22C2597C84EF6(/*hidden argument*/NULL);
+		Vector4_tA56A37FC5661BCC89C3DDC24BE12BA5BCB6A02C7  L_9;
+		L_9 = Vector4_op_Implicit_mDCFA56E9D34979E1E2BFE6C2D61F1768D934A8EB(L_8, /*hidden argument*/NULL);
+		Shader_SetGlobalVector_m0887A74FF8E1A2586B2D9ABEC6D6A06245923C7C(_stringLiteralDEE1AC849B8C8CEFDEC6328594832A8135D2135C, L_9, /*hidden argument*/NULL);
 	}
 
-IL_0048:
+IL_0051:
 	{
 		// if (moonDirection != null)
-		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_9 = __this->get_moonDirection_7();
+		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_10 = __this->get_moonDirection_7();
 		IL2CPP_RUNTIME_CLASS_INIT(Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
-		bool L_10;
-		L_10 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_9, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
-		if (!L_10)
+		bool L_11;
+		L_11 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_10, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
+		V_1 = L_11;
+		bool L_12 = V_1;
+		if (!L_12)
 		{
-			goto IL_007c;
+			goto IL_008a;
 		}
 	}
 	{
 		// Shader.SetGlobalVector("GlobalMoonDirection", -moonDirection.transform.forward);
-		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_11 = __this->get_moonDirection_7();
-		NullCheck(L_11);
-		Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * L_12;
-		L_12 = GameObject_get_transform_m16A80BB92B6C8C5AB696E447014D45EDF1E4DE34(L_11, /*hidden argument*/NULL);
-		NullCheck(L_12);
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_13;
-		L_13 = Transform_get_forward_mD850B9ECF892009E3485408DC0D375165B7BF053(L_12, /*hidden argument*/NULL);
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_14;
-		L_14 = Vector3_op_UnaryNegation_m362EA356F4CADEDB39F965A0DBDED6EA890925F7_inline(L_13, /*hidden argument*/NULL);
-		Vector4_tA56A37FC5661BCC89C3DDC24BE12BA5BCB6A02C7  L_15;
-		L_15 = Vector4_op_Implicit_mDCFA56E9D34979E1E2BFE6C2D61F1768D934A8EB(L_14, /*hidden argument*/NULL);
-		Shader_SetGlobalVector_m0887A74FF8E1A2586B2D9ABEC6D6A06245923C7C(_stringLiteral47D219E9F2B65C04D5F1A87D6E942CFEB82E383E, L_15, /*hidden argument*/NULL);
-		// }
-		goto IL_0090;
-	}
-
-IL_007c:
-	{
-		// Shader.SetGlobalVector("GlobalMoonDirection", Vector3.zero);
+		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_13 = __this->get_moonDirection_7();
+		NullCheck(L_13);
+		Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * L_14;
+		L_14 = GameObject_get_transform_m16A80BB92B6C8C5AB696E447014D45EDF1E4DE34(L_13, /*hidden argument*/NULL);
+		NullCheck(L_14);
+		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_15;
+		L_15 = Transform_get_forward_mD850B9ECF892009E3485408DC0D375165B7BF053(L_14, /*hidden argument*/NULL);
 		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_16;
-		L_16 = Vector3_get_zero_m1A8F7993167785F750B6B01762D22C2597C84EF6(/*hidden argument*/NULL);
+		L_16 = Vector3_op_UnaryNegation_m362EA356F4CADEDB39F965A0DBDED6EA890925F7_inline(L_15, /*hidden argument*/NULL);
 		Vector4_tA56A37FC5661BCC89C3DDC24BE12BA5BCB6A02C7  L_17;
 		L_17 = Vector4_op_Implicit_mDCFA56E9D34979E1E2BFE6C2D61F1768D934A8EB(L_16, /*hidden argument*/NULL);
 		Shader_SetGlobalVector_m0887A74FF8E1A2586B2D9ABEC6D6A06245923C7C(_stringLiteral47D219E9F2B65C04D5F1A87D6E942CFEB82E383E, L_17, /*hidden argument*/NULL);
+		goto IL_00a1;
 	}
 
-IL_0090:
+IL_008a:
+	{
+		// Shader.SetGlobalVector("GlobalMoonDirection", Vector3.zero);
+		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_18;
+		L_18 = Vector3_get_zero_m1A8F7993167785F750B6B01762D22C2597C84EF6(/*hidden argument*/NULL);
+		Vector4_tA56A37FC5661BCC89C3DDC24BE12BA5BCB6A02C7  L_19;
+		L_19 = Vector4_op_Implicit_mDCFA56E9D34979E1E2BFE6C2D61F1768D934A8EB(L_18, /*hidden argument*/NULL);
+		Shader_SetGlobalVector_m0887A74FF8E1A2586B2D9ABEC6D6A06245923C7C(_stringLiteral47D219E9F2B65C04D5F1A87D6E942CFEB82E383E, L_19, /*hidden argument*/NULL);
+	}
+
+IL_00a1:
 	{
 		// if (skyboxDay != null && skyboxNight != null)
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_18 = __this->get_skyboxDay_10();
-		IL2CPP_RUNTIME_CLASS_INIT(Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
-		bool L_19;
-		L_19 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_18, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
-		if (!L_19)
-		{
-			goto IL_00d4;
-		}
-	}
-	{
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_20 = __this->get_skyboxNight_11();
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_20 = __this->get_skyboxDay_10();
 		IL2CPP_RUNTIME_CLASS_INIT(Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
 		bool L_21;
 		L_21 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_20, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
 		if (!L_21)
 		{
-			goto IL_00d4;
+			goto IL_00bd;
+		}
+	}
+	{
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_22 = __this->get_skyboxNight_11();
+		IL2CPP_RUNTIME_CLASS_INIT(Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
+		bool L_23;
+		L_23 = Object_op_Inequality_mE1F187520BD83FB7D86A6D850710C4D42B864E90(L_22, (Object_tF2F3778131EFF286AF62B7B013A170F95A91571A *)NULL, /*hidden argument*/NULL);
+		G_B9_0 = ((int32_t)(L_23));
+		goto IL_00be;
+	}
+
+IL_00bd:
+	{
+		G_B9_0 = 0;
+	}
+
+IL_00be:
+	{
+		V_2 = (bool)G_B9_0;
+		bool L_24 = V_2;
+		if (!L_24)
+		{
+			goto IL_00ee;
 		}
 	}
 	{
 		// skyboxMaterial.Lerp(skyboxDay, skyboxNight, timeOfDay);
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_22 = __this->get_skyboxMaterial_15();
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_23 = __this->get_skyboxDay_10();
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_24 = __this->get_skyboxNight_11();
-		float L_25 = __this->get_timeOfDay_12();
-		NullCheck(L_22);
-		Material_Lerp_m1A80EE6FD77F49F0A22DFBF2836D3E8359484CB0(L_22, L_23, L_24, L_25, /*hidden argument*/NULL);
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_25 = __this->get_skyboxMaterial_15();
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_26 = __this->get_skyboxDay_10();
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_27 = __this->get_skyboxNight_11();
+		float L_28 = __this->get_timeOfDay_12();
+		NullCheck(L_25);
+		Material_Lerp_m1A80EE6FD77F49F0A22DFBF2836D3E8359484CB0(L_25, L_26, L_27, L_28, /*hidden argument*/NULL);
 		// RenderSettings.skybox = skyboxMaterial;
-		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_26 = __this->get_skyboxMaterial_15();
-		RenderSettings_set_skybox_m452A88810ECA0D7B7B71DBA56E8D0D661CEEA237(L_26, /*hidden argument*/NULL);
+		Material_t8927C00353A72755313F046D0CE85178AE8218EE * L_29 = __this->get_skyboxMaterial_15();
+		RenderSettings_set_skybox_m452A88810ECA0D7B7B71DBA56E8D0D661CEEA237(L_29, /*hidden argument*/NULL);
 	}
 
-IL_00d4:
+IL_00ee:
 	{
 		// if (updateLighting)
-		bool L_27 = __this->get_updateLighting_13();
-		if (!L_27)
+		bool L_30 = __this->get_updateLighting_13();
+		V_3 = L_30;
+		bool L_31 = V_3;
+		if (!L_31)
 		{
-			goto IL_00e1;
+			goto IL_0100;
 		}
 	}
 	{
@@ -942,7 +979,7 @@ IL_00d4:
 		DynamicGI_UpdateEnvironment_m1834BA636911736CCD70FE2B6B1310ABC5165AB2(/*hidden argument*/NULL);
 	}
 
-IL_00e1:
+IL_0100:
 	{
 		// }
 		return;
@@ -954,6 +991,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolyverseSkies__ctor_mEA3B8B0F7C9A316DD4
 	{
 		// public bool categoryTimeMessage = true;
 		__this->set_categoryTimeMessage_9((bool)1);
+		// public float timeOfDay = 0;
+		__this->set_timeOfDay_12((0.0f));
+		// public bool updateLighting = false;
+		__this->set_updateLighting_13((bool)0);
 		StyledMonoBehaviour__ctor_m80D1699356D1DF1F5CC14415E5E88EC48F72C9E7(__this, /*hidden argument*/NULL);
 		return;
 	}

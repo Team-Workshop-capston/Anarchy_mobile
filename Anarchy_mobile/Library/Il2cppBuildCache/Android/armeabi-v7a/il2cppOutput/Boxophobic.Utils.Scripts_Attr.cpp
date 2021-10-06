@@ -371,7 +371,7 @@ static void Boxophobic_Utils_Scripts_CustomAttributesCacheGenerator(CustomAttrib
 	}
 	{
 		DebuggableAttribute_tA8054EBD0FC7511695D494B690B5771658E3191B * tmp = (DebuggableAttribute_tA8054EBD0FC7511695D494B690B5771658E3191B *)cache->attributes[2];
-		DebuggableAttribute__ctor_m7FF445C8435494A4847123A668D889E692E55550(tmp, 2LL, NULL);
+		DebuggableAttribute__ctor_m7FF445C8435494A4847123A668D889E692E55550(tmp, 263LL, NULL);
 	}
 }
 static void SettingsData_t9A82AF872D5C89FDC4299944CD8A9E5009FC159B_CustomAttributesCacheGenerator(CustomAttributesCache* cache)

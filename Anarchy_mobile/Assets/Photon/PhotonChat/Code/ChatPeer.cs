@@ -27,7 +27,7 @@ namespace Photon.Chat
     public class ChatPeer : PhotonPeer
     {
         /// <summary>Name Server Host Name for Photon Cloud. Without port and without any prefix.</summary>
-        public string NameServerHost = "ns.exitgames.com";
+        public string NameServerHost = "ns.photonengine.io";
 
         /// <summary>Name Server port per protocol (the UDP port is different than TCP, etc).</summary>
         private static readonly Dictionary<ConnectionProtocol, int> ProtocolToNameServerPort = new Dictionary<ConnectionProtocol, int>() { { ConnectionProtocol.Udp, 5058 }, { ConnectionProtocol.Tcp, 4533 }, { ConnectionProtocol.WebSocket, 9093 }, { ConnectionProtocol.WebSocketSecure, 19093 } }; //, { ConnectionProtocol.RHttp, 6063 } };
@@ -53,19 +53,21 @@ namespace Photon.Chat
         {
             Type websocketType = null;
             #if (UNITY_XBOXONE || UNITY_GAMECORE) && !UNITY_EDITOR
-            websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, PhotonRealtime", false);
+            websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, Assembly-CSharp", false);
             if (websocketType == null)
             {
                 websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, Assembly-CSharp-firstpass", false);
             }
             if (websocketType == null)
             {
-                websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, Assembly-CSharp", false);
+                websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, PhotonRealtime", false);
             }
             if (websocketType == null)
             {
                 UnityEngine.Debug.LogError("XBOX is defined but peer could not find SocketNativeSource. Check your project files to make sure the native WSS implementation is available. Won't connect.");
             }
+
+            this.SocketImplementationConfig[ConnectionProtocol.Udp] = typeof(websocketType);    // on Xbox, the native socket plugin will support UDP and WSS (set below)
             #else
             // to support WebGL export in Unity, we find and assign the SocketWebTcp class (if it's in the project).
             // alternatively class SocketWebTcp might be in the Photon3Unity3D.dll
@@ -201,7 +203,9 @@ namespace Photon.Chat
         /// <summary>Authenticates users by their Oculus Account and token.</summary>
         Oculus = 3,
 
-        /// <summary>Authenticates users by their PSN Account and token.</summary>
+        /// <summary>Authenticates users by their PSN Account and token on PS4.</summary>
+        PlayStation4 = 4,
+        [Obsolete("Use PlayStation4 or PlayStation5 as needed")]
         PlayStation = 4,
 
         /// <summary>Authenticates users by their Xbox Account and XSTS token.</summary>
@@ -213,10 +217,12 @@ namespace Photon.Chat
         /// <summary>Authenticates users by their NSA ID.</summary>
         NintendoSwitch = 11,
         
-        /// <summary>Authenticates users by their PSN Account and token (on PS5).</summary>
+        /// <summary>Authenticates users by their PSN Account and token on PS5.</summary>
+        PlayStation5 = 12,
+        [Obsolete("Use PlayStation4 or PlayStation5 as needed")]
         Playstation5 = 12,
-
-        /// <summary>Disables custom authentification. Same as not providing any AuthenticationValues for connect (more precisely for: OpAuthenticate).</summary>
+        
+        /// <summary>Disables custom authentication. Same as not providing any AuthenticationValues for connect (more precisely for: OpAuthenticate).</summary>
         None = byte.MaxValue
     }
 

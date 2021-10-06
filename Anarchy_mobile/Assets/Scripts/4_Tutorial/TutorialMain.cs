@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class TutorialMain : MonoBehaviour
 {
@@ -25,12 +26,12 @@ public class TutorialMain : MonoBehaviour
     public bool UnitSecond = false;
     public bool TurnNext = false;
     public bool Dicision = false;
-
+    public Button goMain;
 
     void Start()
     {
         TutorialText = GetComponent<Text>();
-        TutorialText.text = "¾È³çÇÏ¼¼¿ä ´õ ¾Æ³ªÅ°¿¡ ¿À½Å°É È¯¿µÇÕ´Ï´Ù.\n ÀÌ °÷À» Å¬¸¯ÇØÁÖ¼¼¿ä.";
+        TutorialText.text = "ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Æ³ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½Å°ï¿½ È¯ï¿½ï¿½ï¿½Õ´Ï´ï¿½.\n ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.";
     }
 
     void Update()
@@ -48,37 +49,37 @@ public class TutorialMain : MonoBehaviour
             switch (ClickNum)
             {
                 case -2:
-                    TutorialText.text = "¿©·¯ºÐÀº ¿©·¯ºÐÀÇ ¼¼·ÂÀ» ÀÌ²ø¾î °è¼ÓµÇ´Â ¾ÏÅõ¿¡¼­ ½Â¸®ÇØ¾ß ÇÕ´Ï´Ù.\n\nÁøÇàÇÏ·Á¸é Å¬¸¯ÇÏ¼¼¿ä.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì²ï¿½ï¿½ï¿½ ï¿½ï¿½ÓµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¸ï¿½ï¿½Ø¾ï¿½ ï¿½Õ´Ï´ï¿½.\n\nï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.";
                     ClickNum += 1;
                     break;
                 case -1:
-                    TutorialText.text = "ÀÌÁ¦ºÎÅÍ ÀÎÅÍÆäÀÌ½º¿¡ ´ëÇØ ¼³¸íÇØ µå¸®°Ú½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½å¸®ï¿½Ú½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 0:
                     UIs[0].transform.SetAsLastSibling();
-                    TutorialText.text = "¸ÕÀú ¼¼·Â ¸¶Å©¿Í ÇöÀç ÅÏ Ç¥½Ã, ÅÏ Å¸ÀÌ¸ÓÀÔ´Ï´Ù. ÀÌ´Â ¿©·¯ºÐÀÇ ¼¼·ÂÀÌ ¹«¾ùÀÎÁö¸¦, ÇöÀç ÅÏ ¼ö°¡ ¾ó¸¶ÀÎÁö, ÅÏÀÌ ¾ó¸¶³ª ³²¾Ò´ÂÁö¸¦ Ç¥½ÃÇÕ´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ç¥ï¿½ï¿½, ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½ï¿½Ô´Ï´ï¿½. ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Õ´Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 1:
                     UIs[9].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[1].transform.SetAsLastSibling();
-                    TutorialText.text = "ÀÜ¾×Ã¢ÀÔ´Ï´Ù. ¿©·¯ºÐÀÇ µ·ÀÌ ¾ó¸¶³ª ³²¾Ò´ÂÁö Ç¥½ÃÇÕ´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ü¾ï¿½Ã¢ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Õ´Ï´ï¿½.";
                     ClickNum += 2;
                     break;
                 case 2:
                     UIs[9].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[2].transform.SetAsLastSibling();
-                    TutorialText.text = "ÅÏÅ¸ÀÌ¸ÓÀÔ´Ï´Ù. ¿©·¯ºÐÀÇ ÅÏÀÌ ¾ó¸¶³ª ³²¾Ò´ÂÁö Ç¥½ÃÇÕ´Ï´Ù. ÅÏÀÇ Á¦ÇÑ½Ã°£Àº 3ºÐÀÔ´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½Å¸ï¿½Ì¸ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Õ´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ½Ã°ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½Ô´Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 3:
                     UIs[9].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[3].transform.SetAsLastSibling();
-                    TutorialText.text = "À¯´Ö »ý»ê ¹öÆ°ÀÔ´Ï´Ù. ¿©·¯ºÐÀº ÀÌ ¹öÆ°À» ´­·¯ »õ·Î¿î À¯´ÖÀ» ¸¸µé ¼ö ÀÖ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 4:
@@ -86,35 +87,35 @@ public class TutorialMain : MonoBehaviour
                     UIs[10].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[4].transform.SetAsLastSibling();
-                    TutorialText.text = "°Ç¹° °Ç¼³ ¹öÆ°ÀÔ´Ï´Ù. ¿©·¯ºÐÀº ÀÌ ¹öÆ°À» ´­·¯ »õ·Î¿î °Ç¹°À» ¸¸µé ¼ö ÀÖ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ç¹ï¿½ ï¿½Ç¼ï¿½ ï¿½ï¿½Æ°ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 5:
                     UIs[9].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[5].transform.SetAsLastSibling();
-                    TutorialText.text = "¹Ì´Ï¸ÊÀÔ´Ï´Ù. ¿©·¯ºÐÀº ÀÌ ¹Ì´Ï¸ÊÀ» ÅëÇØ È­¸éÀ» ÀÌµ¿ÇÏ°í À¯´ÖÀÇ À§Ä¡¸¦ ¾Ë ¼ö ÀÖ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ì´Ï¸ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì´Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 6:
                     UIs[9].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[6].transform.SetAsLastSibling();
-                    TutorialText.text = "ÅÏ Á¾·áÀÔ´Ï´Ù. ¿©·¯ºÐÀº ÀÌ ¹öÆ°À» ´­·¯ »ó´ë¿¡°Ô ÅÏÀ» ³Ñ±æ ¼ö ÀÖ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 7:
                     UIs[9].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[7].transform.SetAsLastSibling();
-                    TutorialText.text = "¼³Á¤ ¹öÆ°ÀÔ´Ï´Ù. ¿©·¯ºÐÀº ÀÌ ¹öÆ°À» ´­·¯ ¼³Á¤À» Á¶ÀýÇÒ ¼ö ÀÖ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 8:
                     UIs[9].transform.SetAsLastSibling();
                     UIs[10].transform.SetAsLastSibling();
                     UIs[8].transform.SetAsLastSibling();
-                    TutorialText.text = "°ÔÀÓ Á¾·á ¹öÆ°ÀÔ´Ï´Ù. ¿©·¯ºÐÀº ÀÌ ¹öÆ°À» ´­·¯ °ÔÀÓÀ» Á¾·áÇÒ ¼ö ÀÖ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 9:
@@ -123,92 +124,99 @@ public class TutorialMain : MonoBehaviour
                     panelColor = UIs[9].GetComponent<Image>().color;
                     UIs[9].GetComponent<Image>().color = new Color(panelColor.r, panelColor.g, panelColor.b, 0f);
                     Units[0].SetActive(true);
-                    TutorialText.text = "ÀÌ°ÍÀÌ ¿©·¯ºÐÀÌ Á¶Á¾ÇÒ À¯´ÖÀÔ´Ï´Ù. ¿©·¯ºÐÀº ÀÌ À¯´ÖµéÀ» ÅëÇØ ±¸¿ªÀ» Á¡·ÉÇÏ°í »ó´ë¿Í ÀüÅõ¸¦ ¹ú¿©¾ß ÇÕ´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 10:
-                    TutorialText.text = "À¯´Ö¿¡´Â 3°¡Áö Á¾·ù°¡ ÀÖ½À´Ï´Ù. ÀÌ À¯´ÖÀº ±ÙÁ¢ À¯´ÖÀÔ´Ï´Ù. ¹æ¾î¿¡ Æ¯È­µÈ À¯´ÖÀ¸·Î ¹æ¾î·ÂÀÌ ³ô°í, °ø°ÝÇÒ ¶§ ÀÚ½ÅÀÇ ÀüÅõ·ÂÀÌ ´õ ³·´Ù¸é ÇÇÇØ¸¦ ÀÔ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½î¿¡ Æ¯È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ø¸ï¿½ ï¿½Ô½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum += 1;
                     break;
                 case 11:
                     ButtonLimit = true;
                     UButtonLimit = true;
-                    TutorialText.text = "À¯´Ö »ý»ê ¹öÆ°À» Å¬¸¯ÇÏ¼¼¿ä.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.";
                     UIs[3].transform.SetAsLastSibling();
                     break;
                 case 13:
                     UButtonLimit = true;
-                    TutorialText.text = "´Ù½Ã ÇÑ¹ø À¯´Ö »ý»ê ¹öÆ°À» Å¬¸¯ÇÏ¼¼¿ä.";
+                    TutorialText.text = "ï¿½Ù½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.";
                     UIs[3].transform.SetAsLastSibling();
                     Unit2nd = true;
                     break;
                 case 15:
-                    TutorialText.text = "ÇöÀç À¯´ÖÀÌ ÀÖ´Â ¸ÊÀÇ °ø°£À» ±¸¿ªÀÌ¶ó°í ÇÕ´Ï´Ù. ±¸¿ª¿¡´Â ÇÙ½É±¸¿ª, Áß¸³±¸¿ª, Á¡·É ±¸¿ªÀÌ ÀÖ½À´Ï´Ù. ÇöÀç À¯´ÖÀÌ ÀÖ´Â ±¸¿ªÀº ÇÙ½É ±¸¿ªÀÔ´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Õ´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½É±ï¿½ï¿½ï¿½, ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.";
                     ClickNum++;
                     break;
                 case 16:
-                    TutorialText.text = "ÇÙ½É ±¸¿ªÀº ÅÏ´ç 40ÀÇ µ·À» Á¦°øÇÏ¸ç, ÇÙ½É ±¸¿ªÀÌ Á¡·É´çÇßÀ» °æ¿ì, °ÔÀÓ¿¡¼­ ÆÐ¹èÇÏ°Ô µË´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ 40ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½, ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ï¿½Ï°ï¿½ ï¿½Ë´Ï´ï¿½.";
                     ClickNum++;
                     break;
                 case 17:
                     BButtonLimit = true;
                     Debug.Log(BButtonLimit);
-                    TutorialText.text = "ÀÌÁ¦ ºôµå ¹öÆ°À» ´­·¯º¸¼¼¿ä";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
                     UIs[4].transform.SetAsLastSibling();
                     ClickNum++;
                     break;
                 case 20:
-                    TutorialText.text = "°Ç¹°Àº ¼¼·Â¿¡°Ô ¹öÇÁ¸¦ ÁÖ´Â ¿ä¼Ò·Î, ÇÑ ÅÏ¿¡ ¾ò´Â ÀçÈ­ Áõ°¡, °¢ À¯´ÖÀÇ ÀüÅõ·Â Áõ°¡, À¯´Ö°ú °Ç¹°À» ¸¸µå´Âµ¥ µå´Â ºñ¿ë °¨¼Ò, ÃÑ 3°¡ÁöÀÇ °Ç¹°ÀÌ ÀÖ½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ò·ï¿½, ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Âµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum++;
                     break;
                 case 21:
-                    TutorialText.text = "ÀÌÁ¦ Ã¹¹øÂ° À¯´ÖÀ» Å¬¸¯ÇØº¸¼¼¿ä.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½.";
                     UnitLimit = true;
                     UIs[9].SetActive(false);
                     ClickNum++;
                     break;
                 case 23:
-                    TutorialText.text = "ÀÌÁ¦ À­ÂÊ ¹öÆ°ÀÎ ÀÌµ¿ ¹öÆ°À» ´­·¯º¸¼¼¿ä.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.";
                     ClickNum++;
                     break;
                 case 24:
                     ClickNum++;
                     break;
                 case 26:
-                    TutorialText.text = "ÀÌÁ¦ ÀüÅõ ¹æ½ÄÀ» ¾Ë·Áµå¸®°Ú½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½å¸®ï¿½Ú½ï¿½ï¿½Ï´ï¿½.";
                     Units[4].SetActive(true);
                     ClickNum++;
                     break;
                 case 27:
-                    TutorialText.text = "ÀÚ½ÅÀÇ À¯´ÖÀ» Å¬¸¯ÇÏ°í °ø°Ý ¹öÆ°À» Å¬¸¯ÇÏ°í Àû À¯´ÖÀ» Å¬¸¯ÇØº¸¼¼¿ä.";
+                    TutorialText.text = "ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½.";
                     UnitSecond = true;
                     ButtonLimit = true;
                     ClickNum++;
                     break;
                 case 29:
-                    TutorialText.text = "ÀÌ¹ø¿¡´Â ±¸¿ª Á¡·É°ú µð½ÃÀü¿¡ ´ëÇØ¼­ ¾Ë·Áµå¸®°Ú½À´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ë·ï¿½ï¿½å¸®ï¿½Ú½ï¿½ï¿½Ï´ï¿½.";
                     ClickNum++;
                     break;
                 case 30:
-                    TutorialText.text = "ÅÏ Á¾·á ¹öÆ°À» ´­·¯º¸¼¼¿ä.";
+                    TutorialText.text = "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.";
                     ButtonLimit = true;
                     TurnNext = true;
                     break;
                 case 32:
-                    TutorialText.text = "°¡¿îµ¥ ³ªÅ¸³­ µð½ÃÀü ¹öÆ°À» Å¬¸¯ÇØº¸¼¼¿ä.";
+                    TutorialText.text = "ï¿½ï¿½ï¿½îµ¥ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½.";
                     Dicision = true;
                     ClickNum++;
                     break;
                 case 34:
-                    TutorialText.text = "ÃÊ·Ï»ö ¹öÆ° Áß ÇÏ³ª¸¦ °ñ¶ó ¼±ÅÃÇÏ¼¼¿ä. »¡°£»ö ¹öÆ°Àº ¼±ÅÃÇÒ ¼ö ¾ø´Â Ç×¸ñÀÔ´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ê·Ï»ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½Ô´Ï´ï¿½.";
                     ClickNum++;
                     break;
                 case 36:
-                    TutorialText.text = "ÀÌ°ÍÀ¸·Î Æ©Åä¸®¾óÀ» ¸¶Ä¡°Ú½À´Ï´Ù. ¹«¿îÀ» º÷´Ï´Ù.";
+                    TutorialText.text = "ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ú½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.";
                     UIs[11].SetActive(false);
                     UIs[22].SetActive(false);
+                    goMain.gameObject.SetActive(true);
                     break;
             }
         }
+    }
+
+    public void GoMain()
+    {
+        GameManager.instance.audioManager.ButtonClickSound();
+        SceneManager.LoadScene(0);
     }
 }

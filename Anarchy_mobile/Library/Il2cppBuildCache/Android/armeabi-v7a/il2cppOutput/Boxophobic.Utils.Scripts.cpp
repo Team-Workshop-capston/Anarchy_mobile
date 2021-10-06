@@ -1190,6 +1190,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledButton__ctor_m9578CB2C9EFAF29A4174
 	{
 		// public string Text = "";
 		__this->set_Text_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		// public float Top = 0;
+		__this->set_Top_1((0.0f));
+		// public float Down = 0;
+		__this->set_Down_2((0.0f));
 		// public StyledButton(string Text)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.Text = Text;
@@ -1215,6 +1219,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledButton__ctor_m4473A770B32DF2F3591D
 	{
 		// public string Text = "";
 		__this->set_Text_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		// public float Top = 0;
+		__this->set_Top_1((0.0f));
+		// public float Down = 0;
+		__this->set_Down_2((0.0f));
 		// public StyledButton(string Text, float Top, float Down)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.Text = Text;
@@ -1294,6 +1302,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledEnum__ctor_m555663E0ABABDC4036D895
 	{
 		// public string options = "";
 		__this->set_options_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		// public int top = 0;
+		__this->set_top_1(0);
+		// public int down = 0;
+		__this->set_down_2(0);
 		// public StyledEnum(string options)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.options = options;
@@ -1319,6 +1331,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledEnum__ctor_m9988A634E353EE51B29487
 	{
 		// public string options = "";
 		__this->set_options_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		// public int top = 0;
+		__this->set_top_1(0);
+		// public int down = 0;
+		__this->set_down_2(0);
 		// public StyledEnum(string options, int top, int down)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.options = options;
@@ -1413,6 +1429,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledMask__ctor_m8E6D2F60C58CC1D0BD6ADA
 	{
 		// public string options = "";
 		__this->set_options_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		// public int top = 0;
+		__this->set_top_1(0);
+		// public int down = 0;
+		__this->set_down_2(0);
 		// public StyledMask(string options)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.options = options;
@@ -1438,6 +1458,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledMask__ctor_m0E7DB0223EC84F110558DC
 	{
 		// public string options = "";
 		__this->set_options_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		// public int top = 0;
+		__this->set_top_1(0);
+		// public int down = 0;
+		__this->set_down_2(0);
 		// public StyledMask(string options, int top, int down)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.options = options;
@@ -1645,6 +1669,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledText__ctor_mA8D5E6BC265D68755CF610
 		__this->set_text_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
 		// public TextAnchor alignment = TextAnchor.MiddleCenter;
 		__this->set_alignment_1(4);
+		// public bool disabled = false;
+		__this->set_disabled_2((bool)0);
+		// public float top = 0;
+		__this->set_top_3((0.0f));
+		// public float down = 0;
+		__this->set_down_4((0.0f));
 		// public StyledText()
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// }
@@ -1665,6 +1695,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledText__ctor_mDAFCB132D77F3A66F75F60
 		__this->set_text_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
 		// public TextAnchor alignment = TextAnchor.MiddleCenter;
 		__this->set_alignment_1(4);
+		// public bool disabled = false;
+		__this->set_disabled_2((bool)0);
+		// public float top = 0;
+		__this->set_top_3((0.0f));
+		// public float down = 0;
+		__this->set_down_4((0.0f));
 		// public StyledText(TextAnchor alignment, bool disabled)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.alignment = alignment;
@@ -1691,6 +1727,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyledText__ctor_mD107D2C380515C360BC221
 		__this->set_text_0(_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
 		// public TextAnchor alignment = TextAnchor.MiddleCenter;
 		__this->set_alignment_1(4);
+		// public bool disabled = false;
+		__this->set_disabled_2((bool)0);
+		// public float top = 0;
+		__this->set_top_3((0.0f));
+		// public float down = 0;
+		__this->set_down_4((0.0f));
 		// public StyledText(TextAnchor alignment, bool disabled, float top, float down)
 		PropertyAttribute__ctor_mA13181D93341AEAE429F0615989CB4647F2EB8A7(__this, /*hidden argument*/NULL);
 		// this.alignment = alignment;

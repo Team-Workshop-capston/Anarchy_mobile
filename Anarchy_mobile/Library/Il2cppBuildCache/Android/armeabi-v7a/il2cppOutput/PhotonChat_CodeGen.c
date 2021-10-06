@@ -119,13 +119,13 @@ extern void ChatClient_get_UseBackgroundWorkerForSending_m339D1ED46CDD4C32831C1E
 // 0x00000035 System.Void Photon.Chat.ChatClient::set_UseBackgroundWorkerForSending(System.Boolean)
 extern void ChatClient_set_UseBackgroundWorkerForSending_m6C66D938C6AA39C08472E42C6F1E1CA5AD1584FF (void);
 // 0x00000036 ExitGames.Client.Photon.ConnectionProtocol Photon.Chat.ChatClient::get_TransportProtocol()
-extern void ChatClient_get_TransportProtocol_mF2D943BAABF65764D8E7317F90FFC3410560DC4A (void);
+extern void ChatClient_get_TransportProtocol_m33AC109A553E921D2D2C2A5BB1DF38182E596E6C (void);
 // 0x00000037 System.Void Photon.Chat.ChatClient::set_TransportProtocol(ExitGames.Client.Photon.ConnectionProtocol)
-extern void ChatClient_set_TransportProtocol_m5EB37E46EF86B4BAE267A78CA2556F2F1EE67407 (void);
+extern void ChatClient_set_TransportProtocol_m9CD9F96DD1AFA4A1F0F1873B66CD0D73496AECE6 (void);
 // 0x00000038 System.Collections.Generic.Dictionary`2<ExitGames.Client.Photon.ConnectionProtocol,System.Type> Photon.Chat.ChatClient::get_SocketImplementationConfig()
-extern void ChatClient_get_SocketImplementationConfig_m0FA8D69AD167F3C93F6066EABE7EB2F4331F8ABF (void);
+extern void ChatClient_get_SocketImplementationConfig_m97CC5B64C5E36EBE8BEA4DE11CED95DC05CBBB21 (void);
 // 0x00000039 System.Void Photon.Chat.ChatClient::.ctor(Photon.Chat.IChatClientListener,ExitGames.Client.Photon.ConnectionProtocol)
-extern void ChatClient__ctor_m555C2D7234440A0F5C760614DD951E3622D3FD4F (void);
+extern void ChatClient__ctor_m5C6F2B896D447C3E47CEA0969C8C50307BB8189E (void);
 // 0x0000003A System.Boolean Photon.Chat.ChatClient::ConnectUsingSettings(Photon.Chat.ChatAppSettings)
 extern void ChatClient_ConnectUsingSettings_m80242F8205D8533C5392EEC4FE11B7664ACAB173 (void);
 // 0x0000003B System.Boolean Photon.Chat.ChatClient::Connect(System.String,System.String,Photon.Chat.AuthenticationValues)
@@ -183,41 +183,41 @@ extern void ChatClient_TryGetChannel_mED491B02E74F700084FEDCE962D2E0BFFBBEF5F5 (
 // 0x00000055 System.Boolean Photon.Chat.ChatClient::TryGetPrivateChannelByUser(System.String,Photon.Chat.ChatChannel&)
 extern void ChatClient_TryGetPrivateChannelByUser_m1F89B66602C9FC00827829E5DAA3965F9D51DC4B (void);
 // 0x00000056 System.Void Photon.Chat.ChatClient::set_DebugOut(ExitGames.Client.Photon.DebugLevel)
-extern void ChatClient_set_DebugOut_mADCC5D71A46F4A7B2E6C43C57CDD8682F8FA4F5F (void);
+extern void ChatClient_set_DebugOut_mAFA03D4F4ADA9A66E50A4D8FAA3DF8A5DEAB0DA6 (void);
 // 0x00000057 ExitGames.Client.Photon.DebugLevel Photon.Chat.ChatClient::get_DebugOut()
-extern void ChatClient_get_DebugOut_m25800A134E5D4740CF8AFEE21D32F03FB478DCF6 (void);
+extern void ChatClient_get_DebugOut_m4782E8AC3FE74671B57158BA5763CE5E5C31729F (void);
 // 0x00000058 System.Void Photon.Chat.ChatClient::ExitGames.Client.Photon.IPhotonPeerListener.DebugReturn(ExitGames.Client.Photon.DebugLevel,System.String)
-extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_DebugReturn_m70AF9DE5587D114DD240130B8D95A07D2F7206F6 (void);
+extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_DebugReturn_m7D6A1E4265FDA9807065B6A8C2059E1C81050EC2 (void);
 // 0x00000059 System.Void Photon.Chat.ChatClient::ExitGames.Client.Photon.IPhotonPeerListener.OnEvent(ExitGames.Client.Photon.EventData)
-extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnEvent_m47E2C3B47F31ED911A26397A207107809FD6E480 (void);
+extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnEvent_mD629566EE23B9FAAD2C6E5BEC5AB85331DB8194E (void);
 // 0x0000005A System.Void Photon.Chat.ChatClient::ExitGames.Client.Photon.IPhotonPeerListener.OnOperationResponse(ExitGames.Client.Photon.OperationResponse)
-extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnOperationResponse_m0C149BB0F9BDB13283FE3FB4B460549D39BE2D7F (void);
+extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnOperationResponse_m013DD27D42F6F7C8354BECA23E09BE4E896DC168 (void);
 // 0x0000005B System.Void Photon.Chat.ChatClient::ExitGames.Client.Photon.IPhotonPeerListener.OnStatusChanged(ExitGames.Client.Photon.StatusCode)
-extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnStatusChanged_mEADB9D80FFF8320E389669B0DECA2BF49A1D282B (void);
+extern void ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnStatusChanged_m7A2F3BAED9658C54639868DA1A8DC54FABF0C2B4 (void);
 // 0x0000005C System.Void Photon.Chat.ChatClient::TryAuthenticateOnNameServer()
 extern void ChatClient_TryAuthenticateOnNameServer_m440074A71E9387139A6C89F44128DF4619802ECB (void);
 // 0x0000005D System.Boolean Photon.Chat.ChatClient::SendChannelOperation(System.String[],System.Byte,System.Int32)
 extern void ChatClient_SendChannelOperation_m0727A81E02E0859790106C7EB566A03E8660386A (void);
 // 0x0000005E System.Void Photon.Chat.ChatClient::HandlePrivateMessageEvent(ExitGames.Client.Photon.EventData)
-extern void ChatClient_HandlePrivateMessageEvent_mF1BE611AF0DF44D0CC8E8A197E76D44F13652DA1 (void);
+extern void ChatClient_HandlePrivateMessageEvent_m24ABC4658DD8F0389F2711027E78954A2E3488BC (void);
 // 0x0000005F System.Void Photon.Chat.ChatClient::HandleChatMessagesEvent(ExitGames.Client.Photon.EventData)
-extern void ChatClient_HandleChatMessagesEvent_mCA8B197140BEE3272F5CED56CE588D33BA753E74 (void);
+extern void ChatClient_HandleChatMessagesEvent_mB00C8B9F0DFCD02705C094AD2AFE94C49116FEC5 (void);
 // 0x00000060 System.Void Photon.Chat.ChatClient::HandleSubscribeEvent(ExitGames.Client.Photon.EventData)
-extern void ChatClient_HandleSubscribeEvent_m6330A8E3D2B2C9995E5CCB54A1808BEAB70E1DD2 (void);
+extern void ChatClient_HandleSubscribeEvent_m6C2D27CFC86059C6F8A79172BB508B6DBA35F570 (void);
 // 0x00000061 System.Void Photon.Chat.ChatClient::HandleUnsubscribeEvent(ExitGames.Client.Photon.EventData)
-extern void ChatClient_HandleUnsubscribeEvent_mD3ED9C43D5F5E598910BA5B6472C84A3E812999F (void);
+extern void ChatClient_HandleUnsubscribeEvent_mE7448E176B6C07E0DEBA9A23359A162F35ACDB90 (void);
 // 0x00000062 System.Void Photon.Chat.ChatClient::HandleAuthResponse(ExitGames.Client.Photon.OperationResponse)
-extern void ChatClient_HandleAuthResponse_mE1ABD2983979F498A0228265DDB1722D135363F8 (void);
+extern void ChatClient_HandleAuthResponse_mDED662AFAD8496B5D6210EBD5BB029C9FEA21803 (void);
 // 0x00000063 System.Void Photon.Chat.ChatClient::HandleStatusUpdate(ExitGames.Client.Photon.EventData)
-extern void ChatClient_HandleStatusUpdate_mFC901625B1351F111419A8C841E6A418897093A3 (void);
+extern void ChatClient_HandleStatusUpdate_m5277CE58BE9934DE31191CDE2EF07FA8E275B715 (void);
 // 0x00000064 System.Boolean Photon.Chat.ChatClient::ConnectToFrontEnd()
 extern void ChatClient_ConnectToFrontEnd_mEF90DAE273F5589540D1412A17B00EA173123869 (void);
 // 0x00000065 System.Boolean Photon.Chat.ChatClient::AuthenticateOnFrontEnd()
 extern void ChatClient_AuthenticateOnFrontEnd_m4E005CD5611CE63F801F714BC5FF3282B9A06002 (void);
 // 0x00000066 System.Void Photon.Chat.ChatClient::HandleUserUnsubscribedEvent(ExitGames.Client.Photon.EventData)
-extern void ChatClient_HandleUserUnsubscribedEvent_m3EDFA87A349D13A66F0E2463B5FDC70D9FE27BEB (void);
+extern void ChatClient_HandleUserUnsubscribedEvent_m791E35868892875772E0DBBEEDDDA42E4D4027A8 (void);
 // 0x00000067 System.Void Photon.Chat.ChatClient::HandleUserSubscribedEvent(ExitGames.Client.Photon.EventData)
-extern void ChatClient_HandleUserSubscribedEvent_m78AB1221F0C0C67DA680A3B1DF42A152E777E77D (void);
+extern void ChatClient_HandleUserSubscribedEvent_m572B2FE962B3A2A89C748D5FE054BAEAD79DE641 (void);
 // 0x00000068 System.Boolean Photon.Chat.ChatClient::Subscribe(System.String,System.Int32,System.Int32,Photon.Chat.ChannelCreationOptions)
 extern void ChatClient_Subscribe_mC614066BD08A258D5A0495FA86F98FC2E06C2C4E (void);
 // 0x00000069 System.Void Photon.Chat.ChatEventCode::.ctor()
@@ -231,7 +231,7 @@ extern void ChatPeer_get_NameServerAddress_m4BC0C17DC28CFA233CC5E2078DCFB9A3046B
 // 0x0000006D System.Boolean Photon.Chat.ChatPeer::get_IsProtocolSecure()
 extern void ChatPeer_get_IsProtocolSecure_m396FFE6A6EA9E25A4611B45C069B5E9D26F93437 (void);
 // 0x0000006E System.Void Photon.Chat.ChatPeer::.ctor(ExitGames.Client.Photon.IPhotonPeerListener,ExitGames.Client.Photon.ConnectionProtocol)
-extern void ChatPeer__ctor_mFE2EB42972364534D703A7F5800FCB17482956B5 (void);
+extern void ChatPeer__ctor_m78585868F7678A4E40904158019512C8BF137FEB (void);
 // 0x0000006F System.Void Photon.Chat.ChatPeer::ConfigUnitySockets()
 extern void ChatPeer_ConfigUnitySockets_m65C6D7120E9DFCD3383CBE2CD9BB4D61B666178C (void);
 // 0x00000070 System.String Photon.Chat.ChatPeer::GetNameServerAddress()
@@ -348,10 +348,10 @@ static Il2CppMethodPointer s_methodPointers[146] =
 	ChatClient_set_UserId_m323C8CAF9B49E22CDADFB07E62ED49556BDC9B79,
 	ChatClient_get_UseBackgroundWorkerForSending_m339D1ED46CDD4C32831C1EA88B9A9324F3B1F578,
 	ChatClient_set_UseBackgroundWorkerForSending_m6C66D938C6AA39C08472E42C6F1E1CA5AD1584FF,
-	ChatClient_get_TransportProtocol_mF2D943BAABF65764D8E7317F90FFC3410560DC4A,
-	ChatClient_set_TransportProtocol_m5EB37E46EF86B4BAE267A78CA2556F2F1EE67407,
-	ChatClient_get_SocketImplementationConfig_m0FA8D69AD167F3C93F6066EABE7EB2F4331F8ABF,
-	ChatClient__ctor_m555C2D7234440A0F5C760614DD951E3622D3FD4F,
+	ChatClient_get_TransportProtocol_m33AC109A553E921D2D2C2A5BB1DF38182E596E6C,
+	ChatClient_set_TransportProtocol_m9CD9F96DD1AFA4A1F0F1873B66CD0D73496AECE6,
+	ChatClient_get_SocketImplementationConfig_m97CC5B64C5E36EBE8BEA4DE11CED95DC05CBBB21,
+	ChatClient__ctor_m5C6F2B896D447C3E47CEA0969C8C50307BB8189E,
 	ChatClient_ConnectUsingSettings_m80242F8205D8533C5392EEC4FE11B7664ACAB173,
 	ChatClient_Connect_mA52FDED63386DE3529800716953C0070D4216738,
 	ChatClient_ConnectAndSetStatus_mB4E90C929D58952EC3652E77D9432CF97E5FCA48,
@@ -380,31 +380,31 @@ static Il2CppMethodPointer s_methodPointers[146] =
 	ChatClient_TryGetChannel_m963B3989F53FDF4D44809B6892426F2DF1587594,
 	ChatClient_TryGetChannel_mED491B02E74F700084FEDCE962D2E0BFFBBEF5F5,
 	ChatClient_TryGetPrivateChannelByUser_m1F89B66602C9FC00827829E5DAA3965F9D51DC4B,
-	ChatClient_set_DebugOut_mADCC5D71A46F4A7B2E6C43C57CDD8682F8FA4F5F,
-	ChatClient_get_DebugOut_m25800A134E5D4740CF8AFEE21D32F03FB478DCF6,
-	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_DebugReturn_m70AF9DE5587D114DD240130B8D95A07D2F7206F6,
-	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnEvent_m47E2C3B47F31ED911A26397A207107809FD6E480,
-	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnOperationResponse_m0C149BB0F9BDB13283FE3FB4B460549D39BE2D7F,
-	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnStatusChanged_mEADB9D80FFF8320E389669B0DECA2BF49A1D282B,
+	ChatClient_set_DebugOut_mAFA03D4F4ADA9A66E50A4D8FAA3DF8A5DEAB0DA6,
+	ChatClient_get_DebugOut_m4782E8AC3FE74671B57158BA5763CE5E5C31729F,
+	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_DebugReturn_m7D6A1E4265FDA9807065B6A8C2059E1C81050EC2,
+	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnEvent_mD629566EE23B9FAAD2C6E5BEC5AB85331DB8194E,
+	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnOperationResponse_m013DD27D42F6F7C8354BECA23E09BE4E896DC168,
+	ChatClient_ExitGames_Client_Photon_IPhotonPeerListener_OnStatusChanged_m7A2F3BAED9658C54639868DA1A8DC54FABF0C2B4,
 	ChatClient_TryAuthenticateOnNameServer_m440074A71E9387139A6C89F44128DF4619802ECB,
 	ChatClient_SendChannelOperation_m0727A81E02E0859790106C7EB566A03E8660386A,
-	ChatClient_HandlePrivateMessageEvent_mF1BE611AF0DF44D0CC8E8A197E76D44F13652DA1,
-	ChatClient_HandleChatMessagesEvent_mCA8B197140BEE3272F5CED56CE588D33BA753E74,
-	ChatClient_HandleSubscribeEvent_m6330A8E3D2B2C9995E5CCB54A1808BEAB70E1DD2,
-	ChatClient_HandleUnsubscribeEvent_mD3ED9C43D5F5E598910BA5B6472C84A3E812999F,
-	ChatClient_HandleAuthResponse_mE1ABD2983979F498A0228265DDB1722D135363F8,
-	ChatClient_HandleStatusUpdate_mFC901625B1351F111419A8C841E6A418897093A3,
+	ChatClient_HandlePrivateMessageEvent_m24ABC4658DD8F0389F2711027E78954A2E3488BC,
+	ChatClient_HandleChatMessagesEvent_mB00C8B9F0DFCD02705C094AD2AFE94C49116FEC5,
+	ChatClient_HandleSubscribeEvent_m6C2D27CFC86059C6F8A79172BB508B6DBA35F570,
+	ChatClient_HandleUnsubscribeEvent_mE7448E176B6C07E0DEBA9A23359A162F35ACDB90,
+	ChatClient_HandleAuthResponse_mDED662AFAD8496B5D6210EBD5BB029C9FEA21803,
+	ChatClient_HandleStatusUpdate_m5277CE58BE9934DE31191CDE2EF07FA8E275B715,
 	ChatClient_ConnectToFrontEnd_mEF90DAE273F5589540D1412A17B00EA173123869,
 	ChatClient_AuthenticateOnFrontEnd_m4E005CD5611CE63F801F714BC5FF3282B9A06002,
-	ChatClient_HandleUserUnsubscribedEvent_m3EDFA87A349D13A66F0E2463B5FDC70D9FE27BEB,
-	ChatClient_HandleUserSubscribedEvent_m78AB1221F0C0C67DA680A3B1DF42A152E777E77D,
+	ChatClient_HandleUserUnsubscribedEvent_m791E35868892875772E0DBBEEDDDA42E4D4027A8,
+	ChatClient_HandleUserSubscribedEvent_m572B2FE962B3A2A89C748D5FE054BAEAD79DE641,
 	ChatClient_Subscribe_mC614066BD08A258D5A0495FA86F98FC2E06C2C4E,
 	ChatEventCode__ctor_m0F45D36EB0218B157F64A471A41328753B2FD5D0,
 	ChatOperationCode__ctor_m728A6F4440D3232E8E99B5D58A330BB856C3116B,
 	ChatParameterCode__ctor_m8FFAFC45471B6FBD120D939AEDD41C64057F0E47,
 	ChatPeer_get_NameServerAddress_m4BC0C17DC28CFA233CC5E2078DCFB9A3046B507F,
 	ChatPeer_get_IsProtocolSecure_m396FFE6A6EA9E25A4611B45C069B5E9D26F93437,
-	ChatPeer__ctor_mFE2EB42972364534D703A7F5800FCB17482956B5,
+	ChatPeer__ctor_m78585868F7678A4E40904158019512C8BF137FEB,
 	ChatPeer_ConfigUnitySockets_m65C6D7120E9DFCD3383CBE2CD9BB4D61B666178C,
 	ChatPeer_GetNameServerAddress_mEAAD5D9ACA62B947FBBB028C44C9E6358715FC8E,
 	ChatPeer_Connect_m0560376B05909F8A69353708FF0B150D5EB85D7F,
@@ -444,152 +444,152 @@ static Il2CppMethodPointer s_methodPointers[146] =
 };
 static const int32_t s_InvokerIndices[146] = 
 {
-	1838,
-	1588,
-	1808,
-	1561,
-	1851,
-	2999,
-	1851,
-	1838,
-	1819,
-	1570,
-	1851,
-	1838,
-	1588,
-	1808,
-	1808,
-	1561,
-	1838,
-	1588,
-	1808,
-	1561,
-	1570,
-	676,
-	676,
-	1851,
-	1851,
-	1819,
-	1570,
-	1570,
-	1838,
-	1588,
-	1819,
-	1570,
-	1819,
-	1570,
-	1819,
-	1570,
-	1808,
-	1561,
-	1808,
-	1561,
-	1838,
-	1407,
-	1838,
-	1819,
-	1570,
-	1819,
-	1570,
-	1819,
-	1570,
-	1819,
-	1570,
-	1838,
-	1588,
-	1838,
-	1588,
-	1819,
-	1008,
-	1407,
+	1843,
+	1590,
+	1813,
+	1563,
+	1856,
+	3005,
+	1856,
+	1843,
+	1824,
+	1572,
+	1856,
+	1843,
+	1590,
+	1813,
+	1813,
+	1563,
+	1843,
+	1590,
+	1813,
+	1563,
+	1572,
+	675,
+	675,
+	1856,
+	1856,
+	1824,
+	1572,
+	1572,
+	1843,
+	1590,
+	1824,
+	1572,
+	1824,
+	1572,
+	1824,
+	1572,
+	1813,
+	1563,
+	1813,
+	1563,
+	1843,
+	1406,
+	1843,
+	1824,
+	1572,
+	1824,
+	1572,
+	1824,
+	1572,
+	1824,
+	1572,
+	1843,
+	1590,
+	1843,
+	1590,
+	1824,
+	1007,
+	1406,
 	609,
-	216,
-	1851,
-	1838,
-	1851,
-	1561,
-	1851,
-	1407,
-	828,
-	826,
-	1407,
+	215,
+	1856,
+	1843,
+	1856,
+	1563,
+	1856,
+	1406,
+	827,
+	825,
+	1406,
 	610,
 	610,
 	392,
 	610,
 	392,
 	392,
-	220,
+	219,
 	595,
-	1396,
-	820,
-	1407,
-	1407,
-	1281,
+	1395,
+	819,
+	1406,
+	1406,
+	1280,
 	612,
-	824,
-	824,
-	1588,
-	1838,
-	1019,
-	1570,
-	1570,
-	1561,
-	1851,
+	823,
+	823,
+	1590,
+	1843,
+	1018,
+	1572,
+	1572,
+	1563,
+	1856,
 	613,
-	1570,
-	1570,
-	1570,
-	1570,
-	1570,
-	1570,
-	1838,
-	1838,
-	1570,
-	1570,
+	1572,
+	1572,
+	1572,
+	1572,
+	1572,
+	1572,
+	1843,
+	1843,
+	1572,
+	1572,
 	388,
-	1851,
-	1851,
-	1851,
-	1819,
-	1838,
-	1008,
-	1851,
-	1819,
-	1838,
+	1856,
+	1856,
+	1856,
+	1824,
+	1843,
+	1007,
+	1856,
+	1824,
+	1843,
 	391,
-	2999,
-	1838,
-	1588,
-	1819,
-	1570,
-	1819,
-	1570,
-	1819,
-	1570,
-	1819,
-	1570,
-	1851,
-	1570,
-	1570,
-	1570,
-	1570,
-	1005,
-	1819,
-	1281,
-	1851,
-	1851,
-	1019,
-	1851,
-	1851,
-	1561,
-	677,
-	677,
-	1005,
-	1570,
+	3005,
+	1843,
+	1590,
+	1824,
+	1572,
+	1824,
+	1572,
+	1824,
+	1572,
+	1824,
+	1572,
+	1856,
+	1572,
+	1572,
+	1572,
+	1572,
+	1004,
+	1824,
+	1280,
+	1856,
+	1856,
+	1018,
+	1856,
+	1856,
+	1563,
+	676,
+	676,
+	1004,
+	1572,
 	435,
-	1005,
-	1005,
+	1004,
+	1004,
 };
 extern const CustomAttributesCacheGenerator g_PhotonChat_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_PhotonChat_CodeGenModule;

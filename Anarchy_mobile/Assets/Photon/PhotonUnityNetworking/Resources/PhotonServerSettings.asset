@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: f411c257-929f-4a8d-a55e-9602acfe3409
+    AppIdRealtime: 51a9110f-42ea-4b2a-8343-eabd68104b87
+    AppIdFusion: 
     AppIdChat: 
     AppIdVoice: 
     AppVersion: 
@@ -27,12 +28,40 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: kr
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
-  RpcList: []
+  RpcList:
+  - AddTurnNumberRPC
+  - ApplyCreateUnitVariableRPC
+  - ApplyUnitActiveCostRPC
+  - ApplyUnitCurrentTileRPC
+  - ApplyUnitDefenceEffectRPC
+  - ApplyUnitOffenceEffectRPC
+  - AttackRPC
+  - BuildingUpgradeRPC
+  - CheckCoreTileUnitsRPC
+  - CheckTileUnitsRPC
+  - CheckUnitAreaRPC
+  - ClickRpc
+  - CreatedUnitP1AreaCheckRPC
+  - CreatedUnitP2AreaCheckRPC
+  - DestroyRpc
+  - DestroySpaceship
+  - EndGameRPC
+  - ExitRPC
+  - Fire
+  - NextTurnRPC
+  - RespawnSpaceship
+  - SumKillRPC
+  - SumMoneyRPC
+  - SumOccupationRPC
+  - SumScoreRPC
+  - SumUnitRPC
+  - TileUpdateRPC
+  - UnitUpdateRPC
   DisableAutoOpenWizard: 1
-  ShowSettings: 1
-  DevRegionSetOnce: 1
+  ShowSettings: 0
+  DevRegionSetOnce: 0

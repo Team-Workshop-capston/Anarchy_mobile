@@ -17,6 +17,7 @@ public class CreateUnit : MonoBehaviourPun
     string s;
     public Sprite[] illust;
     public Text UnitCost;
+    public Image unit_illust;
     
     private void Start()
     {
@@ -26,15 +27,15 @@ public class CreateUnit : MonoBehaviourPun
             switch(GameManager.instance.playerData.forceNumber)
             {
                 case 1:
-                this.GetComponent<Button>().image.sprite = illust[0];
+                unit_illust.sprite = illust[0];
                 unit = p1_units[0];
                 break;
                 case 2:
-                this.GetComponent<Button>().image.sprite = illust[1];
+                unit_illust.sprite = illust[1];
                 unit = p1_units[1];
                 break;
                 case 3:
-                this.GetComponent<Button>().image.sprite = illust[2];
+                unit_illust.sprite = illust[2];
                 unit = p1_units[2];
                 break;
             }
@@ -47,15 +48,15 @@ public class CreateUnit : MonoBehaviourPun
             switch(GameManager.instance.playerData.forceNumber)
             {
                 case 1:
-                this.GetComponent<Button>().image.sprite = illust[0];
+                unit_illust.sprite = illust[0];
                 unit = p2_units[0];
                 break;
                 case 2:
-                this.GetComponent<Button>().image.sprite = illust[1];
+                unit_illust.sprite = illust[1];
                 unit = p2_units[1];
                 break;
                 case 3:
-                this.GetComponent<Button>().image.sprite = illust[2];
+                unit_illust.sprite = illust[2];
                 unit = p2_units[2];
                 break;
             }
@@ -110,7 +111,7 @@ public class CreateUnit : MonoBehaviourPun
                 }
                 else
                 {
-                    u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,-180,0)) as GameObject;
+                    u = PhotonNetwork.Instantiate(unit.name, unit_area[i].position, Quaternion.Euler(0,-0,0)) as GameObject;
                     CentralProcessor.Instance.SumScore(0,1);
                     CentralProcessor.Instance.SumUnit(0,1);
                 }

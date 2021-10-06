@@ -18,52 +18,52 @@
       "DebugActionIndex": 0
     },
     {
-      "Annotation": "Il2Cpp E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Library/Il2cppBuildCache/Android/armeabi-v7a/Native/armeabi-v7a/libil2cpp.so",
-      "Action": "D:\\Unity\\2020.3.18f1\\Editor\\Data\\il2cpp/build/deploy/netcoreapp3.1/il2cpp.exe --convert-to-cpp --emit-null-checks --enable-array-bounds-check --dotnetprofile=\"unityaot\" --compile-cpp --libil2cpp-static --platform=\"Android\" --architecture=\"ARMv7\" --configuration=\"Release\" --outputpath=\"E:\\capstone_project\\MainProject\\Anarchy_mobile\\Anarchy_mobile\\Library\\Il2cppBuildCache\\Android\\armeabi-v7a\\Native\\armeabi-v7a\\libil2cpp.so\" --cachedirectory=\"E:\\capstone_project\\MainProject\\Anarchy_mobile\\Anarchy_mobile\\Assets\\..\\Library\\il2cpp_android_armeabi-v7a/il2cpp_cache\" --additional-include-directories=\"D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools\\bdwgc/include\" --additional-include-directories=\"D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools\\libil2cpp/include\" --baselib-directory=\"D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer\\Variations\\il2cpp\\Release\\StaticLibs\\armeabi-v7a\" --avoid-dynamic-library-copy --tool-chain-path=\"D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK\" --incremental-g-c-time-slice=3 --profiler-report --map-file-parser=D:/Unity/2020.3.18f1/Editor/Data/Tools/MapFileParser/MapFileParser.exe --directory=E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed --generatedcppdir=E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Library/Il2cppBuildCache/Android/armeabi-v7a/il2cppOutput",
+      "Annotation": "Il2Cpp D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Library/Il2cppBuildCache/Android/armeabi-v7a/Native/armeabi-v7a/libil2cpp.so",
+      "Action": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.14f1\\Editor\\Data\\il2cpp/build/deploy/netcoreapp3.1/il2cpp.exe\" --convert-to-cpp --emit-null-checks --enable-array-bounds-check --dotnetprofile=\"unityaot\" --compile-cpp --libil2cpp-static --platform=\"Android\" --architecture=\"ARMv7\" --configuration=\"Release\" --outputpath=\"D:\\Anarchy_mobile\\Anarchy_mobile\\Anarchy_mobile\\Library\\Il2cppBuildCache\\Android\\armeabi-v7a\\Native\\armeabi-v7a\\libil2cpp.so\" --cachedirectory=\"D:\\Anarchy_mobile\\Anarchy_mobile\\Anarchy_mobile\\Assets\\..\\Library\\il2cpp_android_armeabi-v7a/il2cpp_cache\" --additional-include-directories=\"C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools\\bdwgc/include\" --additional-include-directories=\"C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools\\libil2cpp/include\" --baselib-directory=\"C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer\\Variations\\il2cpp\\Development\\StaticLibs\\armeabi-v7a\" --avoid-dynamic-library-copy --tool-chain-path=\"C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK\" --incremental-g-c-time-slice=3 --profiler-report --map-file-parser=\"C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/Tools/MapFileParser/MapFileParser.exe\" --directory=D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed --generatedcppdir=D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Library/Il2cppBuildCache/Android/armeabi-v7a/il2cppOutput",
       "Inputs": [
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Assembly-CSharp.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Boxophobic.PolyverseSkies.Runtime.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Boxophobic.PolyverseSkies.Scripts.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Boxophobic.Utils.Scripts.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Mono.Security.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/mscorlib.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Photon3Unity3D.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonChat.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonRealtime.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonUnityNetworking.Demos.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonUnityNetworking.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonUnityNetworking.Utilities.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Configuration.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Core.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Numerics.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Xml.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.AndroidJNIModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.AnimationModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.AudioModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.CoreModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.GridModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.IMGUIModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.InputLegacyModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.JSONSerializeModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.ParticleSystemModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.Physics2DModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.PhysicsModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.SharedInternalsModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.SpriteShapeModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.TextRenderingModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.TilemapModule.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.UI.dll",
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.UIModule.dll",
-        "D:/Unity/2020.3.18f1/Editor/Data/Tools/MapFileParser/MapFileParser.exe",
-        "D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Release/StaticLibs/armeabi-v7a/baselib.a",
-        "D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Release/StaticLibs/armeabi-v7a/libunityruntime.a",
-        "D:/Unity/2020.3.18f1/Editor/Data/il2cpp/build/deploy/netcoreapp3.1/il2cpp.exe"
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Assembly-CSharp.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Boxophobic.PolyverseSkies.Runtime.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Boxophobic.PolyverseSkies.Scripts.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Boxophobic.Utils.Scripts.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Mono.Security.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/mscorlib.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/Photon3Unity3D.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonChat.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonRealtime.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonUnityNetworking.Demos.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonUnityNetworking.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/PhotonUnityNetworking.Utilities.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Configuration.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Core.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Numerics.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/System.Xml.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.AndroidJNIModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.AnimationModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.AudioModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.CoreModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.GridModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.IMGUIModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.InputLegacyModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.JSONSerializeModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.ParticleSystemModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.Physics2DModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.PhysicsModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.SharedInternalsModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.SpriteShapeModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.TextRenderingModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.TilemapModule.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.UI.dll",
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Temp/StagingArea/assets/bin/Data/Managed/UnityEngine.UIModule.dll",
+        "C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/Tools/MapFileParser/MapFileParser.exe",
+        "C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Development/StaticLibs/armeabi-v7a/baselib.a",
+        "C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Development/StaticLibs/armeabi-v7a/libunityruntime.a",
+        "\"C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/il2cpp/build/deploy/netcoreapp3.1/il2cpp.exe\""
       ],
       "Outputs": [
-        "E:/capstone_project/MainProject/Anarchy_mobile/Anarchy_mobile/Library/Il2cppBuildCache/Android/armeabi-v7a/Native/armeabi-v7a/libil2cpp.so"
+        "D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/Library/Il2cppBuildCache/Android/armeabi-v7a/Native/armeabi-v7a/libil2cpp.so"
       ],
       "TargetDirectories": [],
       "PassIndex": 0,
@@ -84,13 +84,13 @@
       "File": "artifacts/buildprogram/tundra_buildprogram.dag.json"
     },
     {
-      "File": "D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools/bdwgc/include"
+      "File": "C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools/bdwgc/include"
     },
     {
-      "File": "D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools/libil2cpp/include"
+      "File": "C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Tools/libil2cpp/include"
     },
     {
-      "File": "D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Release/StaticLibs/armeabi-v7a"
+      "File": "C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Development/StaticLibs/armeabi-v7a"
     },
     {
       "File": "il2cpp_settings.json"
@@ -104,7 +104,7 @@
       "Path": "../../../../Temp/StagingArea/assets/bin/Data/Managed"
     },
     {
-      "Path": "D:/Unity/2020.3.18f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Release/StaticLibs/armeabi-v7a",
+      "Path": "C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Development/StaticLibs/armeabi-v7a",
       "Recurse": 1
     }
   ],

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2788792190546652374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 7791548668298163211}
   m_Father: {fileID: 0}
@@ -111,7 +111,6 @@ MonoBehaviour:
   defensive: 56
   offensive: 104
   currentTile: {fileID: 0}
-  isClicked: 0
   isAttackready: 0
 --- !u!1001 &7758467711321576416
 PrefabInstance:
@@ -162,6 +161,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14e020df32b4d6140a19a76ad919eb3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 14e020df32b4d6140a19a76ad919eb3d, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 14e020df32b4d6140a19a76ad919eb3d, type: 3}
