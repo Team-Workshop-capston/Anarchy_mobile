@@ -678,8 +678,9 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             if(unit.GetComponent<PhotonView>().ViewID == id)
             {
-                unit.GetComponent<MyUnit>().current_hp = hp;
-                unit.GetComponent<MyUnit>().max_hp = hp;
+                //unit.GetComponent<MyUnit>().current_hp = hp;
+                //unit.GetComponent<MyUnit>().max_hp = hp;
+                unit.GetComponent<MyUnit>().hp = hp;
                 unit.GetComponent<MyUnit>().offensive = off;
                 unit.GetComponent<MyUnit>().defensive = def;
                 unit.GetComponent<MyUnit>().activeCost = act;
@@ -700,64 +701,79 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 {
                     if(enemy.GetComponent<PhotonView>().ViewID == enemyId)
                     {
-                        if(myUnit.GetComponent<MyUnit>().offensive > enemy.GetComponent<MyUnit>().defensive)
+                        if(myUnit.GetComponent<MyUnit>().offensive >= enemy.GetComponent<MyUnit>().defensive)
                         {
-                            switch(myUnit.GetComponent<MyUnit>().type)
-                            {
-                                case 1:
-                                myUnit.GetComponent<MyUnit>().current_hp -= 15;
-                                break;
-                                case 2:
-                                break;
-                                case 3:
-                                //myUnit.GetComponent<MyUnit>().current_hp -= 5;
-                                break;
-                            }
-
-                            switch(enemy.GetComponent<MyUnit>().type)
-                            {
-                                case 1:
-                                enemy.GetComponent<MyUnit>().current_hp -= 10 + (myUnit.GetComponent<MyUnit>().offensive - enemy.GetComponent<MyUnit>().defensive);
-                                break;
-                                case 2:
-                                enemy.GetComponent<MyUnit>().current_hp -= 15 + (myUnit.GetComponent<MyUnit>().offensive - enemy.GetComponent<MyUnit>().defensive);
-                                break;
-                                case 3:
-                                enemy.GetComponent<MyUnit>().current_hp -= 10 + (myUnit.GetComponent<MyUnit>().offensive - Mathf.RoundToInt(enemy.GetComponent<MyUnit>().defensive * 1.2f));
-                                break;
-                            }
+                            enemy.GetComponent<MyUnit>().hp -= 1;
                         }
                         else
                         {
-                            switch(myUnit.GetComponent<MyUnit>().type)
+                            enemy.GetComponent<MyUnit>().accDamage += myUnit.GetComponent<MyUnit>().offensive;
+                            if(enemy.GetComponent<MyUnit>().accDamage >= enemy.GetComponent<MyUnit>().defensive)
                             {
-                                case 1:
-                                myUnit.GetComponent<MyUnit>().current_hp -= 10 + (enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive);
-                                break;
-                                case 2:
-                                break;
-                                case 3:
-                                //myUnit.GetComponent<MyUnit>().current_hp -= 5 + Mathf.RoundToInt((enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive) * 0.8f);
-                                break;
-                            }
-
-                            switch(enemy.GetComponent<MyUnit>().type)
-                            {
-                                case 1:
-                                enemy.GetComponent<MyUnit>().current_hp -= 5;
-                                break;
-                                case 2:
-                                enemy.GetComponent<MyUnit>().current_hp -= 10;
-                                break;
-                                case 3:
-                                enemy.GetComponent<MyUnit>().current_hp -= 5;
-                                break;
+                                enemy.GetComponent<MyUnit>().hp -= 1;
+                                enemy.GetComponent<MyUnit>().accDamage = 0;
                             }
                         }
 
-                        myUnit.GetComponent<MyUnit>().activeCost = 0;
 
-                        if(myUnit.GetComponent<MyUnit>().current_hp <= 0)
+                        // if(myUnit.GetComponent<MyUnit>().offensive > enemy.GetComponent<MyUnit>().defensive)
+                        // {
+                        //     switch(myUnit.GetComponent<MyUnit>().type)
+                        //     {
+                        //         case 1:
+                        //         myUnit.GetComponent<MyUnit>().current_hp -= 15;
+                        //         break;
+                        //         case 2:
+                        //         break;
+                        //         case 3:
+                        //         myUnit.GetComponent<MyUnit>().current_hp -= 5;
+                        //         break;
+                        //     }
+
+                        //     switch(enemy.GetComponent<MyUnit>().type)
+                        //     {
+                        //         case 1:
+                        //         enemy.GetComponent<MyUnit>().current_hp -= 10 + (myUnit.GetComponent<MyUnit>().offensive - enemy.GetComponent<MyUnit>().defensive);
+                        //         break;
+                        //         case 2:
+                        //         enemy.GetComponent<MyUnit>().current_hp -= 15 + (myUnit.GetComponent<MyUnit>().offensive - enemy.GetComponent<MyUnit>().defensive);
+                        //         break;
+                        //         case 3:
+                        //         enemy.GetComponent<MyUnit>().current_hp -= 10 + (myUnit.GetComponent<MyUnit>().offensive - Mathf.RoundToInt(enemy.GetComponent<MyUnit>().defensive * 1.2f));
+                        //         break;
+                        //     }
+                        // }
+                        // else
+                        // {
+                        //     switch(myUnit.GetComponent<MyUnit>().type)
+                        //     {
+                        //         case 1:
+                        //         myUnit.GetComponent<MyUnit>().current_hp -= 10 + (enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive);
+                        //         break;
+                        //         case 2:
+                        //         break;
+                        //         case 3:
+                        //         myUnit.GetComponent<MyUnit>().current_hp -= 5 + Mathf.RoundToInt((enemy.GetComponent<MyUnit>().defensive - myUnit.GetComponent<MyUnit>().offensive) * 0.8f);
+                        //         break;
+                        //     }
+
+                        //     switch(enemy.GetComponent<MyUnit>().type)
+                        //     {
+                        //         case 1:
+                        //         enemy.GetComponent<MyUnit>().current_hp -= 5;
+                        //         break;
+                        //         case 2:
+                        //         enemy.GetComponent<MyUnit>().current_hp -= 10;
+                        //         break;
+                        //         case 3:
+                        //         enemy.GetComponent<MyUnit>().current_hp -= 5;
+                        //         break;
+                        //     }
+                        // }
+
+                        // myUnit.GetComponent<MyUnit>().activeCost = 0;
+
+                        if(myUnit.GetComponent<MyUnit>().hp <= 0)
                         {
                             if(myUnit.gameObject.layer == 7)
                             {
@@ -780,7 +796,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             Destroy(myUnit.gameObject);
                         }
 
-                        if(enemy.GetComponent<MyUnit>().current_hp <= 0)
+                        if(enemy.GetComponent<MyUnit>().hp <= 0)
                         {
                             if(enemy.gameObject.layer == 7)
                             {
@@ -802,6 +818,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             }
                             Destroy(enemy.gameObject);
                         }
+
                     }
                 }
             }

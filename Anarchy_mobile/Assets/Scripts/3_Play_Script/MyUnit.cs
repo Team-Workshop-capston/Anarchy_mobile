@@ -10,10 +10,10 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
 {
     public int type;
     public int cost;
-    public float current_hp;
-    public float max_hp;
+    public int hp;
     public Sprite illust;
     public int activeCost;
+    public int accDamage = 0;
     public string unit_name;
     public int myNum;
     public int defensive;
@@ -123,7 +123,7 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
 
     public void ShowInfo()
     {
-        CentralProcessor.Instance.uIManager.ShowUnitInfo(max_hp, current_hp, illust, unit_name, activeCost, offensive, defensive);
+        CentralProcessor.Instance.uIManager.ShowUnitInfo(hp, illust, unit_name, activeCost, offensive, defensive);
     }
 
     public void ActiveCostUpdate()

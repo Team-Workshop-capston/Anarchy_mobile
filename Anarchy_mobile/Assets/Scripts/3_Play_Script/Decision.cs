@@ -23,6 +23,7 @@ public class Decision : MonoBehaviourPun
     public Sprite[] decision_IllustSprite;
     public GameObject decision_list;
     public GameObject decision_Illust;
+    public Sprite[] situationImages;
 
     private void Start()
     {
@@ -110,6 +111,7 @@ public class Decision : MonoBehaviourPun
         situationNum = UnityEngine.Random.Range(0, 15);
         num = RandomNumber(0,5);
         DecisionPanel.gameObject.SetActive(true);
+        SituationImage.sprite = situationImages[situationNum];
         DecisionDesc.text = decisionSituation.name[situationNum];
         Actions action1 = actionMap[(situationNum * 5) + num[0]];
         decisionBtn_1.text = action1.ReturnDesc();
@@ -167,6 +169,7 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.ShowDecisionEffect();
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[0]);
+        CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
         if(action.ReturnBuffNum() == 15)
         {
             return;
@@ -187,7 +190,8 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.ShowDecisionEffect();
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[1]);
-        AddDecisionIllust(action.ReturnBuffNum());
+        CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
+        //AddDecisionIllust(action.ReturnBuffNum());
         if(action.ReturnBuffNum() == 15)
         {
             return;
@@ -208,7 +212,8 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.ShowDecisionEffect();
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[2]);
-        AddDecisionIllust(action.ReturnBuffNum());
+        CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
+        //AddDecisionIllust(action.ReturnBuffNum());
         if(action.ReturnBuffNum() == 15)
         {
             return;

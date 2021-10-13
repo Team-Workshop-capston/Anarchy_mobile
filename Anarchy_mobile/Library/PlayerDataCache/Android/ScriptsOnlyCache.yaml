@@ -35,6 +35,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -339,8 +341,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -501,7 +501,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4764}
     - Class: 114
-      Script: {instanceID: 60284}
+      Script: {instanceID: 60216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1617,7 +1617,7 @@ ScriptsOnlyBuild:
     className: PlayerManager
   - hash:
       serializedVersion: 2
-      Hash: 6fd45f58f3799b34b06c6040a325781d
+      Hash: 080301e381982f6f0d7825a832b43341
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CreateUnit
@@ -2018,4 +2018,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/2_Lobby.unity
   - Assets/Scenes/3_Play.unity
   - Assets/Scenes/4_Tutorial.unity
-  playerPath: D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/mobile_63.apk
+  playerPath: D:/Anarchy_mobile/Anarchy_mobile/Anarchy_mobile/mobile_65.apk

@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviourPun
     GameObject[]    window;
     public Image    unitInfo_panel;
     public Image    unit_illust;
-    public Image    unit_hp;
+    public Image[]  unit_hp;
     public Text     unit_activeCost;
     public Text     unit_name;
     public Text     HP;
@@ -300,15 +300,19 @@ public class UIManager : MonoBehaviourPun
         errorMessage.text = s;
     }
 
-    public void ShowUnitInfo(float m_hp, float c_hp, Sprite illust, string name, int cost, int offence, int defence)
+    public void ShowUnitInfo(int hp, Sprite illust, string name, int cost, int offence, int defence)
     {
         unitInfo_panel.gameObject.SetActive(true);
         unit_name.text = name;
         unit_activeCost.text = cost.ToString();
         unit_illust.sprite = illust;
         //unit_hp.rectTransform.localScale = new Vector3(c_hp/m_hp,1f,1f);
-        unit_hp.fillAmount = c_hp / m_hp;
-        HP.text = Mathf.RoundToInt(c_hp).ToString();
+        //unit_hp.fillAmount = c_hp / m_hp;
+        //HP.text = Mathf.RoundToInt(c_hp).ToString();
+        for(int i = 0; i < hp; i++)
+        {
+            unit_hp[i].gameObject.SetActive(true);
+        }
         unit_ATK.text = offence.ToString();
         unit_DEF.text = defence.ToString();
     }
@@ -374,6 +378,10 @@ public class UIManager : MonoBehaviourPun
     public void CloseUnitInfo()
     {
         unitInfo_panel.gameObject.SetActive(false);
+        foreach(Image hp in unit_hp)
+        {
+            hp.gameObject.SetActive(false);
+        }
     }
 
     public void MoveUnit()
@@ -418,11 +426,11 @@ public class UIManager : MonoBehaviourPun
             {
                 if(CentralProcessor.Instance.isMaster)
                 {
-                    CentralProcessor.Instance.CheckUnitArea(7, CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID,true,CentralProcessor.Instance.currentUnit.myNum);
+                    CentralProcessor.Instance.CheckUnitArea(7, CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID,true,i);
                 }
                 else
                 {
-                    CentralProcessor.Instance.CheckUnitArea(8, CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID,true,CentralProcessor.Instance.currentUnit.myNum);
+                    CentralProcessor.Instance.CheckUnitArea(8, CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID,true,i);
                 }
                 //CentralProcessor.Instance.CheckUnitArea(CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID,true,i,CentralProcessor.Instance.isMaster);
                 CentralProcessor.Instance.CheckTileUnits(CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID, CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, i, CentralProcessor.Instance.isMaster, true);

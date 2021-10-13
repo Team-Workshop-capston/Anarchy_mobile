@@ -15,11 +15,14 @@ public class CreateBuilding : MonoBehaviourPun
     bool isMaster;
     string s;
     public Image maxImg;
+    public Image illust;
+    public Text levelText;
 
     private void Start()
     {
         isMaster = CentralProcessor.Instance.isMaster;
         building = buildings[0];
+        illust.sprite = buildings[0].GetComponent<MyBuilding>().illust;
     }
 
     public void CreateButtonClick()
@@ -62,6 +65,8 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.createBuildingNumber -= 1;
                 CentralProcessor.Instance.SumScore(0,5);
             }
+            illust.sprite = buildings[1].GetComponent<MyBuilding>().illust;
+            levelText.text = "X 2";
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + 1);
             VariableManager.Instance.BuildingCostSetting();
@@ -88,6 +93,8 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.createBuildingNumber -= 1;
                 CentralProcessor.Instance.SumScore(0,5);
             }
+            illust.sprite = buildings[2].GetComponent<MyBuilding>().illust;
+            levelText.text = "X 3";
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + level);
             VariableManager.Instance.BuildingCostSetting();
@@ -113,7 +120,7 @@ public class CreateBuilding : MonoBehaviourPun
             VariableManager.Instance.isBuildCostEffect = false;
             var n = VariableManager.Instance.buildEffects.Dequeue();
             VariableManager.Instance.BuildingCostEffect(n);
-            //VariableManager.Instance.BuildingCostSetting();
+            //VariableManager.Instance.BuildingCostSetting();q
         }
     }
 

@@ -22239,6 +22239,8 @@ public:
 	SpriteU5BU5D_t8DB77E112FFC97B722E701189DCB4059F943FD77* ___illust_14;
 	// UnityEngine.UI.Text CreateUnit::UnitCost
 	Text_t6A2339DA6C05AE2646FC1A6C8FCC127391BE7FA1 * ___UnitCost_15;
+	// UnityEngine.UI.Image CreateUnit::unit_illust
+	Image_t4021FF27176E44BFEDDCBE43C7FE6B713EC70D3C * ___unit_illust_16;
 
 public:
 	inline static int32_t get_offset_of_unit_5() { return static_cast<int32_t>(offsetof(CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77, ___unit_5)); }
@@ -22336,6 +22338,15 @@ public:
 	{
 		___UnitCost_15 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___UnitCost_15), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_unit_illust_16() { return static_cast<int32_t>(offsetof(CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77, ___unit_illust_16)); }
+	inline Image_t4021FF27176E44BFEDDCBE43C7FE6B713EC70D3C * get_unit_illust_16() const { return ___unit_illust_16; }
+	inline Image_t4021FF27176E44BFEDDCBE43C7FE6B713EC70D3C ** get_address_of_unit_illust_16() { return &___unit_illust_16; }
+	inline void set_unit_illust_16(Image_t4021FF27176E44BFEDDCBE43C7FE6B713EC70D3C * value)
+	{
+		___unit_illust_16 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___unit_illust_16), (void*)value);
 	}
 };
 
@@ -34389,7 +34400,7 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3901[9] =
 	CreateBuilding_tEDA18753F0006E082BA297AE7A5E8E01A76A41D4::get_offset_of_s_12(),
 	CreateBuilding_tEDA18753F0006E082BA297AE7A5E8E01A76A41D4::get_offset_of_maxImg_13(),
 };
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3902[11] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3902[12] = 
 {
 	CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77::get_offset_of_unit_5(),
 	CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77::get_offset_of_type_6(),
@@ -34402,6 +34413,7 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3902[11] =
 	CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77::get_offset_of_s_13(),
 	CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77::get_offset_of_illust_14(),
 	CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77::get_offset_of_UnitCost_15(),
+	CreateUnit_t1B0886BABF835C0D5175EAF7769CA9B75678EC77::get_offset_of_unit_illust_16(),
 };
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3903[3] = 
 {

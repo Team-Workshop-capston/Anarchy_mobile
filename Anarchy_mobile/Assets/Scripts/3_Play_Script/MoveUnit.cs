@@ -32,7 +32,7 @@ public class MoveUnit : MonoBehaviour
             ChangeColor(Color.blue);
             if(CentralProcessor.Instance.current_moveButton != null)
             {
-                CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.white);
+                CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.black);
                 CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().isChecked = false;
                 CentralProcessor.Instance.current_moveButton = this.gameObject.GetComponent<Button>();
             }
@@ -51,7 +51,7 @@ public class MoveUnit : MonoBehaviour
     public void OffCheck()
     {
         isChecked = false;
-        ChangeColor(Color.white);
+        ChangeColor(Color.black);
     }
 
     public void ChangeColor(Color c)
