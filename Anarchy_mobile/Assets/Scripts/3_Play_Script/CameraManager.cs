@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    bool isMaster;
-    public Transform P1_start_point;
-    public Transform P2_start_point;
+    public Transform    P1_start_point;
+    public Transform    P2_start_point;
+    bool                isMaster;
 
     private void Awake()
     {

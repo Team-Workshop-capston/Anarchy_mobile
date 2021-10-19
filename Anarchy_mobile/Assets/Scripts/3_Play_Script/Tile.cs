@@ -26,8 +26,9 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
     public Image minimap_Tile;
     public GameObject decisionIcon;
     public int money;
-    public int result_money;
     public Button MoveMapButton;
+    public GameObject[] occBlue;
+    public GameObject[] occRed;
 
     private void Start()
     {
@@ -58,24 +59,26 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
         if(isMaster && isP1Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += result_money;
+            currentMoney += money;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
-            CentralProcessor.Instance.SumMoney(result_money,0);
+            CentralProcessor.Instance.SumMoney(money,0);
         }
         else if(!isMaster && isP2Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
-            currentMoney += result_money;
+            currentMoney += money;
             CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
-            CentralProcessor.Instance.SumMoney(0,result_money);
+            CentralProcessor.Instance.SumMoney(0,money);
         }
     }
 
     public void MoveTile()
     {
+        CentralProcessor.Instance.currentTile.DisappearOcc();
         CentralProcessor.Instance.cameraManager.transform.position = cameraPoint.position;
         CentralProcessor.Instance.currentTile.minimap_Tile.color = Color.white;
         CentralProcessor.Instance.currentTile = this.gameObject.GetComponent<Tile>();
+        CentralProcessor.Instance.currentTile.ShowOcc();
         if(isMaster)
         {
             this.minimap_Tile.color = Color.blue;
@@ -83,6 +86,36 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
         else
         {
             this.minimap_Tile.color = Color.red;
+        }
+    }
+
+    public void DisappearOcc()
+    {
+        foreach(GameObject o in occBlue)
+        {
+            o.gameObject.SetActive(false);
+        }
+        foreach(GameObject o in occRed)
+        {
+            o.gameObject.SetActive(false);
+        }
+    }
+
+    public void ShowOcc()
+    {
+        if(occupationCost > 0)
+        {
+            for(int i = 0; i < occupationCost; i++)
+            {
+                occBlue[i].gameObject.SetActive(true);
+            }
+        }
+        else if(occupationCost < 0)
+        {
+            for(int i = 0; i < occupationCost; i++)
+            {
+                occRed[i].gameObject.SetActive(true);
+            }
         }
     }
 }

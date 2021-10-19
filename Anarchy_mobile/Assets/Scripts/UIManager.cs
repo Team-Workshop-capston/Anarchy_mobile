@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviourPun
             {
                 if(ChooseforcePanel.gameObject.activeSelf)
                 {
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(1);
                 }
                 else
                 {
@@ -113,7 +113,7 @@ public class UIManager : MonoBehaviourPun
     public void NewgameBtnClick()
     {
         GameManager.instance.audioManager.ButtonClickSound();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void ExitGame()
@@ -125,17 +125,22 @@ public class UIManager : MonoBehaviourPun
     public void Tutorial()
     {
         GameManager.instance.audioManager.ButtonClickSound();
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
 
     public void GoTitle()
     {
+        SceneManager.LoadScene(1);
         GameManager.instance.audioManager.ButtonClickSound();
         if(GameManager.instance.audioManager.backmusic.clip == GameManager.instance.audioManager.title.clip)
         {
             GameManager.instance.audioManager.StartTitleBGM();
         }
-        SceneManager.LoadScene(0);
+    }
+
+    public void Title()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void ShowForcePage()
@@ -271,18 +276,9 @@ public class UIManager : MonoBehaviourPun
 
     public void InfoWindowReset()
     {
-        if(unitInfo_panel.gameObject.activeSelf)
-        {
-            CentralProcessor.Instance.UnitReset();
-        }
-        if(buildingInfo_panel.gameObject.activeSelf)
-        {
-            CentralProcessor.Instance.BuildingReset();
-        }
-        if(VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.activeSelf)
-        {
-            VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(false);
-        }
+        CentralProcessor.Instance.UnitReset();
+        CentralProcessor.Instance.BuildingReset();
+        VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(false);
     }
 
     public void OffMapButtonsCheck()
@@ -417,7 +413,6 @@ public class UIManager : MonoBehaviourPun
         {
             CentralProcessor.Instance.CheckUnitArea(8, CentralProcessor.Instance.currentTile.gameObject.GetComponent<PhotonView>().ViewID,false,CentralProcessor.Instance.currentUnit.myNum);
         }
-        //CentralProcessor.Instance.CheckUnitArea(CentralProcessor.Instance.currentTile.gameObject.GetComponent<PhotonView>().ViewID,false,CentralProcessor.Instance.currentUnit.myNum,CentralProcessor.Instance.isMaster);
         CentralProcessor.Instance.CheckTileUnits(CentralProcessor.Instance.currentTile.gameObject.GetComponent<PhotonView>().ViewID, CentralProcessor.Instance.currentUnit.gameObject.GetComponent<PhotonView>().ViewID, CentralProcessor.Instance.currentUnit.myNum, CentralProcessor.Instance.isMaster, false);
 
         for(int i = 0; i < 3; i++)
@@ -440,7 +435,7 @@ public class UIManager : MonoBehaviourPun
                 //CentralProcessor.Instance.currentUnit.activeCost -= CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost;
                 CentralProcessor.Instance.ApplyUnitActiveCost(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, -CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost);
                 CentralProcessor.Instance.currentUnit = null;
-                CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.white);
+                CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.black);
                 CentralProcessor.Instance.current_moveButton = null;
                 CentralProcessor.Instance.uIManager.SetIdleState();
                 CentralProcessor.Instance.uIManager.UISetActiveTrue();

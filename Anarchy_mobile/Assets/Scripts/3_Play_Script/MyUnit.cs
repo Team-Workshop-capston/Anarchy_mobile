@@ -36,19 +36,13 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
 
         if(CentralProcessor.Instance.uIManager.state == UIManager.State.Idle)
         {
-            Debug.Log("111");
             if((isMaster && this.gameObject.layer == 8) || (!isMaster && this.gameObject.layer == 7))
             {
-                Debug.Log("222");
                 if(CentralProcessor.Instance.currentEnemy != this.gameObject.GetComponent<MyUnit>())
                 {
-                    Debug.Log("333");
                     CentralProcessor.Instance.uIManager.InfoWindowReset();
-                    Debug.Log("444");
                     CentralProcessor.Instance.currentEnemy = this.gameObject.GetComponent<MyUnit>();
-                    Debug.Log("555");
                     ShowInfo();
-                    Debug.Log("777");
                 }
                 else
                 {
@@ -79,7 +73,6 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
                     {
                         return;
                     }
-                    CentralProcessor.Instance.uIManager.OffReadyAttack();
                 }
             }
         }
