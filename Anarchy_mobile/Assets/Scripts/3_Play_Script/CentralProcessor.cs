@@ -72,6 +72,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Text             p2_money;
     public Text             p1_occupation;
     public Text             p2_occupation;
+    public Text             GameResult;
 
 
 
@@ -179,7 +180,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         currentUnit = null;
         currentEnemy = null;
-        uIManager.unitInfo_panel.gameObject.SetActive(false);
+        //uIManager.unitInfo_panel.gameObject.SetActive(false);
+        uIManager.CloseUnitInfo();
         uIManager.unitButtonPanel.gameObject.SetActive(false);
     }
 
@@ -345,13 +347,13 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         switch(type)
         {
             case 1:
-            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.war_hp, VariableManager.Instance.result_UnitOffence[0], VariableManager.Instance.result_UnitDefence[0], VariableManager.Instance.war_act);
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.war_hp, VariableManager.Instance.war_off, VariableManager.Instance.war_def, VariableManager.Instance.war_act);
             break;
             case 2:
-            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.arc_hp, VariableManager.Instance.result_UnitOffence[1], VariableManager.Instance.result_UnitDefence[1], VariableManager.Instance.arc_act);
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.arc_hp, VariableManager.Instance.arc_off, VariableManager.Instance.arc_def, VariableManager.Instance.arc_act);
             break;
             case 3:
-            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.mag_hp, VariableManager.Instance.result_UnitOffence[2], VariableManager.Instance.result_UnitDefence[2], VariableManager.Instance.mag_act);
+            photonView.RPC("ApplyCreateUnitVariableRPC", RpcTarget.All, id, VariableManager.Instance.mag_hp, VariableManager.Instance.mag_off, VariableManager.Instance.mag_def, VariableManager.Instance.mag_act);
             break;
         }
     }
@@ -373,12 +375,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     public void ApplyUnitDefenceEffect(int layer, int war_def, int arc_def, int mag_def)
     {
-        photonView.RPC("ApplyUnitDefenceEffectRPC", RpcTarget.All, war_def, arc_def, mag_def);
-    }
-
-    public void ApplyUnitActiveCostEffect(int layer)
-    {
-
+        photonView.RPC("ApplyUnitDefenceEffectRPC", RpcTarget.All, layer, war_def, arc_def, mag_def);
     }
 
     public void ApplyUnitCurrentTile(int unitId, int tileId)
@@ -424,7 +421,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         turn_Number += 1;
         if(turn_Number >= 100)
         {
-            uIManager.SetEndState();
+            photonView.RPC("EndGameRPC", RpcTarget.All);
             return;
         }
 
@@ -488,20 +485,19 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 }
                 t.occupationCost = 3;
                 t.isP1Tile = true;
-                t.gameObject.transform.Find("Flag").gameObject.SetActive(true);
-                t.gameObject.transform.Find("Flag").GetComponent<Renderer>().material.color = Color.blue;
+                t.gameObject.transform.Find("flag_Blue").gameObject.SetActive(true);
                 if(!t.GetComponent<Tile>().isDecision)
                 {
                     t.GetComponent<Tile>().isDecision = true;
                     t.decisionIcon.GetComponent<DecisionIcon>().isP1Decision = true;
                     if(isMaster)
                     {
+                        t.decisionIcon.GetComponent<DecisionIcon>().gameObject.SetActive(true);
                         if(!firstDecision)
                         {
                             firstDecision = true;
                             decisionButton.gameObject.SetActive(true);
                         }
-                        t.decisionIcon.GetComponent<DecisionIcon>().gameObject.SetActive(true);
                     }
                 }
             }
@@ -514,8 +510,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 }
                 t.occupationCost = -3;
                 t.isP2Tile = true;
-                t.gameObject.transform.Find("Flag").gameObject.SetActive(true);
-                t.gameObject.transform.Find("Flag").GetComponent<Renderer>().material.color = Color.red;
+                t.gameObject.transform.Find("flag_Red").gameObject.SetActive(true);
                 if(!t.GetComponent<Tile>().isDecision)
                 {
                     t.GetComponent<Tile>().isDecision = true;
@@ -535,7 +530,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 t.isP1Tile = false;
                 t.isP2Tile = false;
-                t.gameObject.transform.Find("Flag").gameObject.SetActive(false);
+                t.gameObject.transform.Find("flag_Blue").gameObject.SetActive(false);
+                t.gameObject.transform.Find("flag_Red").gameObject.SetActive(false);
             }
         }
     }
@@ -586,12 +582,10 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 if(layer == 7)
                 {
-                    //t.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(check);
                     t.isP1_unitArea[num] = check;
                 }
                 else
                 {
-                    //t.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(check);
                     t.isP2_unitArea[num] = check;
                 }
                 return;
@@ -646,6 +640,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             }
                             else
                             {
+                                unit.GetComponent<MyUnit>().myNum = num;
                                 t.P1_units[num] = unit.GetComponent<MyUnit>();
                                 t.MoveMapButton.GetComponent<MoveUnit>().p1unit[num].gameObject.SetActive(true);
                             }
@@ -659,6 +654,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             }
                             else
                             {
+                                unit.GetComponent<MyUnit>().myNum = num;
                                 t.P2_units[num] = unit.GetComponent<MyUnit>();
                                 t.MoveMapButton.GetComponent<MoveUnit>().p2unit[num].gameObject.SetActive(true);
                             }
@@ -678,8 +674,6 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             if(unit.GetComponent<PhotonView>().ViewID == id)
             {
-                //unit.GetComponent<MyUnit>().current_hp = hp;
-                //unit.GetComponent<MyUnit>().max_hp = hp;
                 unit.GetComponent<MyUnit>().hp = hp;
                 unit.GetComponent<MyUnit>().offensive = off;
                 unit.GetComponent<MyUnit>().defensive = def;
@@ -704,6 +698,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         if(myUnit.GetComponent<MyUnit>().offensive >= enemy.GetComponent<MyUnit>().defensive)
                         {
                             enemy.GetComponent<MyUnit>().hp -= 1;
+                            enemy.GetComponent<MyUnit>().accDamage = 0;
                         }
                         else
                         {
@@ -714,8 +709,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 enemy.GetComponent<MyUnit>().accDamage = 0;
                             }
                         }
-
-
+                        myUnit.GetComponent<MyUnit>().activeCost = 0;
+                        uIManager.OffReadyAttack();
                         // if(myUnit.GetComponent<MyUnit>().offensive > enemy.GetComponent<MyUnit>().defensive)
                         // {
                         //     switch(myUnit.GetComponent<MyUnit>().type)
@@ -783,6 +778,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 p2_kill.text = P2_totalKill.ToString();
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[myUnit.GetComponent<MyUnit>().myNum] = null;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p1unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
                             }
                             else if(myUnit.gameObject.layer == 8)
                             {
@@ -792,6 +788,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 p1_kill.text = P1_totalKill.ToString();
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[myUnit.GetComponent<MyUnit>().myNum] = null;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p2unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
                             }
                             Destroy(myUnit.gameObject);
                         }
@@ -806,6 +803,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 p2_kill.text = P2_totalKill.ToString();
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[enemy.GetComponent<MyUnit>().myNum] = null;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p1unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
                             }
                             else if(enemy.gameObject.layer == 8)
                             {
@@ -815,6 +813,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 p1_kill.text = P1_totalKill.ToString();
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[enemy.GetComponent<MyUnit>().myNum] = false;
                                 enemy.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[enemy.GetComponent<MyUnit>().myNum] = null;
+                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p2unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
                             }
                             Destroy(enemy.gameObject);
                         }
@@ -933,6 +932,42 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private void EndGameRPC()
     {
         uIManager.SetEndState();
+        if(P1_score > P2_score)
+        {
+            if(isMaster)
+            {
+                GameResult.text = "V I C T O R Y";
+            }
+            else
+            {
+                GameResult.text = "L O S E";
+            }
+        }
+        else if(P1_score == P2_score)
+        {
+            GameResult.text = "T I E";
+        }
+        else
+        {
+            if(isMaster)
+            {
+                GameResult.text = "L O S E";
+            }
+            else
+            {
+                GameResult.text = "V I C T O R Y";
+            }
+        }
+        p1_score.text = P1_score.ToString();
+        p2_score.text = P2_score.ToString();
+        p1_unit.text = P1_totalUnit.ToString();
+        p2_unit.text = P2_totalUnit.ToString();
+        p1_kill.text = P1_totalKill.ToString();
+        p2_kill.text = P2_totalUnit.ToString();
+        p1_money.text = P1_totalMoney.ToString();
+        p2_money.text = P2_totalMoney.ToString();
+        p1_occupation.text = P1_totalOccupation.ToString();
+        p2_occupation.text = P2_totalOccupation.ToString();
     }
 
     [PunRPC]

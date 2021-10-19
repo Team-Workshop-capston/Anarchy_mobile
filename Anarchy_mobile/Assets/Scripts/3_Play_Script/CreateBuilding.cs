@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class CreateBuilding : MonoBehaviourPun
 {
-    GameObject building;
-    public int type;
-    public int level = 0;
+    GameObject          building;
+    public int          type;
+    public int          level = 0;
     public GameObject[] buildings = new GameObject[3];
-    public Transform[] P1_buildingArea = new Transform[3];
-    public Transform[] P2_buildingArea = new Transform[3];
-    bool isMaster;
-    string s;
-    public Image maxImg;
-    public Image illust;
-    public Text levelText;
+    public Transform[]  P1_buildingArea = new Transform[3];
+    public Transform[]  P2_buildingArea = new Transform[3];
+    bool                isMaster;
+    string              s;
+    public Image        maxImg;
+    public Image        illust;
+    public Text         levelText;
 
     private void Start()
     {
@@ -111,7 +111,6 @@ public class CreateBuilding : MonoBehaviourPun
             VariableManager.Instance.isBuildCostEffect = false;
             VariableManager.Instance.BuildingCostEffect(-VariableManager.Instance.currentBuff);
             VariableManager.Instance.isBuildCostEffect = false;
-            //VariableManager.Instance.BuildingCostSetting();
         }
         else if(VariableManager.Instance.isBuildCostEffect && VariableManager.Instance.buildEffects.Count > 0)
         {
@@ -120,7 +119,6 @@ public class CreateBuilding : MonoBehaviourPun
             VariableManager.Instance.isBuildCostEffect = false;
             var n = VariableManager.Instance.buildEffects.Dequeue();
             VariableManager.Instance.BuildingCostEffect(n);
-            //VariableManager.Instance.BuildingCostSetting();q
         }
     }
 

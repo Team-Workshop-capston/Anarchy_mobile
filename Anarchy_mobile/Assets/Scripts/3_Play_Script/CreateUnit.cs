@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class CreateUnit : MonoBehaviourPun
 {
-    GameObject unit;
-    public int type;
+    GameObject          unit;
+    public int          type;
     public GameObject[] p1_units = new GameObject[3];
     public GameObject[] p2_units = new GameObject[3];
-    bool isMaster;
-    bool[] isUnit_area = new bool[3];
-    Tile core_Tile;
-    Transform[] unit_area = new Transform[3];
-    string s;
-    public Sprite[] illust;
-    public Text UnitCost;
-    public Image unit_illust;
+    bool                isMaster;
+    bool[]              isUnit_area = new bool[3];
+    Tile                core_Tile;
+    Transform[]         unit_area = new Transform[3];
+    string              s;
+    public Sprite[]     illust;
+    public Text         UnitCost;
+    public Image        unit_illust;
     
     private void Start()
     {
@@ -117,8 +117,6 @@ public class CreateUnit : MonoBehaviourPun
                 }
                 CalculateCost(int.Parse(UnitCost.text));
                 CentralProcessor.Instance.createUnitNumber -= 1;
-                // u.gameObject.GetComponent<MyUnit>().myNum = i;
-                // u.gameObject.GetComponent<MyUnit>().currentTile = core_Tile;
                 CentralProcessor.Instance.CreatedUnitAreaCheck(isMaster, true, i);
                 CentralProcessor.Instance.CheckCoreTileUnits(u.gameObject.GetComponent<PhotonView>().ViewID, i, isMaster);
                 CentralProcessor.Instance.ApplyCreateUnitVariable(u.gameObject.GetComponent<PhotonView>().ViewID, u.GetComponent<MyUnit>().type);
@@ -128,7 +126,6 @@ public class CreateUnit : MonoBehaviourPun
                     VariableManager.Instance.isUnitCostEffect = false;
                     VariableManager.Instance.UnitCostEffect(-VariableManager.Instance.currentUnitBuff);
                     VariableManager.Instance.isUnitCostEffect = false;
-                    //VariableManager.Instance.UnitCostSetting();
                 }
                 else if(VariableManager.Instance.isUnitCostEffect && VariableManager.Instance.UnitEffects.Count > 0)
                 {
@@ -137,7 +134,6 @@ public class CreateUnit : MonoBehaviourPun
                     VariableManager.Instance.isUnitCostEffect = false;
                     var n = VariableManager.Instance.UnitEffects.Dequeue();
                     VariableManager.Instance.UnitCostEffect(n);
-                    //VariableManager.Instance.UnitCostSetting();
                 }
                 return;
             }

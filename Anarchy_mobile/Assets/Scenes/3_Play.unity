@@ -2502,7 +2502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -2518,7 +2518,7 @@ PrefabInstance:
       objectReference: {fileID: 798352113}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -3324,7 +3324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD589\uB3D9\uB825\uC774 \uB0A8\uC740 \uC720\uB2DB\uC774 \uC788\uC2B5\uB2C8\uB2E4"
+  m_Text: "\uD589\uB3D9\uB825\uC774 \uB0A8\uC740 \uC720\uB2DB\uC774 \uC788\uC2B5\uB2C8\uB2E4\n\uB118\uC5B4\uAC00\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
 --- !u!222 &93324011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4878,7 +4878,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6552,7 +6552,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: N O
+  m_Text: "\uB118\uAE30\uAE30"
 --- !u!222 &176620461
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6909,7 +6909,7 @@ GameObject:
   - component: {fileID: 180511015}
   - component: {fileID: 180511014}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: P2_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10321,6 +10321,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 6
@@ -10339,7 +10343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -10363,7 +10367,7 @@ PrefabInstance:
       objectReference: {fileID: 897821423}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -10396,6 +10400,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -10448,6 +10456,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -12162,7 +12174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -12178,7 +12190,7 @@ PrefabInstance:
       objectReference: {fileID: 399326618}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -13542,7 +13554,7 @@ GameObject:
   - component: {fileID: 344231935}
   - component: {fileID: 344231934}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ResultScore_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18302,7 +18314,7 @@ GameObject:
   - component: {fileID: 484113621}
   - component: {fileID: 484113620}
   m_Layer: 5
-  m_Name: Text
+  m_Name: totalUnit_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18769,7 +18781,7 @@ GameObject:
   - component: {fileID: 493631856}
   - component: {fileID: 493631855}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: totalKill_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19732,7 +19744,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Y S E
+  m_Text: "\uCDE8\uC18C"
 --- !u!222 &515648460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19903,7 +19915,7 @@ GameObject:
   - component: {fileID: 519745488}
   - component: {fileID: 519745487}
   m_Layer: 5
-  m_Name: Text (10)
+  m_Name: P2_totalMoney_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21993,6 +22005,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 723248924932768962, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -22015,7 +22035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isP2Tile
@@ -22039,7 +22059,7 @@ PrefabInstance:
       objectReference: {fileID: 621515859}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -22073,9 +22093,17 @@ PrefabInstance:
       propertyPath: P2_unitArea.Array.data[2]
       value: 
       objectReference: {fileID: 567537142}
+    - target: {fileID: 2089210790313927327, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4150542728898034340, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -22133,13 +22161,25 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 5607731317368881361, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012606837236877967, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7016391667070893736, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 15fca426d8162d441bb3f0ba3c8b9b39, type: 2}
     - target: {fileID: 8582020366586583985, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -25752,7 +25792,7 @@ GameObject:
   - component: {fileID: 641126983}
   - component: {fileID: 641126982}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: P1_totalUnit_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26577,7 +26617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -26593,7 +26633,7 @@ PrefabInstance:
       objectReference: {fileID: 1114823914}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -27434,7 +27474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -27450,7 +27490,7 @@ PrefabInstance:
       objectReference: {fileID: 2016234637}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -28788,7 +28828,7 @@ GameObject:
   - component: {fileID: 712321302}
   - component: {fileID: 712321301}
   m_Layer: 5
-  m_Name: Text (5)
+  m_Name: P1_totalKill_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29173,24 +29213,14 @@ MonoBehaviour:
   mag_def: 0
   mag_act: 0
   mag_cost: 0
-  result_UnitOffence: 000000000000000000000000
-  result_UnitDefence: 000000000000000000000000
   UnitCostBuffPrc: 0
   BuildingCostBuffPrc: 0
-  UnitOffenceBuffPrc: 0
-  UnitDefenceBuffPrc: 0
   unit_resultCost: 000000000000000000000000
   Unit1: {fileID: 1001576369}
   Unit2: {fileID: 1245551345}
   Unit3: {fileID: 1716723178}
   isUnitCostEffect: 0
   currentUnitBuff: 0
-  War_offBuffPrc: 0
-  Arc_offBuffPrc: 0
-  Mag_offBuffPrc: 0
-  War_DefBuffPrc: 0
-  Arc_DefBuffPrc: 0
-  Mag_DefBuffPrc: 0
   building_costs: fa0000009001000058020000
   building_names:
   - "\uAC74\uBB3C1_1"
@@ -29202,7 +29232,7 @@ MonoBehaviour:
   - "\uAC74\uBB3C3_1"
   - "\uAC74\uBB3C3_2"
   - "\uAC74\uBB3C3_3"
-  building_resultCost: 2c010000ee0200003a070000
+  building_resultCost: fa0000009001000058020000
   building1: {fileID: 556664314}
   building2: {fileID: 195182707}
   building3: {fileID: 2024716543}
@@ -29214,7 +29244,6 @@ MonoBehaviour:
   building3_cost: {fileID: 888590589}
   isBuildCostEffect: 0
   currentBuff: 0
-  MoneyBuffPrc: 0
   occupationCost: 1
   result_Occupation: 1
   OccupationCostBuffPrc: 0
@@ -29340,7 +29369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -29356,7 +29385,7 @@ PrefabInstance:
       objectReference: {fileID: 91937861}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -30393,7 +30422,7 @@ GameObject:
   - component: {fileID: 746271589}
   - component: {fileID: 746271588}
   m_Layer: 5
-  m_Name: Text (9)
+  m_Name: P2_totalKill_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32118,6 +32147,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 3
@@ -32136,7 +32169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -32160,7 +32193,7 @@ PrefabInstance:
       objectReference: {fileID: 442634156}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -32193,6 +32226,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -32245,6 +32282,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -32413,7 +32454,7 @@ GameObject:
   - component: {fileID: 798479590}
   - component: {fileID: 798479589}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: totalMoney_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34299,13 +34340,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1203191113734111313, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isP1Tile
@@ -34329,7 +34374,7 @@ PrefabInstance:
       objectReference: {fileID: 873123440}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -34366,6 +34411,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084679256338108632, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4150542728898034340, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -34421,13 +34470,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7016391667070893736, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4b2136a02fcd4db43af94b960b771046, type: 2}
+    - target: {fileID: 7928453180354613016, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152591227971631920, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8582020366586583985, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829291194965379520, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -36023,7 +36088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 300
+  m_Text: 250
 --- !u!222 &888590590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36512,7 +36577,7 @@ GameObject:
   - component: {fileID: 901332639}
   - component: {fileID: 901332638}
   m_Layer: 5
-  m_Name: Text (7)
+  m_Name: P1_totalOccupation_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36923,7 +36988,7 @@ GameObject:
   - component: {fileID: 912470306}
   - component: {fileID: 912470305}
   m_Layer: 5
-  m_Name: Text (6)
+  m_Name: P1_totalMoney_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36997,6 +37062,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 10
@@ -37015,7 +37084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -37039,7 +37108,7 @@ PrefabInstance:
       objectReference: {fileID: 1652227413}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -37072,6 +37141,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -37124,6 +37197,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -38073,6 +38150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 8
@@ -38091,7 +38172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -38115,7 +38196,7 @@ PrefabInstance:
       objectReference: {fileID: 1712624554}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -38148,6 +38229,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -38200,6 +38285,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -39326,7 +39415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -39342,7 +39431,7 @@ PrefabInstance:
       objectReference: {fileID: 2102374806}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -40474,7 +40563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -40490,7 +40579,7 @@ PrefabInstance:
       objectReference: {fileID: 1120381030}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -42950,7 +43039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -42966,7 +43055,7 @@ PrefabInstance:
       objectReference: {fileID: 66799243}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -43229,7 +43318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -43245,7 +43334,7 @@ PrefabInstance:
       objectReference: {fileID: 1322807673}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -44069,7 +44158,7 @@ GameObject:
   - component: {fileID: 1103430441}
   - component: {fileID: 1103430440}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: P2_totalScore_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45349,7 +45438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -45365,7 +45454,7 @@ PrefabInstance:
       objectReference: {fileID: 785016694}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -46118,6 +46207,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 1
@@ -46136,7 +46229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -46160,7 +46253,7 @@ PrefabInstance:
       objectReference: {fileID: 1356021553}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -46193,6 +46286,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -46245,6 +46342,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -46392,7 +46493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -46408,7 +46509,7 @@ PrefabInstance:
       objectReference: {fileID: 1276230006}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -51787,6 +51888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 5
@@ -51805,7 +51910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -51829,7 +51934,7 @@ PrefabInstance:
       objectReference: {fileID: 1523416427}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -51862,6 +51967,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -51914,6 +52023,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -53138,7 +53251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -53154,7 +53267,7 @@ PrefabInstance:
       objectReference: {fileID: 1504246188}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -53707,7 +53820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -53723,7 +53836,7 @@ PrefabInstance:
       objectReference: {fileID: 575588982}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -54066,7 +54179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -54082,7 +54195,7 @@ PrefabInstance:
       objectReference: {fileID: 1181639560}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -58949,7 +59062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -58965,7 +59078,7 @@ PrefabInstance:
       objectReference: {fileID: 1124614590}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -59492,7 +59605,7 @@ GameObject:
   - component: {fileID: 1492009769}
   - component: {fileID: 1492009768}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: totalOccupation_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60209,7 +60322,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 300
+  m_Text: 250
 --- !u!222 &1503085992
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -60749,7 +60862,7 @@ GameObject:
   - component: {fileID: 1509630113}
   - component: {fileID: 1509630112}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: P1_totalScore_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62920,7 +63033,7 @@ GameObject:
   - component: {fileID: 1572978292}
   - component: {fileID: 1572978291}
   m_Layer: 5
-  m_Name: Text (12)
+  m_Name: P2_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63547,7 +63660,7 @@ GameObject:
   - component: {fileID: 1601515877}
   - component: {fileID: 1601515876}
   m_Layer: 5
-  m_Name: Text
+  m_Name: P1_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66365,7 +66478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -66381,7 +66494,7 @@ PrefabInstance:
       objectReference: {fileID: 2108901049}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -68593,7 +68706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -68609,7 +68722,7 @@ PrefabInstance:
       objectReference: {fileID: 901514500}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -68903,7 +69016,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 300
+  m_Text: 250
 --- !u!222 &1742421940
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -69160,7 +69273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -69176,7 +69289,7 @@ PrefabInstance:
       objectReference: {fileID: 2133252628}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -71700,7 +71813,7 @@ GameObject:
   - component: {fileID: 1815445950}
   - component: {fileID: 1815445949}
   m_Layer: 5
-  m_Name: Text (8)
+  m_Name: P2_totalUnit_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73309,16 +73422,17 @@ MonoBehaviour:
   P2_totalMoney: 0
   P1_totalOccupation: 0
   P2_totalOccupation: 0
-  p1_score: {fileID: 1016949057}
-  p2_score: {fileID: 2120161919}
-  p1_unit: {fileID: 558743450}
-  p2_unit: {fileID: 2051898915}
-  p1_kill: {fileID: 1996877538}
-  p2_kill: {fileID: 365568437}
-  p1_money: {fileID: 475089376}
-  p2_money: {fileID: 908301758}
-  p1_occupation: {fileID: 850547529}
-  p2_occupation: {fileID: 196151928}
+  p1_score: {fileID: 1509630112}
+  p2_score: {fileID: 1103430440}
+  p1_unit: {fileID: 641126982}
+  p2_unit: {fileID: 1815445949}
+  p1_kill: {fileID: 712321301}
+  p2_kill: {fileID: 746271588}
+  p1_money: {fileID: 912470305}
+  p2_money: {fileID: 519745487}
+  p1_occupation: {fileID: 901332638}
+  p2_occupation: {fileID: 1913922409}
+  GameResult: {fileID: 817874402}
 --- !u!4 &1848441268
 Transform:
   m_ObjectHideFlags: 0
@@ -73345,7 +73459,7 @@ GameObject:
   - component: {fileID: 1850168084}
   - component: {fileID: 1850168083}
   m_Layer: 5
-  m_Name: Text (8)
+  m_Name: P1_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74713,7 +74827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -74729,7 +74843,7 @@ PrefabInstance:
       objectReference: {fileID: 1861447133}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -75663,7 +75777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -75679,7 +75793,7 @@ PrefabInstance:
       objectReference: {fileID: 2086440730}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -75928,7 +76042,7 @@ GameObject:
   - component: {fileID: 1913922410}
   - component: {fileID: 1913922409}
   m_Layer: 5
-  m_Name: Text (11)
+  m_Name: P2_totalOccupation_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76173,7 +76287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -76189,7 +76303,7 @@ PrefabInstance:
       objectReference: {fileID: 8157074}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -77583,6 +77697,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 6
@@ -77593,7 +77711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -77617,7 +77735,7 @@ PrefabInstance:
       objectReference: {fileID: 474177224}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -77650,6 +77768,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -77702,6 +77824,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -77932,7 +78058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -77948,7 +78074,7 @@ PrefabInstance:
       objectReference: {fileID: 1384948567}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -80242,7 +80368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -80258,7 +80384,7 @@ PrefabInstance:
       objectReference: {fileID: 482278609}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -81880,6 +82006,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272678220}
     m_Modifications:
+    - target: {fileID: 90828165235957368, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: x
       value: 5
@@ -81898,7 +82028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -81922,7 +82052,7 @@ PrefabInstance:
       objectReference: {fileID: 581489995}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
@@ -81955,6 +82085,10 @@ PrefabInstance:
     - target: {fileID: 2125912681356478185, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: sceneViewId
       value: 76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415384999629736546, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4164689277457876410, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_Name
@@ -82007,6 +82141,10 @@ PrefabInstance:
     - target: {fileID: 5307162490236389970, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484968390640315492, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
@@ -84520,7 +84658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: isCheckted
@@ -84536,7 +84674,7 @@ PrefabInstance:
       objectReference: {fileID: 1730730655}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: result_money
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1976483710476437913, guid: 32f58008dd2f61647a92306385853fd6, type: 3}
       propertyPath: MoveMapButton
