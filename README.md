@@ -1,6 +1,6 @@
 # Anarchy_mobile
 
-![title](./img/title.png)<br/>
+![title](./presentation/title.png)<br/>
 ### 심플한 그래픽과 함께하는 턴제 전략 게임<br/><br/>
 * * * 
 <br/><br/>
