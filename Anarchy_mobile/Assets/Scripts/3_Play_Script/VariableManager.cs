@@ -142,10 +142,10 @@ public class VariableManager : MonoBehaviour
             UnitCostEffect(0.5f);
             break;
             case 5:
-            BuildingCostEffect(-0.5f);
+            BuildingCostEffect(-0.2f);
             break;
             case 6:
-            BuildingCostEffect(0.5f);
+            BuildingCostEffect(0.2f);
             break;
             case 7:
             UnitActiveCostEffect(0,0,1);

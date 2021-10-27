@@ -710,7 +710,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             }
                         }
                         myUnit.GetComponent<MyUnit>().activeCost = 0;
-                        uIManager.OffReadyAttack();
+                        
                         // if(myUnit.GetComponent<MyUnit>().offensive > enemy.GetComponent<MyUnit>().defensive)
                         // {
                         //     switch(myUnit.GetComponent<MyUnit>().type)
@@ -768,30 +768,30 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
                         // myUnit.GetComponent<MyUnit>().activeCost = 0;
 
-                        if(myUnit.GetComponent<MyUnit>().hp <= 0)
-                        {
-                            if(myUnit.gameObject.layer == 7)
-                            {
-                                P2_score += 50;
-                                p2_score.text = P2_score.ToString();
-                                P2_totalKill += 1;
-                                p2_kill.text = P2_totalKill.ToString();
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[myUnit.GetComponent<MyUnit>().myNum] = null;
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p1unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
-                            }
-                            else if(myUnit.gameObject.layer == 8)
-                            {
-                                P1_score += 50;
-                                p1_score.text = P2_score.ToString();
-                                P1_totalKill += 1;
-                                p1_kill.text = P1_totalKill.ToString();
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[myUnit.GetComponent<MyUnit>().myNum] = null;
-                                myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p2unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
-                            }
-                            Destroy(myUnit.gameObject);
-                        }
+                        // if(myUnit.GetComponent<MyUnit>().hp <= 0)
+                        // {
+                        //     if(myUnit.gameObject.layer == 7)
+                        //     {
+                        //         P2_score += 50;
+                        //         p2_score.text = P2_score.ToString();
+                        //         P2_totalKill += 1;
+                        //         p2_kill.text = P2_totalKill.ToString();
+                        //         myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP1_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
+                        //         myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P1_units[myUnit.GetComponent<MyUnit>().myNum] = null;
+                        //         myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p1unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
+                        //     }
+                        //     else if(myUnit.gameObject.layer == 8)
+                        //     {
+                        //         P1_score += 50;
+                        //         p1_score.text = P2_score.ToString();
+                        //         P1_totalKill += 1;
+                        //         p1_kill.text = P1_totalKill.ToString();
+                        //         myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().isP2_unitArea[myUnit.GetComponent<MyUnit>().myNum] = false;
+                        //         myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().P2_units[myUnit.GetComponent<MyUnit>().myNum] = null;
+                        //         myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p2unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
+                        //     }
+                        //     Destroy(myUnit.gameObject);
+                        // }
 
                         if(enemy.GetComponent<MyUnit>().hp <= 0)
                         {
@@ -818,6 +818,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             Destroy(enemy.gameObject);
                         }
 
+                        uIManager.OffReadyAttack();
                     }
                 }
             }
