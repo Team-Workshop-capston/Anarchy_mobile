@@ -56,6 +56,23 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
 
     public void GiveMoney()
     {
+        if(isMaster && isP1CoreTile)
+        {
+            int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
+            currentMoney += money;
+            CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
+            CentralProcessor.Instance.SumMoney(money,0);
+            return;
+        }
+        else if(!isMaster && isP2CoreTile)
+        {
+            int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
+            currentMoney += money;
+            CentralProcessor.Instance.currentMoney.text = currentMoney.ToString();
+            CentralProcessor.Instance.SumMoney(0,money);
+            return;
+        }
+
         if(isMaster && isP1Tile)
         {
             int currentMoney = int.Parse(CentralProcessor.Instance.currentMoney.text);
@@ -112,7 +129,7 @@ public class Tile : MonoBehaviourPun, IPointerClickHandler
         }
         else if(occupationCost < 0)
         {
-            for(int i = 0; i < occupationCost; i++)
+            for(int i = 0; i < -(occupationCost); i++)
             {
                 occRed[i].gameObject.SetActive(true);
             }

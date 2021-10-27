@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class UIManager : MonoBehaviourPun
 {
@@ -57,6 +58,8 @@ public class UIManager : MonoBehaviourPun
 
     public enum State { Ready, Next, Idle, Active, Attack, End };
     public State state = State.Idle;
+
+    public VideoPlayer videoPlayer;
 
     private void Start()
     {
@@ -288,6 +291,7 @@ public class UIManager : MonoBehaviourPun
         {
             b.GetComponent<MoveUnit>().OffCheck();
         }
+        CentralProcessor.Instance.current_moveButton = null;
     }
 
     public void PrintErrorMessage(string s)
@@ -459,11 +463,17 @@ public class UIManager : MonoBehaviourPun
 
     public void OffReadyAttack()
     {
-        SetIdleState();
-        CentralProcessor.Instance.currentUnit.isAttackready = false;
-        CentralProcessor.Instance.currentUnit = null;
-        offAttackButton.gameObject.SetActive(false);
-        InfoWindowReset();
+        if(state != State.Next)
+        {
+            if(CentralProcessor.Instance.currentUnit != null)
+            {
+                CentralProcessor.Instance.currentUnit.isAttackready = false;
+                CentralProcessor.Instance.currentUnit = null;
+            }
+            SetIdleState();
+            offAttackButton.gameObject.SetActive(false);
+            InfoWindowReset();
+        }
     }
 
     public void DecisionButtonClick()

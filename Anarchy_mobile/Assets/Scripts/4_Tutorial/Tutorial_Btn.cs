@@ -15,7 +15,7 @@ public class Tutorial_Btn : MonoBehaviour
         {
             if (tutorialMain.Unit2nd)
             {
-                tutorialMain.TutorialText.text = "ÀÌ¹ø¿¡´Â ¼¼¹øÂ° ¹öÆ°À» Å¬¸¯ÇØº¸¼¼¿ä.";
+                tutorialMain.TutorialText.text = "ì´ë²ˆì—ëŠ” ì„¸ë²ˆì§¸ ë²„íŠ¼ì„ í´ë¦­í•´ë³´ì„¸ìš”.";
                 tutorialMain.UIs[9].transform.SetAsLastSibling();
                 tutorialMain.UIs[11].transform.SetAsLastSibling();
                 tutorialMain.UIs[11].SetActive(true);
@@ -26,7 +26,7 @@ public class Tutorial_Btn : MonoBehaviour
             }
             else
             {
-                tutorialMain.TutorialText.text = "À¯´Ö »ı»êÃ¢ÀÔ´Ï´Ù. µÎ¹øÂ° ¹öÆ°À» Å¬¸¯ÇØº¸¼¼¿ä.";
+                tutorialMain.TutorialText.text = "ìœ ë‹› ìƒì‚°ì°½ì…ë‹ˆë‹¤. ë‘ë²ˆì§¸ ë²„íŠ¼ì„ í´ë¦­í•´ë³´ì„¸ìš”.";
                 tutorialMain.UIs[9].transform.SetAsLastSibling();
                 tutorialMain.UIs[11].transform.SetAsLastSibling();
                 tutorialMain.UIs[11].SetActive(true);
@@ -48,7 +48,7 @@ public class Tutorial_Btn : MonoBehaviour
                 tutorialMain.Units[1].SetActive(true);
                 tutorialMain.ClickNum++;
                 tutorialMain.Money.text = "800";
-                tutorialMain.TutorialText.text = "ÀÌ À¯´ÖÀº ¿ø°Å¸® À¯´ÖÀÔ´Ï´Ù. °ø°İ¿¡ Æ¯È­µÈ À¯´ÖÀ¸·Î °ø°İ·ÂÀÌ ³ô½À´Ï´Ù.";
+                tutorialMain.TutorialText.text = "ì´ ìœ ë‹›ì€ ì›ê±°ë¦¬ ìœ ë‹›ì…ë‹ˆë‹¤. ê³µê²©ì— íŠ¹í™”ëœ ìœ ë‹›ìœ¼ë¡œ ê³µê²©ë ¥ì´ ë†’ìŠµë‹ˆë‹¤.";
         }
     }
     public void Unit3Btn()
@@ -59,7 +59,7 @@ public class Tutorial_Btn : MonoBehaviour
             tutorialMain.UIs[12].SetActive(false);
             tutorialMain.Units[2].SetActive(true);
             tutorialMain.Money.text = "550";
-            tutorialMain.TutorialText.text = "ÀÌ À¯´ÖÀº ¿µ¿õ À¯´ÖÀÔ´Ï´Ù. °ø¹æ´É·ÂÀÌ ¸ğµÎ ÁÁÀº À¯´ÖÀ¸·Î °¡Àå °­·ÂÇÑ À¯´ÖÀÔ´Ï´Ù.";
+            tutorialMain.TutorialText.text = "ì´ ìœ ë‹›ì€ ì˜ì›… ìœ ë‹›ì…ë‹ˆë‹¤. ê³µë°©ëŠ¥ë ¥ì´ ëª¨ë‘ ì¢‹ì€ ìœ ë‹›ìœ¼ë¡œ ê°€ì¥ ê°•ë ¥í•œ ìœ ë‹›ì…ë‹ˆë‹¤.";
             tutorialMain.ClickNum++;
         }
     }
@@ -67,7 +67,7 @@ public class Tutorial_Btn : MonoBehaviour
     {
         if (tutorialMain.BButtonLimit)
         {
-            tutorialMain.TutorialText.text = "°Ç¹° »ı»êÃ¢ÀÔ´Ï´Ù. Ã¹¹øÂ° ¹öÆ°À» Å¬¸¯ÇØº¸¼¼¿ä.";
+            tutorialMain.TutorialText.text = "ê±´ë¬¼ ìƒì‚°ì°½ì…ë‹ˆë‹¤. ì²«ë²ˆì§¸ ë²„íŠ¼ì„ í´ë¦­í•´ë³´ì„¸ìš”.";
             tutorialMain.UIs[9].transform.SetAsLastSibling();
             tutorialMain.UIs[11].transform.SetAsLastSibling();
             tutorialMain.UIs[11].SetActive(true);
@@ -83,7 +83,7 @@ public class Tutorial_Btn : MonoBehaviour
     {
         if (tutorialMain.ButtonLimit)
         {
-            tutorialMain.TutorialText.text = "ÀÌ·¸°Ô °Ç¹°À» °Ç¼³ÇÒ ¼ö ÀÖ½À´Ï´Ù.";
+            tutorialMain.TutorialText.text = "ì´ë ‡ê²Œ ê±´ë¬¼ì„ ê±´ì„¤í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.";
             tutorialMain.Money.text = "250";
             tutorialMain.Building.SetActive(true);
             tutorialMain.UIs[11].SetActive(false);
@@ -97,14 +97,14 @@ public class Tutorial_Btn : MonoBehaviour
         {
             if (tutorialMain.UnitSecond)
             {
-                tutorialMain.TutorialText.text = "°ø°İ ¹öÆ°À» Å¬¸¯ÇØº¸¼¼¿ä.";
+                tutorialMain.TutorialText.text = "ê³µê²© ë²„íŠ¼ì„ í´ë¦­í•´ë³´ì„¸ìš”.";
                 tutorialMain.UIs[14].SetActive(true);
                 tutorialMain.UIs[15].SetActive(true);
                 tutorialMain.UnitLimit = false;
             }
             else
             {
-                tutorialMain.TutorialText.text = "À¯´Ö Á¤º¸Ã¢ÀÔ´Ï´Ù. À¯´ÖÀÇ ¼º´É°ú ÇöÀç »óÅÂ¸¦ º¼ ¼ö ÀÖ°í, À¯´Ö¿¡°Ô ÀÌµ¿, ÀüÅõ ¸í·ÉÀ» ³»¸± ¼ö ÀÖ½À´Ï´Ù.\n°Ç¹°µµ ¸¶Âù°¡Áö·Î Å¬¸¯ÇÏ¸é Á¤º¸Ã¢ÀÌ ³ªÅ¸³³´Ï´Ù.";
+                tutorialMain.TutorialText.text = "ìœ ë‹› ì •ë³´ì°½ì…ë‹ˆë‹¤. ìœ ë‹›ì˜ ì„±ëŠ¥ê³¼ í˜„ì¬ ìƒíƒœë¥¼ ë³¼ ìˆ˜ ìˆê³ , ìœ ë‹›ì—ê²Œ ì´ë™, ì „íˆ¬ ëª…ë ¹ì„ ë‚´ë¦´ ìˆ˜ ìˆìŠµë‹ˆë‹¤.\nê±´ë¬¼ë„ ë§ˆì°¬ê°€ì§€ë¡œ í´ë¦­í•˜ë©´ ì •ë³´ì°½ì´ ë‚˜íƒ€ë‚©ë‹ˆë‹¤.";
                 tutorialMain.UIs[14].SetActive(true);
                 tutorialMain.UIs[15].SetActive(true);
                 tutorialMain.ClickNum++;
@@ -116,7 +116,7 @@ public class Tutorial_Btn : MonoBehaviour
     {
         if (tutorialMain.UnitLimit)
         {
-            tutorialMain.TutorialText.text = "À¯´Ö ÀÌµ¿ ¹Ì´Ï¸ÊÀÔ´Ï´Ù. À¯´ÖÀÇ ÀÌµ¿ÇÒ °÷À» Á¤ÇÒ ¼ö ÀÖ½À´Ï´Ù. Ç¥½ÃµÈ ºÎºĞÀ» Å¬¸¯ÇØº¸¼¼¿ä.";
+            tutorialMain.TutorialText.text = "ìœ ë‹› ì´ë™ ë¯¸ë‹ˆë§µì…ë‹ˆë‹¤. ìœ ë‹›ì˜ ì´ë™í•  ê³³ì„ ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. í‘œì‹œëœ ë¶€ë¶„ì„ í´ë¦­í•´ë³´ì„¸ìš”.";
             tutorialMain.UIs[14].SetActive(false);
             tutorialMain.UIs[15].SetActive(false);
             tutorialMain.UIs[11].SetActive(true);
@@ -126,7 +126,7 @@ public class Tutorial_Btn : MonoBehaviour
     }
     public void LocateBtn()
     {
-        tutorialMain.TutorialText.text = "ÀÌµ¿ÇÒ °÷ÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù. ¿ìÃø ÇÏ´ÜÀÇ °áÁ¤ ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä.";
+        tutorialMain.TutorialText.text = "ì´ë™í•  ê³³ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤. ìš°ì¸¡ í•˜ë‹¨ì˜ ê²°ì • ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”.";
         panelColor = tutorialMain.UIs[17].GetComponent<Image>().color;
         tutorialMain.UIs[17].GetComponent<Image>().color = new Color(0, 0, 255, 255f);
         tutorialMain.BtnClicked = true;
@@ -136,7 +136,7 @@ public class Tutorial_Btn : MonoBehaviour
     {
         if (tutorialMain.UnitLimit)
         {
-            tutorialMain.TutorialText.text = "À¯´ÖÀÌ ÀÌµ¿µÇ¾ú½À´Ï´Ù.\nÆ©Åä¸®¾ó Áß¿¡´Â È­¸éÀÌ ÀÚµ¿À¸·Î ÀÌµ¿ÇÏ³ª ½ÇÁ¦ °ÔÀÓ¿¡¼­´Â ±¸¿ªÀ» Å¬¸¯ÇÏ¿© ÀÌµ¿ÇÏ¿©¾ß ÇÕ´Ï´Ù.";
+            tutorialMain.TutorialText.text = "ìœ ë‹›ì´ ì´ë™ë˜ì—ˆìŠµë‹ˆë‹¤.\níŠœí† ë¦¬ì–¼ ì¤‘ì—ëŠ” í™”ë©´ì´ ìë™ìœ¼ë¡œ ì´ë™í•˜ë‚˜ ì‹¤ì œ ê²Œì„ì—ì„œëŠ” êµ¬ì—­ì„ í´ë¦­í•˜ì—¬ ì´ë™í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.";
             tutorialMain.CameraView.position = new Vector3(-3, 6, -12);
             tutorialMain.UIs[11].SetActive(false);
             tutorialMain.UIs[16].SetActive(false);
@@ -170,16 +170,16 @@ public class Tutorial_Btn : MonoBehaviour
                 switch(turnnum)
                 {
                     case 0:
-                        tutorialMain.TutorialText.text = "1¹ø Å¬¸¯ÇÏ¼Ì½À´Ï´Ù. ÇÑ¹ø ´õ Å¬¸¯ÇÏ¼¼¿ä.";
+                        tutorialMain.TutorialText.text = "1ë²ˆ í´ë¦­í•˜ì…¨ìŠµë‹ˆë‹¤. í•œë²ˆ ë” í´ë¦­í•˜ì„¸ìš”.";
                         tutorialMain.ClickNum++;
                         turnnum++;
                         break;
                     case 1:
-                        tutorialMain.TutorialText.text = "2¹ø Å¬¸¯ÇÏ¼Ì½À´Ï´Ù. ÇÑ¹ø ´õ Å¬¸¯ÇÏ¼¼¿ä.";
+                        tutorialMain.TutorialText.text = "2ë²ˆ í´ë¦­í•˜ì…¨ìŠµë‹ˆë‹¤. í•œë²ˆ ë” í´ë¦­í•˜ì„¸ìš”.";
                         turnnum++;
                         break;
                     case 2:
-                        tutorialMain.TutorialText.text = "3¹ø Å¬¸¯ÇÏ¼Ì½À´Ï´Ù. ÀÌÁ¦ ÀÌ ±¸¿ªÀº Á¡·ÉµÇ¾ú½À´Ï´Ù.";
+                        tutorialMain.TutorialText.text = "3ë²ˆ í´ë¦­í•˜ì…¨ìŠµë‹ˆë‹¤. ì´ì œ ì´ êµ¬ì—­ì€ ì ë ¹ë˜ì—ˆìŠµë‹ˆë‹¤.";
                         tutorialMain.UIs[18].SetActive(true);
                         tutorialMain.UIs[19].SetActive(true);
                         tutorialMain.TurnNext = false;
@@ -198,7 +198,7 @@ public class Tutorial_Btn : MonoBehaviour
     {
         if (tutorialMain.UnitSecond)
         {
-            tutorialMain.TutorialText.text = "ÀÌ·¸°Ô ÀüÅõ¸¦ ÁøÇàÇÒ ¼ö ÀÖ½À´Ï´Ù.\n½ÇÁ¦ °ÔÀÓ¿¡¼­´Â Ã¼·ÂÀÌ ¸ğµÎ ¼ÒÁøµÇ¸é À¯´ÖÀÌ »ç¶óÁı´Ï´Ù.";
+            tutorialMain.TutorialText.text = "ì´ë ‡ê²Œ ì „íˆ¬ë¥¼ ì§„í–‰í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.\nì‹¤ì œ ê²Œì„ì—ì„œëŠ” ì²´ë ¥ì´ ëª¨ë‘ ì†Œì§„ë˜ë©´ ìœ ë‹›ì´ ì‚¬ë¼ì§‘ë‹ˆë‹¤.";
             tutorialMain.Units[4].SetActive(false);
             tutorialMain.UIs[14].SetActive(false);
             tutorialMain.UIs[15].SetActive(false);
@@ -211,21 +211,21 @@ public class Tutorial_Btn : MonoBehaviour
     {
         if (tutorialMain.UnitSecond)
         {
-            tutorialMain.TutorialText.text = "Àû À¯´ÖÀ» Å¬¸¯ÇØº¸¼¼¿ä.";
+            tutorialMain.TutorialText.text = "ì  ìœ ë‹›ì„ í´ë¦­í•´ë³´ì„¸ìš”.";
         }
     }
     public void DisicionBtn()
     {
         if(tutorialMain.Dicision)
         {
-            tutorialMain.TutorialText.text = "µğ½ÃÀü È­¸éÀÔ´Ï´Ù.";
+            tutorialMain.TutorialText.text = "ë””ì‹œì „ í™”ë©´ì…ë‹ˆë‹¤.";
             tutorialMain.UIs[21].SetActive(true);
             tutorialMain.ClickNum++;
         }
     }
     public void DisicionSltBtn()
     {
-        tutorialMain.TutorialText.text = "µğ½ÃÀüÀ» ¼±ÅÃÇÏ¼Ì½À´Ï´Ù. ÀÌ È­¸éÀº ¼±ÅÃÇÑ µğ½ÃÀüÀÇ È¿°ú¸¦ ¾Ë·ÁÁÖ´Â È­¸éÀÔ´Ï´Ù.\n\nÅ¬¸¯ÇØ¼­ °è¼ÓÇÏ¼¼¿ä.";
+        tutorialMain.TutorialText.text = "ë””ì‹œì „ì„ ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤. ì´ í™”ë©´ì€ ì„ íƒí•œ ë””ì‹œì „ì˜ íš¨ê³¼ë¥¼ ì•Œë ¤ì£¼ëŠ” í™”ë©´ì…ë‹ˆë‹¤.\n\ní´ë¦­í•´ì„œ ê³„ì†í•˜ì„¸ìš”.";
         tutorialMain.UIs[21].SetActive(false);
         tutorialMain.UIs[11].SetActive(true);
         tutorialMain.UIs[22].SetActive(true);
