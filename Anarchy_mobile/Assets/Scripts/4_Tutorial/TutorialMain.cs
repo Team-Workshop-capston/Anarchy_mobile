@@ -143,6 +143,7 @@ public class TutorialMain : MonoBehaviour
                     Unit2nd = true;
                     break;
                 case 15:
+                    UIs[3].GetComponent<Button>().interactable = false;
                     TutorialText.text = "현재 유닛이 있는 맵의 공간을 구역이라고 합니다. 구역에는 핵심구역, 중립구역, 점령 구역이 있습니다. 현재 유닛이 있는 구역은 핵심 구역입니다.";
                     ClickNum++;
                     break;

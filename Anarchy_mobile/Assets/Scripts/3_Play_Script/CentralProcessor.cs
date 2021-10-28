@@ -75,7 +75,9 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public Text             p2_occupation;
     public Text             GameResult;
 
-
+    public enum PlayState {ready, play};
+    public PlayState playState;
+    bool isPlay = true;
 
     private void Awake()
     {
@@ -87,6 +89,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             isMaster = false;
         }
+        playState = PlayState.ready;
     }
 
     private void Start()
@@ -119,14 +122,12 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        // if((isMaster && turn_Number % 2 == 0) || (!isMaster && turn_Number % 2 == 1))
-        // {
-        //     whoseTurn.text = "Your Turn!";
-        // }
-        // else if((isMaster && turn_Number % 2 == 1) || (!isMaster && turn_Number % 2 == 0))
-        // {
-        //     whoseTurn.text = "Other Turn!";
-        // }
+        if(playState == PlayState.play && PhotonNetwork.PlayerList.Length < 2 && isPlay)
+        {
+            isPlay = false;
+            playState = PlayState.ready;
+            photonView.RPC("EndGameRPC", RpcTarget.All);
+        }
     }
 
     public void CurrentUnitNull()
@@ -166,6 +167,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             if(PhotonNetwork.PlayerList.Length > 1)
             {
                 waitingText.text = "Success Matching!";
+                playState = PlayState.play; 
                 yield return new WaitForSeconds(2);
                 uIManager.state = UIManager.State.Idle;
                 waitingPanel.gameObject.SetActive(false);
@@ -1011,7 +1013,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         p1_unit.text = P1_totalUnit.ToString();
         p2_unit.text = P2_totalUnit.ToString();
         p1_kill.text = P1_totalKill.ToString();
-        p2_kill.text = P2_totalUnit.ToString();
+        p2_kill.text = P2_totalKill.ToString();
         p1_money.text = P1_totalMoney.ToString();
         p2_money.text = P2_totalMoney.ToString();
         p1_occupation.text = P1_totalOccupation.ToString();
