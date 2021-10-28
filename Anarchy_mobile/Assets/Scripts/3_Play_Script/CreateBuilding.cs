@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class CreateBuilding : MonoBehaviourPun
 {
-    GameObject          building;
+    public GameObject   building;
     public int          type;
     public int          level = 0;
-    public GameObject[] buildings = new GameObject[3];
+    public GameObject[] buildings = new GameObject[9];
     public Transform[]  P1_buildingArea = new Transform[3];
     public Transform[]  P2_buildingArea = new Transform[3];
-    bool                isMaster;
+    public bool         isMaster;
     string              s;
     public Image        maxImg;
     public Image        illust;
@@ -21,8 +21,20 @@ public class CreateBuilding : MonoBehaviourPun
     private void Start()
     {
         isMaster = CentralProcessor.Instance.isMaster;
-        building = buildings[0];
+        //building = buildings[0];
         illust.sprite = buildings[0].GetComponent<MyBuilding>().illust;
+        switch(GameManager.instance.playerData.forceNumber)
+        {
+            case 1:
+            building = buildings[0];
+            break;
+            case 2:
+            building = buildings[1];
+            break;
+            case 3:
+            building = buildings[2];
+            break;
+        }
     }
 
     public void CreateButtonClick()
@@ -50,7 +62,7 @@ public class CreateBuilding : MonoBehaviourPun
             if(isMaster)
             {
                 GameObject b;
-                b = PhotonNetwork.Instantiate(building.name, P1_buildingArea[type].position, Quaternion.Euler(0,0,0)) as GameObject;
+                b = PhotonNetwork.Instantiate(building.name, P1_buildingArea[type].position, Quaternion.Euler(0,180,0)) as GameObject;
                 CalculateCost(VariableManager.Instance.building_resultCost[0]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
@@ -66,7 +78,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.SumScore(0,5);
             }
             CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
-            illust.sprite = buildings[1].GetComponent<MyBuilding>().illust;
+            illust.sprite = buildings[3].GetComponent<MyBuilding>().illust;
             levelText.text = "X 2";
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + 1);
@@ -74,12 +86,45 @@ public class CreateBuilding : MonoBehaviourPun
         }
         else
         {
-            building = buildings[level];
+            //building = buildings[level];
+            switch(GameManager.instance.playerData.forceNumber)
+            {
+                case 1:
+                if(level == 1)
+                {
+                    building = buildings[3];
+                }
+                else
+                {
+                    building = buildings[6];
+                }
+                break;
+                case 2:
+                if(level == 1)
+                {
+                    building = buildings[4];
+                }
+                else
+                {
+                    building = buildings[7];
+                }
+                break;
+                case 3:
+                if(level == 1)
+                {
+                    building = buildings[5];
+                }
+                else
+                {
+                    building = buildings[8];
+                }
+                break;
+            }
             CentralProcessor.Instance.BuildingUpgrade(CentralProcessor.Instance.currentBuildings[type].GetComponent<PhotonView>().ViewID);
             if(isMaster)
             {
                 GameObject b;
-                b = PhotonNetwork.Instantiate(building.name, P1_buildingArea[type].position, Quaternion.Euler(0,0,0)) as GameObject;
+                b = PhotonNetwork.Instantiate(building.name, P1_buildingArea[type].position, Quaternion.Euler(0,180,0)) as GameObject;
                 CalculateCost(VariableManager.Instance.building_resultCost[level]);
                 CentralProcessor.Instance.currentBuildings[type] = b.GetComponent<MyBuilding>();
                 CentralProcessor.Instance.createBuildingNumber -= 1;
@@ -95,7 +140,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.SumScore(0,5);
             }
             CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
-            illust.sprite = buildings[2].GetComponent<MyBuilding>().illust;
+            illust.sprite = buildings[6].GetComponent<MyBuilding>().illust;
             levelText.text = "X 3";
             level++;
             VariableManager.Instance.BuildingBuffSelect((type * 3) + level);
