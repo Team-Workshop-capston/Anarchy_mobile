@@ -484,6 +484,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     {
         currentTurn.text = ((turn_Number / 2) + 1).ToString() + "   TURN";
         createBuildingNumber = 1;
+        effectSoundManager.PlayGoldSound();
     }
 
     [PunRPC]

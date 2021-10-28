@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
     public Transform    P2_start_point;
     bool                isMaster;
     public Camera       camera;
-    public float        orthoZoomSpeed = 0.05f;
+    public float        orthoZoomSpeed = 0.01f;
 
 
     private void Awake()
@@ -56,9 +56,9 @@ public class CameraManager : MonoBehaviour
                 {
                     camera.orthographicSize = 4.1f;
                 }
-                else if(camera.orthographicSize > 10)
+                else if(camera.orthographicSize > 8)
                 {
-                    camera.orthographicSize = 10;
+                    camera.orthographicSize = 8;
                 }
             }
         }
