@@ -65,6 +65,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.createBuildingNumber -= 1;
                 CentralProcessor.Instance.SumScore(0,5);
             }
+            CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
             illust.sprite = buildings[1].GetComponent<MyBuilding>().illust;
             levelText.text = "X 2";
             level++;
@@ -93,6 +94,7 @@ public class CreateBuilding : MonoBehaviourPun
                 CentralProcessor.Instance.createBuildingNumber -= 1;
                 CentralProcessor.Instance.SumScore(0,5);
             }
+            CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
             illust.sprite = buildings[2].GetComponent<MyBuilding>().illust;
             levelText.text = "X 3";
             level++;

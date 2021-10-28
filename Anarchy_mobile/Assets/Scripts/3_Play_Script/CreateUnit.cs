@@ -115,6 +115,7 @@ public class CreateUnit : MonoBehaviourPun
                     CentralProcessor.Instance.SumScore(0,1);
                     CentralProcessor.Instance.SumUnit(0,1);
                 }
+                CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
                 CalculateCost(int.Parse(UnitCost.text));
                 CentralProcessor.Instance.createUnitNumber -= 1;
                 CentralProcessor.Instance.CreatedUnitAreaCheck(isMaster, true, i);

@@ -136,10 +136,10 @@ public class UIManager : MonoBehaviourPun
     {
         SceneManager.LoadScene(1);
         GameManager.instance.audioManager.ButtonClickSound();
-        if(GameManager.instance.audioManager.backmusic.clip == GameManager.instance.audioManager.title.clip)
-        {
-            GameManager.instance.audioManager.StartTitleBGM();
-        }
+        // if(GameManager.instance.audioManager.backmusic.clip == GameManager.instance.audioManager.title.clip)
+        // {
+        //     GameManager.instance.audioManager.StartTitleBGM();
+        // }
     }
 
     public void Title()
@@ -228,6 +228,7 @@ public class UIManager : MonoBehaviourPun
 
     public void SetActiveState()
     {
+        CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
         state = State.Active;
         UISetActiveFalse();
         InfoWindowReset();
@@ -444,6 +445,7 @@ public class UIManager : MonoBehaviourPun
                 CentralProcessor.Instance.current_moveButton = null;
                 CentralProcessor.Instance.uIManager.SetIdleState();
                 CentralProcessor.Instance.uIManager.UISetActiveTrue();
+                CentralProcessor.Instance.effectSoundManager.PlayMoveSound();
                 return;
             }
         }
@@ -479,6 +481,7 @@ public class UIManager : MonoBehaviourPun
 
     public void DecisionButtonClick()
     {
+
         if(VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.activeSelf == true)
         {
             VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(false);
@@ -487,6 +490,7 @@ public class UIManager : MonoBehaviourPun
         {
             VariableManager.Instance.GetComponent<Decision>().decision_list.gameObject.SetActive(true);
         }
+        CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
     }
 
     public void BGMOnOff()
@@ -507,6 +511,7 @@ public class UIManager : MonoBehaviourPun
     {
         if(checkWindow.gameObject.activeSelf)
         {
+            CentralProcessor.Instance.effectSoundManager.PlayButtonClickSound();
             SetIdleState();
             checkWindow.gameObject.SetActive(false);
         }

@@ -862,6 +862,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                                 myUnit.GetComponent<MyUnit>().currentTile.GetComponent<Tile>().MoveMapButton.GetComponent<MoveUnit>().p2unit[myUnit.GetComponent<MyUnit>().myNum].gameObject.SetActive(false);
                             }
                             Destroy(enemy.gameObject);
+                            effectSoundManager.PlayDestroySound();
                         }
 
                         uIManager.OffReadyAttack();

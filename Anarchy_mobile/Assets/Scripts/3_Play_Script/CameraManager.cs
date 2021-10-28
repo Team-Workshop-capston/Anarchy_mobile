@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
     public Transform    P2_start_point;
     bool                isMaster;
     public Camera       camera;
-    public float        orthoZoomSpeed = 0.01f;
+    public float        orthoZoomSpeed = 0.03f;
 
 
     private void Awake()
