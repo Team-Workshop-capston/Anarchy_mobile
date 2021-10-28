@@ -229,13 +229,13 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.ShowDecisionEffect();
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[0]);
-        CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
         if(action.ReturnBuffNum() == 15)
         {
             return;
         }
         else
         {
+            CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
             AddDecisionIllust(action.ReturnBuffNum());
         }
     }
@@ -250,14 +250,13 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.ShowDecisionEffect();
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[1]);
-        CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
-        //AddDecisionIllust(action.ReturnBuffNum());
         if(action.ReturnBuffNum() == 15)
         {
             return;
         }
         else
         {
+            CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
             AddDecisionIllust(action.ReturnBuffNum());
         }
     }
@@ -272,14 +271,13 @@ public class Decision : MonoBehaviourPun
         CentralProcessor.Instance.uIManager.ShowDecisionEffect();
         CentralProcessor.Instance.uIManager.decision_story.text = action.ReturnEffect();
         CentralProcessor.Instance.uIManager.decision_effect.text = ReturnBuffStory(num[2]);
-        CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
-        //AddDecisionIllust(action.ReturnBuffNum());
         if(action.ReturnBuffNum() == 15)
         {
             return;
         }
         else
         {
+            CentralProcessor.Instance.uIManager.decision_img.sprite = decision_IllustSprite[action.ReturnBuffNum() - 1];
             AddDecisionIllust(action.ReturnBuffNum());
         }
     }
