@@ -24,6 +24,12 @@ public class Decision : MonoBehaviourPun
     public GameObject decision_list;
     public GameObject decision_Illust;
     public Sprite[] situationImages;
+    public Button   Btn1;
+    public Button   Btn2;
+    public Button   Btn3;
+    int[] society = {0, 27, 40, 60};
+    int[] new_wave = {1, 5, 26, 45};
+    int[] mafia = {2, 25, 45, 60};
 
     private void Start()
     {
@@ -108,6 +114,9 @@ public class Decision : MonoBehaviourPun
 
     public void ArouseDecision()
     {
+        Btn1.GetComponent<Button>().interactable = true;
+        Btn2.GetComponent<Button>().interactable = true;
+        Btn3.GetComponent<Button>().interactable = true;
         situationNum = UnityEngine.Random.Range(0, 15);
         num = RandomNumber(0,5);
         DecisionPanel.gameObject.SetActive(true);
@@ -115,10 +124,22 @@ public class Decision : MonoBehaviourPun
         DecisionDesc.text = decisionSituation.name[situationNum];
         Actions action1 = actionMap[(situationNum * 5) + num[0]];
         decisionBtn_1.text = action1.ReturnDesc();
+        if(ActivationDecision((situationNum * 5) + num[0]))
+        {
+            Btn1.GetComponent<Button>().interactable = false;
+        }
         Actions action2 = actionMap[(situationNum * 5) + num[1]];
         decisionBtn_2.text = action2.ReturnDesc();
+        if(ActivationDecision((situationNum * 5) + num[1]))
+        {
+            Btn2.GetComponent<Button>().interactable = false;
+        }
         Actions action3 = actionMap[(situationNum * 5) + num[2]];
         decisionBtn_3.text = action3.ReturnDesc();
+        if(ActivationDecision((situationNum * 5) + num[2]))
+        {
+            Btn3.GetComponent<Button>().interactable = false;
+        }
         CentralProcessor.Instance.uIManager.SetActiveState();
         if(CentralProcessor.Instance.isMaster)
         {
@@ -128,6 +149,45 @@ public class Decision : MonoBehaviourPun
         {
             CentralProcessor.Instance.SumScore(0,10);
         }
+    }
+
+    public bool ActivationDecision(int num)
+    {
+        bool b = false;
+        switch(GameManager.instance.playerData.forceNumber)
+        {
+            case 1:
+            foreach(int i in society)
+            {
+                if(i == num)
+                {
+                    b = true;
+                    break;
+                }
+            }
+            break;
+            case 2:
+            foreach(int i in new_wave)
+            {
+                if(i == num)
+                {
+                    b = true;
+                    break;
+                }
+            }
+            break;
+            case 3:
+            foreach(int i in mafia)
+            {
+                if(i == num)
+                {
+                    b = true;
+                    break;
+                }
+            }
+            break;
+        }
+        return b;
     }
 
     public int[] RandomNumber(int min, int max)

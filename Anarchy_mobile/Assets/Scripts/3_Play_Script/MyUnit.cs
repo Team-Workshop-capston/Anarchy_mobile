@@ -21,6 +21,8 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
     public Tile currentTile;
     public bool isAttackready = false;
     bool isMaster;
+    public ParticleSystem particleSystem;
+    public ParticleSystem attackParticle;
 
     private void Start()
     {
@@ -97,6 +99,8 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
                 {
                     CentralProcessor.Instance.uIManager.InfoWindowReset();
                     CentralProcessor.Instance.currentUnit = this.gameObject.GetComponent<MyUnit>();
+                    CentralProcessor.Instance.currentUnit.particleSystem.gameObject.SetActive(true);
+                    CentralProcessor.Instance.currentUnit.particleSystem.Play();
                     ShowInfo();
                 }
                 else
@@ -110,6 +114,8 @@ public class MyUnit : MonoBehaviourPun, IPointerClickHandler
     public void OnReady()
     {
         CentralProcessor.Instance.currentUnit = this.gameObject.GetComponent<MyUnit>();
+        CentralProcessor.Instance.currentUnit.particleSystem.gameObject.SetActive(true);
+        CentralProcessor.Instance.currentUnit.particleSystem.Play();
         ShowInfo();
         CentralProcessor.Instance.uIManager.unitButtonPanel.gameObject.SetActive(true);
     }

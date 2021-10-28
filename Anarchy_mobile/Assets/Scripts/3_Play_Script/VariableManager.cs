@@ -60,7 +60,8 @@ public class VariableManager : MonoBehaviour
     public Queue<float> buildEffects = new Queue<float>();
     public float    currentBuff;
     public int      occupationCost = 1;
-    public float    result_Occupation = 1;
+    public float    war_Occupation = 1;
+    public float    mag_Occupation = 1.5f;
     public float    OccupationCostBuffPrc = 0;
 
     bool            isMaster;
@@ -324,8 +325,10 @@ public class VariableManager : MonoBehaviour
 
     public void OccupationCostEffect(float prc)
     {
-        result_Occupation = occupationCost * (1 + (OccupationCostBuffPrc + prc));
-        OccupationCostBuffPrc += prc;
+        war_Occupation += prc;
+        mag_Occupation += prc;
+        //result_Occupation = occupationCost * (1 + (OccupationCostBuffPrc + prc));
+        //OccupationCostBuffPrc += prc;
     }
 
     public void UnitDefensiveEffect(int war, int arc, int mag)

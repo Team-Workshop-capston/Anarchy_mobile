@@ -55,6 +55,7 @@ public class UIManager : MonoBehaviourPun
     public Button   settingButton;    
     public Image    checkWindow;
     public Text     checkWindowtext;
+    public Text     BGMOnOffText;
 
     public enum State { Ready, Next, Idle, Active, Attack, End };
     public State state = State.Idle;
@@ -286,7 +287,7 @@ public class UIManager : MonoBehaviourPun
 
     public void OffMapButtonsCheck()
     {
-        CentralProcessor.Instance.currentUnit = null;
+        CentralProcessor.Instance.CurrentUnitNull();
         foreach(Button b in mapButtons)
         {
             b.GetComponent<MoveUnit>().OffCheck();
@@ -438,7 +439,7 @@ public class UIManager : MonoBehaviourPun
                 CentralProcessor.Instance.ApplyUnitCurrentTile(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().pairTile.GetComponent<PhotonView>().ViewID);
                 //CentralProcessor.Instance.currentUnit.activeCost -= CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost;
                 CentralProcessor.Instance.ApplyUnitActiveCost(CentralProcessor.Instance.currentUnit.GetComponent<PhotonView>().ViewID, -CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().cost);
-                CentralProcessor.Instance.currentUnit = null;
+                CentralProcessor.Instance.CurrentUnitNull();
                 CentralProcessor.Instance.current_moveButton.GetComponent<MoveUnit>().ChangeColor(Color.black);
                 CentralProcessor.Instance.current_moveButton = null;
                 CentralProcessor.Instance.uIManager.SetIdleState();
@@ -468,7 +469,7 @@ public class UIManager : MonoBehaviourPun
             if(CentralProcessor.Instance.currentUnit != null)
             {
                 CentralProcessor.Instance.currentUnit.isAttackready = false;
-                CentralProcessor.Instance.currentUnit = null;
+                CentralProcessor.Instance.CurrentUnitNull();
             }
             SetIdleState();
             offAttackButton.gameObject.SetActive(false);
@@ -492,10 +493,12 @@ public class UIManager : MonoBehaviourPun
     {
         if(GameManager.instance.audioManager.GetComponent<AudioSource>().volume == 1)
         {
+            BGMOnOffText.text = "OFF";
             GameManager.instance.audioManager.GetComponent<AudioSource>().volume = 0;
         }
         else
         {
+            BGMOnOffText.text = "ON";
             GameManager.instance.audioManager.GetComponent<AudioSource>().volume = 1;
         }
     }

@@ -50,6 +50,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     private float           selectCount;
     public IEnumerator      t;
     public bool             isIgnoreCheck = true;
+    public Text             turnEndText;
 
     public int              P1_score = 0;
     public int              P2_score = 0;
@@ -96,11 +97,19 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             currentTile = P1_core_Tile;
             currentTile.GetComponent<Tile>().minimap_Tile.color = Color.blue;
+            foreach(GameObject c in currentTile.occBlue)
+            {
+                c.gameObject.SetActive(true);
+            }
         }
         else
         {
             currentTile = P2_core_Tile;
             currentTile.GetComponent<Tile>().minimap_Tile.color = Color.red;
+            foreach(GameObject c in currentTile.occRed)
+            {
+                c.gameObject.SetActive(true);
+            }
         }
         color = uIManager.errorMessage.color;
         //tiles = GameObject.FindGameObjectsWithTag("Tile");
@@ -118,6 +127,16 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         // {
         //     whoseTurn.text = "Other Turn!";
         // }
+    }
+
+    public void CurrentUnitNull()
+    {
+        if(currentUnit != null)
+        {
+            currentUnit.particleSystem.Clear();
+            currentUnit.particleSystem.gameObject.SetActive(false);
+            currentUnit = null;
+        }
     }
 
     public void Exit()
@@ -146,7 +165,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
         {
             if(PhotonNetwork.PlayerList.Length > 1)
             {
-                waitingText.text = "매칭완료";
+                waitingText.text = "Success Matching!";
                 yield return new WaitForSeconds(2);
                 uIManager.state = UIManager.State.Idle;
                 waitingPanel.gameObject.SetActive(false);
@@ -178,7 +197,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
 
     public void UnitReset()
     {
-        currentUnit = null;
+        CurrentUnitNull();
         currentEnemy = null;
         //uIManager.unitInfo_panel.gameObject.SetActive(false);
         uIManager.CloseUnitInfo();
@@ -313,6 +332,14 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
     public void IgnoreActiveCostCheck()
     {
         isIgnoreCheck = !isIgnoreCheck;
+        if(!isIgnoreCheck)
+        {
+            turnEndText.text = "OFF";
+        }
+        else
+        {
+            turnEndText.text = "ON";
+        }
     }
 
     public void CreatedUnitAreaCheck(bool master, bool check, int area)
@@ -534,6 +561,8 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 t.gameObject.transform.Find("flag_Red").gameObject.SetActive(false);
             }
         }
+        currentTile.DisappearOcc();
+        currentTile.ShowOcc();
     }
 
     [PunRPC]
@@ -548,14 +577,28 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
             {
                 if(!u.currentTile.GetComponent<Tile>().isP1Tile)
                 {
-                    u.currentTile.occupationCost += VariableManager.Instance.result_Occupation;
+                    if(u.type == 1 || u.type == 2)
+                    {
+                        u.currentTile.occupationCost += VariableManager.Instance.war_Occupation;
+                    }
+                    else
+                    {
+                        u.currentTile.occupationCost += VariableManager.Instance.mag_Occupation;
+                    }
                 }
             }
             else if(u.gameObject.layer == 8)
             {
                 if(!u.currentTile.GetComponent<Tile>().isP2Tile)
                 {
-                    u.currentTile.occupationCost -= VariableManager.Instance.result_Occupation;
+                    if(u.type == 1 || u.type == 2)
+                    {
+                        u.currentTile.occupationCost -= VariableManager.Instance.war_Occupation;
+                    }
+                    else
+                    {
+                        u.currentTile.occupationCost -= VariableManager.Instance.mag_Occupation;
+                    }
                 }
             }
         }
@@ -698,6 +741,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                         if(myUnit.GetComponent<MyUnit>().offensive >= enemy.GetComponent<MyUnit>().defensive)
                         {
                             enemy.GetComponent<MyUnit>().hp -= 1;
+                            enemy.GetComponent<MyUnit>().attackParticle.Play();
                             enemy.GetComponent<MyUnit>().accDamage = 0;
                         }
                         else
@@ -706,6 +750,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                             if(enemy.GetComponent<MyUnit>().accDamage >= enemy.GetComponent<MyUnit>().defensive)
                             {
                                 enemy.GetComponent<MyUnit>().hp -= 1;
+                                enemy.GetComponent<MyUnit>().attackParticle.Play();
                                 enemy.GetComponent<MyUnit>().accDamage = 0;
                             }
                         }
@@ -823,7 +868,7 @@ public class CentralProcessor : MonoBehaviourPunCallbacks
                 }
             }
         }
-        uIManager.InfoWindowReset();
+        //uIManager.InfoWindowReset();
     }
 
     [PunRPC]
